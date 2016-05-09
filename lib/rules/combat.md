@@ -214,37 +214,38 @@ Power, or Major Loss equal to your Power.
 
 In combat, there are other specific effects for crossing thresholds.
 
-      ,               ,    >Will,       >0,    >Body  ,    >Body x 2
+      ,            , >Will, >Body   , >Body x 2                , >Body x 3
       
-Status,    Accumulated,    Dazed,         ,           ,    KO
-Wounds,    Accumulated,         ,     Hurt,   Critical,    Death
-      ,    At Once    ,         ,         ,   Death   ,    Mangled
+Status, Accumulated, Dazed,         , Fading (excess is wounds), KO
+Wounds, Accumulated,      , Critical, Death
+      , At Once    ,      , Death   , Mangled
+      
+Note, all loss past 2x Body is considered Wounds. So, even if a boxer (ST 6) 
+is punched 4 times for 3 points of minor loss each (total 12), any further loss is automatically taken as Wounds. 
          
 Dazed:    Must recover Shock
-Hurt:     1/2 skill
-KO:       On the ground, reconsidering life choices
+Critical: Disabled; bleeding
+Fading:   Draw under Will - Wounds/2 or pass out. All Skills are halved (round up).
 Dead:     See Below. 
 Mangled:  Completely destroyed
 
 #### Critically Wounded
 
-If you are critically wounded you pass out, and stay out; your recovery will last days. 
+Wounds past Body are considered Critical Wounds. You fall to the ground, and can no longer defend yourself. 
+If attacked again, the attacker automatically hits, so you don't get the power effect from your defense.
 
-Each day, you must draw two cards; one under half your Wounds, to see if you bleed out
-an extra point of Wounds and one under your Body to attempt to heal one point of Wounds. 
+Every turn in which you have critical wounds, draw a card:
 
-Any physical activity that a critically wounded person does causes a significant 
-penalty to their healing attempt, even obviating it entirely. 
+* If you draw under your Critical Wounds, you bleed for another point of damage. (this is a normal Wound, not
+  critical.) Also, draw a second card under your Will - Critical Damage or pass out. 
+* If you draw over your Critical Wounds but under your Body, one point of Critical Wounds stabilizes (and becomes 
+a normal non critical wound). 
 
-If you are under medical care, and you do not bleed, your caretaker can check against
-their skill - half your wounds to heal another point of wounds. 
+If the sum of your critical and normal Wounds is over twice your body, you die. 
 
-If it matters, someone healing from wounds can be conscious and conversant if they win
-a contest of Will vs. Wounds. They may even crawl or stumble enough to get to shelter, 
-ride a horse or build a fire. 
-
-The only way they can defend themselves successfully is with a pistol or mounted rifle/crossbow,
-and at a significant (75%) penalty to their skill. 
+A medic can prevent bleeding by drawing under their skill - the subject's critical wounds. If successful,
+they prevent the bleeding. On a turn in which you do NOT bleed, they can attempt to stabilize a second point of 
+Critical Wounds. 
 
 #### Death 
 
@@ -254,6 +255,15 @@ until they reach Body x 3 wounds; or minimally, if you take a single hit of >Bod
 til your wounds is above Body x 2 wounds. 
 
 Mangled, on the other hand, is a dramatic, messy death; 
+
+#### Healing
+
+If you are resting, you automatically heal a point of Wounds every day; 2, if you draw under Body - Wounds. 
+If your wounds are greater than your body, you heal 1 point of Wounds if you draw under Body * 2 - Wounds, 
+and 1/2 a point of Wounds if you do not. 
+
+If you are under the care of a doctor, they can heal another 1/2 point of wounds every day they draw under their Skill
+ - your Wounds. They must spend at least an hour tending you, so a doctor can help multiple people per day. 
 
 ### Your Power Bonus
 
