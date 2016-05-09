@@ -164,9 +164,27 @@ Note that Loss is a general term for a value that is split between Minor and Maj
 Your Status is the sum of your Minor and Major loss. When your Status is > 2x your Power,
 you lose the contest. 
 
+##### Damage type and loss
+
+The above rules apply to Hard weapons. 
+
+* Cutting weapons cause Wounds past 75% of your Body (round up). 
+* Piercing weapons cause Wounds past 50% of your Body (round up).
+* Blunt weapons cause half as many wounds (round down). 
+
+For instance, a person of body 7 takes 8 points of damage. 
+
+* If the damage was hard, they would take 1 point of Wound and 6 points of Shock. 
+* If the damage was Cutting, they would take 3 points of Wound and 5 points of Shock. 
+* If the damage was Piercing, they would take 4 points of Wound and 4 points of Shock. 
+* If the damage was Blunt, all 8 points would be shock. 
+
+Keep in mind, as described below, ALL loss that puts your status past 2 x Body is taken
+as Wounds.
+
 ##### Recovery from Minor Loss
 
-You can recover minor loss at the end of any round in wich you do not attack or lose
+You can recover minor loss at the end of any round in which you do not attack or lose
 a contest. Even if you take no loss past armor, losing a contest prevents recovery. 
 You can defend and recover, but you cannot strike offensively and recover in the same turn. 
 
@@ -176,6 +194,7 @@ you can decide whether to recover stun after looking at your card.
 If you have not taken any wounds you recover
 * 2 points of Loss if your card is below or equal to your Will. 
 * One point of Loss if your card is above your Will. 
+
 Note, for this purpose, face cards are _always high_.
 
 If you have taken wounds you recover one point of Shock only if your card is below or 
@@ -185,9 +204,9 @@ This "Can" becomes "Must" when your Status is greater than your Power. (or Will 
 When you have accumulated Status loss past your threshold, you are Dazed; 
 you _must_ forfeit action to recover from Shock until all your shock has been recovered.  
 
-You cannot act agin until either:
+You cannot act again until either:
 * You have recovered all your Minor Loss (regardless of Wounds)
-* Your Status (Minor + Major loss) is brought to or below your Power.
+* Your Status (Minor + Major loss) is brought to or below your Will.
 
 At this point you are no longer Dazed and can opt to attack or recover as desired.
 
@@ -267,17 +286,17 @@ If you are under the care of a doctor, they can heal another 1/2 point of wounds
 
 ### Your Power Bonus
 
-Your effective power is multiplied by a fraction based on the scale below and your power bonus. 
-Once you find a weapon's base power, that is the number 
+Loss is calculated from a combination of the attackers' sheer power (Body * Weapon Leverage + Weapon Boost (if any)),
+adjusted by the suit of their card and the defenders' card. 
 
 The sum of all the above bonuses is added and cross indexed on the scale below. Round up at or past
 0.5. Power Bonuses cannot be lower than -3. 
 
-Its best to pre-compute a weapons' power from -3 to +3 or so. This chart should help:
+Its best to pre-compute a weapons' effect from -3 to +3. This chart should help:
 
-POWER RATIOS
+Power Bonus
                     
-PF,     Ratio,   Power
+PB,     Ratio,   Power
   ,         ,   1,   2,   3,   4,   5,   6,   7,   8,   9,   10
   
 -3,      1/4,   0,   1,   1,   1,   1,   2,   2,   2,   2,   3
@@ -290,66 +309,31 @@ PF,     Ratio,   Power
  2,    1 1/2,   2,   3,   5,   6,   8,   9,  11,  12,  14,  15
  
  3,    1 3/4,   2,   4,   5,   7,   9,  11,  12,  14,  16,  18
- 4,    2    ,   2,   4,   6,   8,  10,  12,  14,  16,  18,  20
  
- 5,    2 1/4,   2,   5,   7,   9,  11,  14,  16,  18,  20,  23
- 6,    2 1/2,   3,   5,   8,  10,  13,  15,  18,  20,  23,  25
- 
- 7,    2 3/4,   3,   6,   8,  11,  14,  17,  19,  22,  25,  28
- 8,    3    ,   3,   6,   9,  12,  15,  18,  21,  24,  27,  30
- 
- 9,    3 1/4,   3,   7,  10,  13,  16,  20,  23,  26,  29,  33
- 10,   3 1/2,   4,   7,  11,  14,  18,  21,  25,  28,  32,  35
- 
- 11,   3 3/4,   4,   8,  11,  15,  19,  23,  26,  30,  34,  38
- 12,   4    ,   4,   8,  12,  16,  20,  24,  28,  32,  36,  40
- 
-Any PF below -3 results in power = 1. 
 To compute basis for powers > 10, use power 10 + power remainder.
-
 
 For instance: 
 
-A Sword (PF +1 Boost +0) is used by a person of Body 6. The intersection of 
-6 (column) and 1 (row) is 8; the values for +/-3 is described below. 
+A medium Sword (80% body) is used by a person of Body 6; it has power 5. 
+Power 5's range on the table below is 
 
 Weapon   -3  -2  -1  (0)  +1  +2  +3
 
-SWORD     3   5   6  (8)   9  11  12  Cutting, D1
+SWORD     1, 2,  3,  (5)  6,  8, 9  Cutting
  
-A Warhammer (PF + 2, Boost +1) is used by a person of BODY 6. The intersection 
-of 6 and 2 is 9, +1 = 10; the values for +/-3 are listed below. 
+A Warhammer (125% body - 1) is used by a person of Body 6; it has a power 7, and is 33% AP.
+Power 7's range on the table below is:
  
 Weapon   -3  -2  -1  (0)  +1  +2  +3
 
-WARHAMMER 6   7   9  10   12  13  15  Slow, Awkward, AP 2
+WARHAMMER 2,  4,  5,  (7)   9,  11, 12  Hard, AP 33%
 
 The Warhammer seems on a pure power basis to be superior, especially against armor. 
-However the Warhammer's skill will be 25% below the swordsman's and acts every other round. 
-And the Swordsman has a better defense meaning when put head to head the swordsman will 
-be striking more and hitting more than the Warhammer user. 
+However the cutting weapon will cause more 
 
 ### Equipment effects on power
 
 Various offensive and defensive equipment can alter contestants ability to give and receive damage. 
-
-Offensive tools can add to attackers' power effect, or even have a _boost_ effect that adds power 
-after the power effect is calculated. 
-
-Example: a particularly vicious Morningstar might have a power rating of (p 2+4). The first
-number affects the power effect bonus; the latter adds raw power after the computation. 
-If a person using that weapon with a Body of 5 wins a contest and draws a Diamond,  the 
-net effect would be 5 * [Power bonus = (+3 for diamond +2 for weapon = 5: 4/3) 
-= 6.66 rounds to 7, +4 = 8.
-
-Defensive (Armor/shields) can penalize an attackers' power effect or skill, or reduce incoming
-power after the boost has been calculated. 
-
-Example: an extremely effective suit of armor can both reduce the power bonus (Dispersion) 
-and the net power (Absorption). This is noted as (d 3/a 2). 
-If someone wearing the above armor was hit by someone with a base power of 8 and who drew a heart
-the net effect is 8 * [Power Bonus = (+2 for heart, -3 for armor = -2) 1/3] or 8/3; 2.666 rounds to 3.
-However the a 2 will absorb 2 of those for a net effect of 1. 
 
 WEAPONS 
  
