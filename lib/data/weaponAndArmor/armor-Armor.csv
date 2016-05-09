@@ -1,0 +1,8 @@
+,Absorption,Body Bonus,Defense,Slow if,1,2,3,4,5,6,7,8,9,10
+Leather,1,,,,1,1,1,1,1,1,1,1,1,1
+Ring Mail,1,33%,,,1,2,2,2,3,3,3,4,4,4
+Chainmail,2,33%,,,2,3,3,3,4,4,4,5,5,5
+Scale Armor,3,33%,,,3,4,4,4,5,5,5,6,6,6
+Plated Armor,3,50%,+1,Pole arm,4,4,5,5,6,6,7,7,8,8
+Light Plate,4,50%,+1,Large,5,5,6,6,7,7,8,8,9,9
+Heavy Plate,5,50%,+1,Medium,6,6,7,7,8,8,9,9,10,10

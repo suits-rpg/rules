@@ -1,0 +1,8 @@
+,Wounds ,Damage,Trauma,Damage + Trauma,Effect
+from a single blow,,> Body,,,Instant Death
+,,> 2 x Body ,,,Instant Destruction
+Total after a single blow,,> Body,,,Convert excess damage to Trauma
+At start of action,> Body,,,,Will Check Vs. Knockout; 
+,> 2 x Body,,,,Automatic Knockout
+,,,> 0,,Bleeding out
+,,,> Body,> 2 x Body ,Dead

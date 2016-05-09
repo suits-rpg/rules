@@ -1,0 +1,54 @@
+{
+  "name": "suits-rules",
+  "version": "0.0.0",
+  "description": "A ruleset for a card based RPG",
+  "homepage": "https://github.com/suits-rpg/rules",
+  "author": {
+    "name": "Dave Edelhart",
+    "email": "dave@wonderlandlabs.com",
+    "url": "http://www.wonderlandlabs.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    "rpg",
+    "irl",
+    "playing card game"
+  ],
+  "devDependencies": {
+    "babel-core": "^5.5.0",
+    "babel-eslint": "^4.1.8",
+    "chai": "^3.5.0",
+    "del": "^2.0.2",
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.12.0",
+    "eslint-plugin-babel": "^3.1.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "isparta": "^3.0.3"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "suits-rpg/suits-rules",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.12.0"
+  }
+}

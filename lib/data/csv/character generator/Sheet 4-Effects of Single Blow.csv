@@ -1,0 +1,5 @@
+Impact,Damage,Trauma,
+up to Body,,,All impact as stun
+greater than Body - Penetration,,,Take as Damage
+,greater than Body - Penetration,,Take as Trauma
+,,Greater than Body - Penetration,Dead
