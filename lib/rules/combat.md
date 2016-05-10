@@ -164,6 +164,12 @@ Note that Loss is a general term for a value that is split between Minor and Maj
 Your Status is the sum of your Minor and Major loss. When your Status is > 2x your Power,
 you lose the contest. 
 
+Is this more complicated than a single stack of hit points? Yes; however, this results in 
+far fewer fatalities; death is the result of a single extremely powerful hit or several significant
+hits, rather than an inevitable result of all trauma regardless of intensity. Low powered combat,
+or combat with significant armor, is far more likely to result in the collapse of the user
+than a guaranteed fatality. 
+
 ##### Damage type and loss
 
 The above rules apply to Hard weapons. 
@@ -193,12 +199,15 @@ you can decide whether to recover stun after looking at your card.
 
 If you have not taken any wounds you recover
 * 2 points of Loss if your card is below or equal to your Will. 
-* One point of Loss if your card is above your Will. 
+* 1 point of Loss if your card is above your Will. 
+* no recovery if your card is above 1/2 your Wounds. 
 
 Note, for this purpose, face cards are _always high_.
 
 If you have taken wounds you recover one point of Shock only if your card is below or 
 equal to your Will.
+
+###### Dazed
 
 This "Can" becomes "Must" when your Status is greater than your Power. (or Will in combat). 
 When you have accumulated Status loss past your threshold, you are Dazed; 
@@ -233,20 +242,23 @@ Power, or Major Loss equal to your Power.
 
 In combat, there are other specific effects for crossing thresholds.
 
-      ,            , >Will, >Body   , >Body x 2                , >Body x 3
-      
-Status, Accumulated, Dazed,         , Fading (excess is wounds), KO
-Wounds, Accumulated,      , Critical, Death
-      , At Once    ,      , Death   , Mangled
-      
-Note, all loss past 2x Body is considered Wounds. So, even if a boxer (ST 6) 
-is punched 4 times for 3 points of minor loss each (total 12), any further loss is automatically taken as Wounds. 
+       ,         , >Will , >Body    , >2 x Body 
          
+Status , Total   , Dazed ,          , KO
+
+Wounds , Total   ,       , Critical , Death
+       , At Once ,       , Death    , Mangled
+          
 Dazed:    Must recover Shock
 Critical: Disabled; bleeding
-Fading:   Draw under Will - Wounds/2 or pass out. All Skills are halved (round up).
-Dead:     See Below. 
+Dead:     See Below
 Mangled:  Completely destroyed
+
+#### Unconsciousness
+
+When your status -- the sum of your wounds and shock -- exceeds twice your body, you are unconscious. 
+Unconsciousness lasts a few minutes; however, you won't be very effective (Half all skills) 
+without a good night's sleep. 
 
 #### Critically Wounded
 
@@ -255,18 +267,22 @@ If attacked again, the attacker automatically hits, so you don't get the power e
 
 Every turn in which you have critical wounds, draw a card:
 
-* If you draw under your Critical Wounds, you bleed for another point of damage. (this is a normal Wound, not
-  critical.) Also, draw a second card under your Will - Critical Damage or pass out. 
-* If you draw over your Critical Wounds but under your Body, one point of Critical Wounds stabilizes (and becomes 
-a normal non critical wound). 
+* If you draw under your Critical Wounds, you bleed for another point of damage. 
+  (this is a normal Wound, not critical.) 
+  Also, draw a second card under your Will - Critical Damage or pass out. 
+* If you draw over your Critical Wounds but under your Body, 
+  one point of Critical Wounds stabilizes (and becomes a normal non-critical wound). 
 
 If the sum of your critical and normal Wounds is over twice your body, you die. 
 
-A medic can prevent bleeding by drawing under their skill - the subject's critical wounds. If successful,
-they prevent the bleeding. On a turn in which you do NOT bleed, they can attempt to stabilize a second point of 
-Critical Wounds. 
+A medic can prevent bleeding by drawing under their skill - the subject's critical wounds. 
+If successful, they prevent the bleeding. On a turn in which you do NOT bleed, 
+they can attempt to stabilize a second point of Critical Wounds. 
 
 #### Death 
+
+Death occurs when you take a single hit causing wounds over your body, 
+or accumulate wounds greater than twice your body. 
 
 How dead is dead is something the gamemaster can arbitrate. Monsters and Sidekicks die like
 tadpoles. At the referee's discretion, heroes can struggle on as critically wounded 
