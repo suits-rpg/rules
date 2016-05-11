@@ -37,12 +37,12 @@ Combat has a more complex system of loss, weapons and armor.
 
 ### Order of action
 
-For the first round, everyone draws a card; if that card is under your skill, you act in descending order 
+For the first round, everyone draws a card; if that card is under your reflexes, you act in descending order 
 of the card value. If it is not, you still act on that phase, but do not act on the first round. 
 
 If you have a slow weapon, halve your skill for this purpose.
 
-Note the order of action, with overdrdraws in parentheses. 
+Note the order of action, with overdraws in parentheses. 
 
 You do not HAVE to act at the same level as your card; if there is a reason you want to 
 delay, you can act in a phase below your skill. 
@@ -223,8 +223,8 @@ Minor Loss (Shock) can be recovered from relatively quickly. However a single la
 one that is greater than your Power -- causes Major Loss. If You accumulate Major Loss
 equal to your Power, you lose the contest immediately. 
 
-Example: a long term two-person car race, based on Speed (for skill) and Will (for Power) 
-goes on several rounds. In a particularly vicious round, Bob (Speed 6, Will 5) 
+Example: a long term two-person car race, based on Reflexes (for skill) and Will (for Power) 
+goes on several rounds. In a particularly vicious round, Bob (Reflexes 6, Will 5) 
 takes a loss of 7. Two of those points of loss are Major Loss; the other 5 are Minor. 
 
 The next round, Bob is Dazed and must recover. If he draws under his Will he recovers
@@ -457,7 +457,7 @@ Plated Kevlar   33%,    +8,    +2,            ,   +4 vs non-bullets
 The absorption of armor is based on the wearer's body (round on or past 0.5) 
 + an absolute absorption boost. 
 OnBlock: defensive benefit only if the defender doesn't overdraw their skill.
-Awkward: -25% to users Speed/Skill, with a minimum -1 penalty.
+Awkward: -25% to users Reflexes/Skill, with a minimum -1 penalty.
 Slow: adds an extra round of recovery after a successful attack. When readying a slow 
       weapon you still can defend normally. 
 Note - awkward and slow modifiers combine. 
