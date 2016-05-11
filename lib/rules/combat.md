@@ -1,16 +1,13 @@
-# SUITS
-
-Suits is an RPG played with cards; ideally, 2+ decks. 
-
-## Contests
+# Contests and Combat
 
 Contests are between two people each of whom have a relevant skill and power level; these
 are either based on skills, or raw attributes. Note, the average skill/power level is 5
 with ranges of +/-3 being normal. 
 
-In a contest, you draw a card for each contestant. If the card you draw is above your skill
-you lose the contest; if both people overdraw the contest, there is no outcome and you will
-continue to another round.  
+In a contest, you draw two cards for each contestant. 
+* If both cards are above your skill,  you "overdraw" and lose. 
+* If either or both card is under your skill, you can use the highest as your rank. 
+* If the _sum_ of the cards is under your skill, that is your rank. 
 
 the numeric value of face cards are varying based on the "blackjack rule"; at the holder's option: 
 
@@ -19,92 +16,83 @@ the numeric value of face cards are varying based on the "blackjack rule"; at th
 * Queens are 3 or 13
 * Kings are 4 or 14
 
-#### Skill Modifiers
+Note there are some circumstances where the face card is _always_ high; this is noted as a "high draw".
 
-Sometimes your skill is modified by bonus cards, the awkwardness of your weapon, wounds, etc.
-You cannot be penalized past 1/4 of your skill. Use the Power chart below to determine your skill
-based on its base and the fractional penalty you are suffering. 
+## Skill Modifiers
+
+Sometimes your skill is modified by bonus cards, your weapon modifiers, wounds, etc.
+You cannot be penalized past 1/4 of your skill.
 
 The worst defense you can have -- even if you are totally ambushed, blind, etc., is 2. 
 
-#### Instant vs. Extended contests
+## Instant vs. Extended contests
 
 Some contests for simple/mundane tasks can be resolved with simple contests of skil; 
 extended contests, like combat, involve depleting the contestants' power pool 
 until one of them reaches Loss equal to twice their Power. 
 
+In non-combat contests when you take 2x Power loss, you lose; the last man standing is the victor.
+
+Combat has a more complex system of loss, weapons and armor. 
+
 ### Order of action
 
-Everyone gets a card (or cards). If you want to draw multiple cards, you get a chip (or facedown
-card) for the overdrawn cards. 
+For the first round, everyone draws a card; if that card is under your skill, you act in descending order 
+of the card value. If it is not, you still act on that phase, but do not act on the first round. 
 
-Actions go in descending order of skill. In the case of a tie, go in descending order of
-weapon length, then by ascending order of loss; then, draw a card for each contestant
-and keep that value for their order number, putting the card back in the discard pile. 
+If you have a slow weapon, halve your skill for this purpose.
+
+Note the order of action, with overdrdraws in parentheses. 
 
 You do not HAVE to act at the same level as your card; if there is a reason you want to 
 delay, you can act in a phase below your skill. 
 
-If multiple people attempt to act at the same level, they act in ascending order of skill - loss. 
-If attacks are made within the group at the same level, the target MUST redraw their defensive card. 
-(This is known as a "Skill Stomp"). 
+If multiple people attempt to act at the same level, they act in ascending order of skill. redraw to resolve ties.
 
-If you have multiple cards you act on the round for the value of all your cards. 
-If your skill is over 13, (and you can,) you can act on the "K" round. 
+If there are large numbers of identical minions, they can be grouped in clusters of 2 - 4 each to determine order. 
+Ideally, break up the clusters so that they are made of minions in different locations to reduce coordinated advantage.
 
-#### Defensive Modifiers
+### Defensive response
 
-Ordinarily, when to fighters are in contest, one of them gets a hit each round (unless
-both contestants overdraw). If you have a defensive mod you have two numbers in a contest:
-your offensive value (the base value of the card) and a defensive value (your card + defense). 
-If your opponent draws above your base value but below or equal to your defensive value,
-there is no result to the contest. 
+If two people engage in a contest, regardless of who started it, both people are considered to act for that turn. 
+The exception is that if the person who is acted upon is outnumbered, they may engage in the contest defensively. 
+Put another way, if you are attacked by three people, you must defend against two of them and engage with one; 
+however, you don't have to engage someone that attacks you; you can choose to respond with a defense only, and attack
+another combatant. 
 
-Your maximum Defensive Modifier is 3. 
+You must declare your choice to respond defensively before you look at your cards. 
 
-#### Redraw Defense
+If you opt to defend, you can use one of your cards for defense and save the other for your action. 
+However, you cannot defend against and attack the same person in the same round; 
+i.e., you cannot participate in two contests with the same person in a round.
+Alternatively you can use the sum of both of your cards for defense. 
 
-If you have already acted, whether or not you initialized the action, you cannot re-use
-that card's value again in another contest. You must draw a card from the deck to use 
-in subsequent contests 
+You can choose whether to use one or two cards after looking at your cards. 
 
-#### Minimal defense 
+* If you successfully defend, they can still act on their turn with the second card. 
+* if your opponent wins the contest, you lose their ability to act on their action, and must discard the other card.
+  (i.e., if you both overdraw you can still act.)
+* If you are playing with a single deck, the defender must return their card to the deck and draws a single card for their action. 
 
-For some actions you may have a rating below your base attribute. However, in all cases
-the lowest possible skill defense is your base attribute. 
+If you are engaged when you have no cards left, you can draw a one or two cards from the deck in defense; however,
+if you draw two cards, you _must_ use the sum of the cards, or overdraw and lose the contest. 
 
-### Multiple Cards
+The option to respond defensively is not available to the person who initiated a contest. 
 
-Ordinarily one card per contestant is drawn. However there are some circumstances where
-extra cards may be in order:
+### Engagement
 
-If you have a very high skill (or are very desperate) you can draw two or three cards.
+Once you have begun a contest with a person, you can only disengage if 
 
-If the sum of the cards are are above your skill, you lose the contest, and give your
-opponent a chance at a brilliant victory. 
+* your opponent(s) is/are outnumbered by your allies
+* all your opponents did not attack you last round, or overdrew their attack
 
-If you draw within your skill level, however, you may receive multiple bonuses for face cards.
+#### Power Phase
 
-You cannot both draw multiple cards and add to your Bonuses. However, you CAN both
-draw multiple cards and uses Bonuses on the same turn.
+Power is a general term for the attribute that is relevant to the contest. For mental contests the 
+attribute is Will; for physical contests the attribute is Body. 
 
-### N00b warz
-
-Contests with extremely low-skilled contestants can be a lot of mutual failing. In those situations
-(where both contestants are below 5 in skill) each contestant can draw two cards and keep the 
-highest single card within their skill level. 
-
-You can't have a N00b war and uses bonuses, nor can you use multiple cards (as above) in a
-N00b warz. For the purposes of tracking time, every N00b warz round is twice the length of a 
-normal round. 
-
-A N00b with a slow weapon still draws two cards but can only attack every other round. 
-
-This mechanic is just a means to accelerate the outcome in unskilled battles. There is no
-way to have a N00b warz when any person with a decent (6+) skill is involved. 
-
-The cutoff is based on effective skill; if for instance two people with awkward weapons
-may have base skills of 5, but 
+Once the winner is determined, they calculate the effect their conquest has on their target.
+Calculate the winner's power (detailed below) and add that amount to the losers' status.
 
 ### Power Bonus
 
@@ -116,47 +104,52 @@ is indexed by the power offset from the contest suit(s).
 
 Note, regardless of the modifier sums, the maximum range of your power bonus is +/-3. 
 
+Each +/- adjusts the loss the winner inflicts on the loser by 25%; so if your base power is 
+8 and your power bonus is 2, you inflict 12 loss on your opponent. 
+
+#### Bonus for suit
+
+The winner's power bonus is based on the _single best_ suit in the cards they use.
+
 * +0 for clubs
 * +1 for spades
 * +2 for hearts
 * +3 for diamonds
 
-If the defender doesn't overdraw, they get a negative bonus for their card: 
-
-* -3 for clubs
-* -2 for Spades
-* -1 for hearts
-*  0 for diamonds
-
-So, the "worth" of the suit of the card depends a lot on whether you win or lose...
-
-### Face card bonus
-
 Additionally, face cards add to your power bonus. If you have multiple face cards 
-add the bonus for _each_ face card. This only applies to the winner of the contest.
+add the bonus for _each_ face card you use in the contest.
 
 * +1 for Aces
 * +2 for Jacks
 * +3 for Queens
 * +4 for Kings
 
-#### Power Phase
+If the defender doesn't overdraw, they get a negative bonus for their _single best_ card: 
 
-Power is a general term for the attribute that is relevant to the contest. For mental contests the 
-attribute is Will; for physical contests the attribute is Body. 
+* -3 for clubs
+* -2 for Spades
+* -1 for hearts
+*  0 for diamonds
 
-Once the winner is determined, they calculate the effect their conquest has on their target.
-Calculate the winner's power (detailed below) and add that amount to the losers' status.
+Additionally, if the defender doesn't overdraw, they get a negative bonus for _each_ face card
+they use in defense.
+
+* -1 for Aces
+* -2 for Jacks
+* -3 for Queens
+* -4 for Kings
+
+So, the "worth" of the suit of the card depends a lot on whether you win or lose...
 
 #### Loss
 
-Loss is the amount of you lose as the consequence of losing 
+Loss is the amount of you lose as the consequence of losing a contest. 
 
-* Any single contest in which you suffer loss above your base power; the difference is   
-  Major Loss (wounds, in combat).
+Any single contest in which you suffer loss above your base power; the difference is   
+Major Loss (wounds, in combat); the remainder is Minor Loss (or Shock, in combat). 
 
 Note that Loss is a general term for a value that is split between Minor and Major Loss.
-(in combat, Shock and Wounds). 
+(in combat, shock and wounds). 
 * Major Loss persists for the length of the contest, and possibly to subsequent contests.
 * Minor Loss is short term shock and recovers during the contest; all of it is recovered
   at the end of the contest. 
@@ -164,11 +157,12 @@ Note that Loss is a general term for a value that is split between Minor and Maj
 Your Status is the sum of your Minor and Major loss. When your Status is > 2x your Power,
 you lose the contest. 
 
-Is this more complicated than a single stack of hit points? Yes; however, this results in 
-far fewer fatalities; death is the result of a single extremely powerful hit or several significant
-hits, rather than an inevitable result of all trauma regardless of intensity. Low powered combat,
-or combat with significant armor, is far more likely to result in the collapse of the user
-than a guaranteed fatality. 
+Is this more complicated than a single stack of hit points? Yes; 
+however, this makes fatal results rarer and more plausible.
+Death is the result of a single extremely powerful hit or several significant hits, 
+rather than an inevitable result of all trauma regardless of intensity. 
+Low powered combat, or combat with significant armor, 
+is far more likely to result in the collapse of the user than a guaranteed fatality. 
 
 ##### Damage type and loss
 
@@ -190,22 +184,22 @@ as Wounds.
 
 ##### Recovery from Minor Loss
 
-You can recover minor loss at the end of any round in which you do not attack or lose
-a contest. Even if you take no loss past armor, losing a contest prevents recovery. 
-You can defend and recover, but you cannot strike offensively and recover in the same turn. 
+You can recover minor loss on your action phase if you have not acted offensively or lost
+a contest since your last action. This includes winning a contest you did not initiate.
+Even if you take no loss past armor, losing a contest prevents recovery. 
 
-Since you can see your card before playing it and recover at the end of the round, 
-you can decide whether to recover stun after looking at your card.
-
-If you have not taken any wounds you recover
-* 2 points of Loss if your card is below or equal to your Will. 
-* 1 point of Loss if your card is above your Will. 
-* no recovery if your card is above 1/2 your Wounds. 
+Recovering minor loss requires a draw against your base power. In combat it requires a draw
+against your Will.
 
 Note, for this purpose, face cards are _always high_.
 
-If you have taken wounds you recover one point of Shock only if your card is below or 
-equal to your Will.
+If you have not taken any wounds you recover
+
+* 2 loss if your card is below or equal to your Will. 
+* 1 point of Loss if your card is above your Will. 
+
+If you have taken Major Loss you recover one point of loss only if your card is below or 
+equal to your Power/Will.
 
 ###### Dazed
 
@@ -218,6 +212,10 @@ You cannot act again until either:
 * Your Status (Minor + Major loss) is brought to or below your Will.
 
 At this point you are no longer Dazed and can opt to attack or recover as desired.
+
+You may "pin" someone who is dazed by continually attacking them. As long as your attack is 
+successful, they cannot act _or_ recover status. This is how, for instance, you can 
+whittle down a heavily armored foe. 
 
 ##### Wounds (Major Loss)
 
@@ -273,11 +271,18 @@ Every turn in which you have critical wounds, draw a card:
 * If you draw over your Critical Wounds but under your Body, 
   one point of Critical Wounds stabilizes (and becomes a normal non-critical wound). 
 
-If the sum of your critical and normal Wounds is over twice your body, you die. 
-
 A medic can prevent bleeding by drawing under their skill - the subject's critical wounds. 
 If successful, they prevent the bleeding. On a turn in which you do NOT bleed, 
 they can attempt to stabilize a second point of Critical Wounds. 
+
+##### Bleeding out
+
+If the sum of your critical and normal Wounds is over twice your body, you die. 
+This death can be cured by emergency medicine in a modern campaign, but to any pre-modern
+observer, you are an ex parrot.
+
+If a modern EMT is convenient, you continue to bleed out until you reach Body x 3, at which point, 
+you are completely gone. However, you will be comatose until you heal back to Body x 2.
 
 #### Death 
 
@@ -351,88 +356,6 @@ However the cutting weapon will cause more
 
 Various offensive and defensive equipment can alter contestants ability to give and receive damage. 
 
-WEAPONS 
- 
-Weapons     ,  Size,  PF , Boost,  Hands,MinBdy,    Damage,  Notes
-   
-Knife       ,    S ,  0  ,   -2 , 1     ,    0 ,  Cutting ,         ,         ,        
-Shortsword  ,    S ,  0  ,   0  , 1     ,    3 ,  Cutting ,         ,         ,        
-Sword       ,    M ,  +1 ,   0  , 1     ,    4 ,  Cutting ,  D1     ,         ,        
-Broadsword  ,    M ,  +1 ,   +1 , 1 or 2,    5 ,  Cutting ,  D1     ,         ,        
-Greatsword  ,    L ,  +2 ,   0  , 2     ,    5 ,  Cutting ,  D1     ,  Awkward,        
-Claymore    ,    L ,  +2 ,   +1 , 2     ,    6 ,  Cutting ,  D1     ,  Awkward,        
-            ,      ,     ,      ,       ,      ,          ,         ,         ,        
-Hatchet     ,    S ,  0  ,   +1 , 1     ,    3 ,  Cutting ,  Slow   ,         ,        
-Axe         ,    M ,  +1 ,   +2 , 1 or 2,    5 ,  Cutting ,  Slow   ,         ,        
-Battle Axe  ,    M ,  +1 ,   +2 , 2     ,    5 ,  Cutting ,  Slow   ,         ,        
-Poleaxe     ,    L ,  +2 ,   +1 , 2     ,    5 ,  Cutting ,  Slow   ,  Awkward,        
-Halberd     ,    L ,  +2 ,   +2 , 2     ,    6 ,  Cutting ,  Slow   ,  Awkward,        
-            ,      ,     ,      ,       ,      ,          ,         ,         ,        
-Hand Pick   ,    S ,  -1 ,   -1 , 1     ,    3 ,  Cutting ,  AP 1   ,  Awkward,        
-Pick        ,    M ,  0  ,   -1 , 1 or 2,    4 ,  Cutting ,  AP 1   ,  Awkward,        
-War Pick    ,    L ,  +1 ,   -1 , 2     ,    5 ,  Cutting ,  AP 2   ,  Awkward,  Slow  
-Scythe      ,    L ,  +1 ,   0  , 2     ,    6 ,  Cutting ,  AP 2   ,  Awkward,  Slow  
-            ,      ,     ,      ,       ,      ,          ,         ,         ,        
-Club        ,    S ,  -1 ,   +2 , 1     ,    0 ,          ,  Slow   ,         ,        
-Hammer      ,    S ,  +1 ,   +2 , 1     ,    3 ,          ,  Slow   ,         ,        
-Mace        ,    M ,  +2 ,   +2 , 1 or 2,    5 ,  Show    ,  AP1    ,         ,        
-Warhamer    ,    L ,  +2 ,   +1 , 2     ,    5 ,  Slow    ,  Awkward,  AP2    ,        
-Flail       ,    M ,  +1 ,   +3 , 1 or 2,    6 ,  Slow    ,  Awkward,  AP1    ,  AS1   
-            ,      ,     ,      ,       ,      ,          ,         ,         ,        
-Dagger      ,    S ,  -1 ,   -2 , 1     ,    0 ,  Piercing,         ,         ,        
-Javelin     ,    M ,  -1 ,   -1 , 1     ,    3 ,  Piercing,  AP1    ,         ,        
-Spear       ,    L ,  0  ,   -1 , 1 or 2,    3 ,  Piercing,  AP1    ,         ,        
-Pike        ,    XL,  0  ,   0  , 2     ,    4 ,  Piercing,  AP2    ,  Slow   ,        
-Rapier      ,    M ,  -1 ,   0  , 1     ,    3 ,  Piercing,  D2     ,         ,        
-            ,      ,     ,      ,       ,      ,          ,         ,         ,        
-Baton       ,    S ,  0  ,   -1 , 1     ,    0 ,  Blunt   ,  D1     ,         ,        
-Bo          ,    M ,  +1 ,   -1 , 1 or 2,    3 ,  Blunt   ,  D1     ,         ,        
-Staff       ,    L ,  +2 ,   -1 , 2     ,    4 ,  Blunt   ,  D1     ,         ,        
-
-  
-Ranged Weapons               ,Size        ,PF        ,Boost, Hands, Min Body, ROF  , Shots, Reload,  AP     , Type      ,  Notes  
-
-Rock                         ,Very Short  ,-2        ,-2    ,1       ,0     ,1     ,1     ,0         ,      ,           ,                    
-Throwing Dagger              ,Very Short  ,-2        ,-2    ,1       ,0     ,1     ,1     ,0         ,      ,Piercing   ,                    
-Javelin                      ,Short       ,-1        ,-2    ,1 or 2  ,4     ,1     ,1     ,1         ,      ,Piercing   ,                    
-Spear                        ,Very Short  ,-1        ,-2    ,2       ,5     ,1     ,1     ,1         ,      ,Piercing   ,                    
-Short Bow                    ,Medium      ,0         ,0     ,2       ,3     ,1     ,1     ,Body/6    ,1     ,Piercing   ,                    
-Bow                          ,Long        ,0         ,1     ,2       ,4     ,1     ,1     ,Body/8    ,1     ,Piercing   ,                    
-Long Bow                     ,Very Long   ,1         ,0     ,2       ,5     ,1     ,1     ,Body/10   ,1     ,Piercing   ,                    
-Crossbow                     ,Long        ,Powered   ,6     ,1 or 2  ,3     ,1     ,1     ,Body/12   ,2     ,Piercing   ,                    
-Heavy Crossbow               ,Long        ,Powered   ,8     ,2       ,4     ,1     ,1     ,Body/14   ,2     ,Piercing   ,                    
-Trebauchet                   ,Very Long   ,Powered   ,10    ,2       ,5     ,1     ,1     ,Body/16   ,2     ,Piercing   ,                    
-                            ,            ,          ,      ,        ,      ,      ,      ,          ,      ,           ,                    
-Grenade --  Black Powder    ,Very Short  ,Powered   ,9     ,1       ,0     ,1     ,1     ,1         ,1     ,Cutting    ,Blast; Delayed      
-Grenade --  Concussion      ,Very Short  ,Powered   ,12    ,1       ,0     ,1     ,1     ,1         ,2     ,Blunt      ,Blast; Delayed      
-Grenade --  Fragmentation   ,Very Short  ,Powered   ,11    ,1       ,0     ,1     ,1     ,1         ,2     ,Cutting    ,Blast; Delayed      
-Grenade --  Concussion      ,Very Short  ,Powered   ,15    ,1       ,0     ,1     ,1     ,1         ,2     ,Blunt      ,Blast; Delayed      
-Flintlock                   ,Medium      ,Powered   ,7     ,1       ,3     ,1     ,1     ,20        ,1     ,Piercing   ,                    
-Wheel-lock                  ,Medium      ,Powered   ,5     ,1       ,3     ,1     ,1     ,60        ,1     ,Piercing   ,                    
-Derringer                   ,Short       ,Powered   ,4     ,1       ,0     ,1     ,      ,2         ,1     ,Piercing   ,                    
-Revolver --  .36            ,Medium      ,Powered   ,7     ,1       ,0     ,1     ,5     ,          ,1     ,Piercing   ,                    
-Automatic Pistol --  .45    ,Medium      ,Powered   ,8     ,1       ,0     ,2     ,6     ,          ,2     ,Piercing   ,                    
-Automatic Pistol --  9mm    ,Medium      ,Powered   ,9     ,1       ,0     ,2     ,16    ,          ,1     ,Piercing   ,                    
-Revolver --  .38            ,Medium      ,Powered   ,7     ,1       ,0     ,2     ,5     ,          ,1     ,Piercing   ,                    
-Holdout Pistol --  .380     ,Medium      ,Powered   ,8     ,1       ,0     ,2     ,6     ,          ,1     ,Piercing   ,                    
-Revolver --  .357           ,Long        ,Powered   ,9     ,1       ,0     ,2     ,8     ,          ,1     ,Piercing   ,                    
-Revolver --  .44            ,Long        ,Powered   ,9     ,1 or 2  ,3     ,2     ,6     ,          ,2     ,Piercing   ,                    
-SMG --  .45                 ,Long        ,Powered   ,8     ,1 or 2  ,4     ,9     ,20    ,          ,2     ,Piercing   ,                    
-SMG --  9mm                 ,Long        ,Powered   ,9     ,2       ,3     ,9     ,32    ,          ,1     ,Piercing   , Burst          
-Handgonne --  .90           ,Medium      ,Powered   ,8     ,1       ,3     ,1     ,1     ,          ,1     ,Piercing   ,                    
-Matchlock --  .80           ,Medium      ,Powered   ,11    ,2       ,3     ,1     ,1     ,          ,1     ,Piercing   ,                    
-Flintlock --  .75           ,Medium      ,Powered   ,11    ,2       ,4     ,1     ,1     ,          ,1     ,Piercing   ,                    
-Rifle-Musket --  .577       ,Long        ,Powered   ,11    ,2       ,4     ,1     ,1     ,          ,2     ,Piercing   ,                    
-Cartridge Rifle --  .45     ,Long        ,Powered   ,12    ,2       ,4     ,1     ,12    ,4         ,3     ,Piercing   ,                    
-Lever-Action Carbine --  .30,Very Long   ,Powered   ,12    ,2       ,4     ,1     ,16    ,          ,3     ,Piercing   ,                    
-Bolt-Action Rifle --  7.62mm,Very Long   ,Powered   ,13    ,2       ,4     ,1     ,1     ,3         ,3     ,Piercing   ,                    
-Assault Rifle --  5.56mm    ,Very Long   ,Powered   ,12    ,2       ,4     ,12    ,12    ,36        ,3     ,Piercing   , Burst                
-Assault Rifle --  7.62mmS   ,Very Long   ,Powered   ,12    ,2       ,4     ,10    ,10    ,31        ,3     ,Piercing   , Burst              
-Battle Rifle --  7.62mm     ,Extra Long  ,Powered   ,13    ,2       ,5     ,10    ,11    ,21        ,3     ,Piercing   , Burst              
-Assault Carbine --  5.56mm  ,Very Long   ,Powered   ,12    ,2       ,4     ,3     ,12    ,36        ,3     ,Piercing   , Burst              
-Dart Rifle --  11mm         ,Long        ,Powered   ,3     ,2       ,3     ,1     ,1     ,5         ,      ,Piercing   , Any damage delivers load              
-Sniper Rifle --  .338       ,Extra Long  ,Powered   ,14    ,2       ,4     ,1     ,1     ,7         ,3     ,Piercing   ,                    
-
 Range (In Meters) 
 
 ,                      Skill Modifier
@@ -448,6 +371,8 @@ Extra Long       ,    Body x 8,     Body x 16,    Body x 32,	Body x 64,   Body x
 
 The Body value for powered weapons is the weapons' Boost
 The maximum effective Body for range calculation is 10.
+
+#### Notes for weapon table
 
 Blunt,       halve wounds (round down). 
 Hard,        (default) Defender's threshold = Body.
