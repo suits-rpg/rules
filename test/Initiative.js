@@ -13,7 +13,7 @@ describe('Initiative', () => {
 
     beforeEach(() => {
       deck = new Deck(8, index => {
-        const value = VALUES[index * 2 % VALUES.length];
+        const value = VALUES[Math.abs(2 - index) % VALUES.length];
         const suit = SUITS[index % SUITS.length];
         return new Card(value, suit);
       });
@@ -25,13 +25,20 @@ describe('Initiative', () => {
       order = init.order(0);
       order1 = init.order(1);
     });
-
-    it('should not have Jon in the first round order', () => {
-      assert.deepEqual(_(order).map(item => item.char.name).sortBy(_.identity).value(), ['bob', 'rob']);
+    it('should not have bob in the first round', () => {
+      assert.deepEqual(_(order).map(item => item.char.name).sortBy(_.identity).value(), ['jon', 'rob']);
     });
 
-    it('should have everyone in the second round order', () => {
+    it('should have everyone in the second round', () => {
       assert.deepEqual(_(order1).map(item => item.char.name).sortBy(_.identity).value(), ['bob', 'jon', 'rob']);
+    });
+
+    it('have the users in the expected order in the first round', () => {
+      assert.deepEqual(_(order).map(item => item.char.name).value(), ['jon', 'rob']);
+    });
+
+    it('should have everyone in the second round', () => {
+      assert.deepEqual(_(order1).map(item => item.char.name).value(), ['jon', 'rob', 'bob']);
     });
   });
 });
