@@ -4,10 +4,61 @@ Contests are between two people each of whom have a relevant skill and power lev
 are either based on skills, or raw attributes. Note, the average skill/power level is 5
 with ranges of +/-3 being normal. 
 
-In a contest, you draw two cards for each contestant. 
+In a contest, you draw _two_ cards for each contestant. 
 * If both cards are above your skill,  you "overdraw" and lose. 
 * If either or both card is under your skill, you can use the highest as your rank. 
 * If the _sum_ of the cards is under your skill, that is your rank. 
+
+## Fast Attacks, two weapons. 
+
+Some weapons get multiple attacks per round; these include pistols, automatic weapons, etc.
+Optionally, if you have two weapons in hand, you can gain multiple attacks.
+Note, even if you HAVE two weapons, attacking with both weapons in one round is optional 
+and must be declared prior to drawing. 
+
+In all cases having a second weapon in hand is +1 Defense, except vs. ranged weapons. 
+This is true regardless of whether or not you opt for a second attack. 
+
+* Anyone can attack with two weapons as long as one of them is small. 
+* A hand to hand fighter whose Body equals the Sum of the minimum strength of both weapons 
+  can attack with larger weapons, as long as neither are slow. 
+
+A multiple attack is successful only if 
+
+* the two cards are sequential in rank (a 4 and a 5, an King (4) and a 3, etc.
+* the highest card drawn is still a successful attack. 
+
+## Multiple Shots
+
+Guns with autofire (assault rifles, machine guns, most modern pistols) attack multiply by design.  
+With automatic weapons, each shot(or burst) is a single draw, and with each successive draw your 
+skill goes down by 1/2 at PB range, 1 at short range, 2 at medium range, and 4 at long range. 
+
+If you opt to shoot more than once in a round, each shot is resolved with a single card.
+
+If you have multiple guns WITH multiple shots the gun in your off hand is at 1/2 skill. 
+
+* Firing two-handed with multi shot 
+
+## Minions
+
+Draws can get pretty tedious with minions. For faster play, minions only get one card, get no
+bonus for face cards (as in optional rules). If the minions are legion you can even break them into 
+groups of four and only draw for every group; as in, "Minion 1, 5, and 9 draws a 4..."
+
+### Swarms 
+
+Some minions are so numerous that attacking individually is not feasible. For them, you can break them into 
+swarms, whose base attack rating is augmented by their population. For instance, a herd of kittens 
+may only attack at skill 3, but for every 4 kittens, their skill goes up by 1. 
+
+Attacking a swarm is also hard, because they are tiny; they may have a high defense (say, 7) that goes 
+_down_ by each additional kitten. You kill one kitten for winning, +1 for every full 2 points of 
+marginal success. so if you draw a 10 and they draw a 3, you kill 4 kittens (1 at 4, 6, 8, and 10);
+
+The downside, most armor is not swarm-proof. You get at best 33% of your armor's defense against swarms.
+
+## Card Value
 
 the numeric value of face cards are varying based on the "blackjack rule"; at the holder's option: 
 
@@ -154,8 +205,10 @@ Note that Loss is a general term for a value that is split between Minor and Maj
 * Minor Loss is short term shock and recovers during the contest; all of it is recovered
   at the end of the contest. 
 
-Your Status is the sum of your Minor and Major loss. When your Status is > 2x your Power,
-you lose the contest. 
+Your Status is the sum of your Minor and Major loss. 
+
+* When your status (Major + minor loss) is over 2x your Power, you lose. 
+* When your Major Loss is over your Power you lose. 
 
 Is this more complicated than a single stack of hit points? Yes; 
 however, this makes fatal results rarer and more plausible.
@@ -188,18 +241,16 @@ You can recover minor loss on your action phase if you have not acted offensivel
 a contest since your last action. This includes winning a contest you did not initiate.
 Even if you take no loss past armor, losing a contest prevents recovery. 
 
-Recovering minor loss requires a draw against your base power. In combat it requires a draw
+Recovering minor loss requires a High Draw against your base power. In combat it requires a draw
 against your Will.
-
-Note, for this purpose, face cards are _always high_.
 
 If you have not taken any wounds you recover
 
 * 2 loss if your card is below or equal to your Will. 
 * 1 point of Loss if your card is above your Will. 
+* 0 points of loss if the card is above 2x your will.
 
-If you have taken Major Loss you recover one point of loss only if your card is below or 
-equal to your Power/Will.
+Add any Major Loss to the cards' value. 
 
 ###### Dazed
 
@@ -352,14 +403,12 @@ WARHAMMER 2,  4,  5,  (7)   9,  11, 12  Hard, AP 33%
 The Warhammer seems on a pure power basis to be superior, especially against armor. 
 However the cutting weapon will cause more 
 
-### Equipment effects on power
-
-Various offensive and defensive equipment can alter contestants ability to give and receive damage. 
+### Ranged Weapons
 
 Range (In Meters) 
 
-,                      Skill Modifier
-,                            +25%,            0%,         -25%,       -50%,       -75%
+Ranged Fire is less accurate at distance. The table below describes range brackets in meters. 
+
 RANGE            ,    Point Blank,   Short Range, Medium Range, Long Range,  Maximum
 
 Very Short       ,           NA,    Body x 0.5,   Body x 1,     Body x 2,    Body x 3.
@@ -371,6 +420,26 @@ Extra Long       ,    Body x 8,     Body x 16,    Body x 32,	Body x 64,   Body x
 
 The Body value for powered weapons is the weapons' Boost
 The maximum effective Body for range calculation is 10.
+
+For the purposes of this table,
+
+* Pistols have a body of 8; 
+* Automatic weapons have a body of 10
+* rifles have a body of 12
+* rilfes with scopes have a body of 20 if take a turn to aim. 
+
+#### Point Blank range 
+
+your target receives 1/2 defense. However if they are in striking range, your attack skill
+is also halved!
+
+#### Medium Range
+
+75% skill (round down) unless you take a turn to aim. 
+
+#### Long Range
+
+50% skill (round down) if you take a turn to aim; 25% skill if you do not. 
 
 #### Notes for weapon table
 
@@ -465,8 +534,10 @@ Note - awkward and slow modifiers combine.
 ## Bonus Cards (optional) 
 
 To add a little strategy, when you get a face card, you can choose to receive a bonus card
-to be played in a later round. If you do that, you cannot act this round but can defend with 
-a newly drawn card. 
+to be played in a later round. To take the bonus face card you must
+
+* Not use it in a challenge
+* Not lose a challenge since your last action. 
 
 This only counts when you draw a face card directly from the deck AND when you did not 
 draw more than one card that turn. In other words you cannot use Bonuses and acquire Bonuses

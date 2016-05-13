@@ -1,0 +1,43 @@
+,,,,,,,,,,,
+Ranged Weapons               ,Size        ,PF        ,Boost, Hands, Min Body, ROF  , Shots, Reload,  AP     , Type      ,  Notes
+,,,,,,,,,,,
+Rock                         ,Very Short  ,50%,0,1,0,1,1,0,0,Blunt      ,
+Throwing Dagger              ,Very Short  ,50%,-1,1,0,1,1,0,0,Piercing   ,
+Javelin                      ,Short       ,50%,-1,1 or 2,4,1,1,1,0,Piercing   ,
+Spear                        ,Very Short  ,50%,0,2,5,1,1,1,0,Piercing   ,
+Short Bow                    ,Medium      ,75%,-1,2,3,1,1,Body/6,1,Piercing   ,
+Bow                          ,Long        ,75%,0,2,4,1,1,Body/8,1,Piercing   ,
+Long Bow                     ,Very Long   ,75%,+1,2,5,1,1,Body/10,1,Piercing   ,
+Crossbow                     ,Long        ,Powered   ,6,1 or 2,3,1,1,Body/12,2,Piercing   ,
+Heavy Crossbow               ,Long        ,Powered   ,8,2,4,1,1,Body/14,2,Piercing   ,
+Trebauchet                   ,Very Long   ,Powered   ,10,2,5,1,1,Body/16,2,Piercing   ,
+                            ,            ,          ,      ,        ,      ,      ,      ,          ,      ,           ,
+Grenade --  Black Powder    ,Very Short  ,Powered   ,9,1,0,1,1,1,1,Cutting    ,Blast; Delayed
+Grenade --  Concussion      ,Very Short  ,Powered   ,12,1,0,1,1,1,2,Blunt      ,Blast; Delayed
+Grenade --  Fragmentation   ,Very Short  ,Powered   ,11,1,0,1,1,1,2,Cutting    ,Blast; Delayed
+Grenade --  Concussion      ,Very Short  ,Powered   ,15,1,0,1,1,1,2,Blunt      ,Blast; Delayed
+Flintlock                   ,Medium      ,Powered   ,7,1,3,1,1,20,1,Piercing   ,
+Wheel-lock                  ,Medium      ,Powered   ,5,1,3,1,1,60,1,Piercing   ,
+Derringer                   ,Short       ,Powered   ,4,1,0,1,      ,2,1,Piercing   ,
+Revolver --  .36,Medium      ,Powered   ,7,1,0,1,5,2,1,Piercing   ,
+Automatic Pistol --  .45,Medium      ,Powered   ,8,1,0,2,6,1,2,Piercing   ,
+Automatic Pistol --  9mm,Medium      ,Powered   ,9,1,0,2,16,1,1,Piercing   ,
+Revolver --  .38,Medium      ,Powered   ,7,1,0,2,5,2,1,Piercing   ,
+Holdout Pistol --  .380,Medium      ,Powered   ,8,1,0,2,6,2,1,Piercing   ,
+Revolver --  .357,Long        ,Powered   ,9,1,0,2,8,2,1,Piercing   ,
+Revolver --  .44,Long        ,Powered   ,9,1 or 2,3,2,6,2,2,Piercing   ,
+SMG --  .45,Long        ,Powered   ,8,1 or 2,4,9,20,2,2,Piercing   ,
+SMG --  9mm,Long        ,Powered   ,9,2,3,9,32,2,1,Piercing   , Burst
+Handgonne --  .90,Medium      ,Powered   ,8,1,3,1,1,10,1,Piercing   ,
+Matchlock --  .80,Medium      ,Powered   ,11,2,3,1,1,20,1,Piercing   ,
+Flintlock --  .75,Medium      ,Powered   ,11,2,4,1,1,20,1,Piercing   ,
+Rifle-Musket --  .577,Long        ,Powered   ,11,2,4,1,1,8,2,Piercing   ,
+Cartridge Rifle --  .45,Long        ,Powered   ,12,2,4,1,12,4,3,Piercing   ,
+Lever-Action Carbine --  .30,Very Long   ,Powered   ,12,2,4,1,16,3,3,Piercing   ,
+Bolt-Action Rifle --  7.62mm,Very Long   ,Powered   ,13,2,4,1,1,3,3,Piercing   ,
+Assault Rifle --  5.56mm,Very Long   ,Powered   ,12,2,4,12,36,2,3,Piercing   , Burst
+Assault Rifle --  7.62mmS,Very Long   ,Powered   ,12,2,4,10,31,2,3,Piercing   , Burst
+Battle Rifle --  7.62mm,Extra Long  ,Powered   ,13,2,5,10,21,3,3,Piercing   , Burst
+Assault Carbine --  5.56mm,Very Long   ,Powered   ,12,2,4,3,36,3,3,Piercing   , Burst
+Dart Rifle --  11mm,Long        ,Powered   ,3,2,3,1,5,3,0,Piercing   , Any damage delivers load
+Sniper Rifle --  .338,Extra Long  ,Powered   ,14,2,4,1,7,3,3,Piercing   ,
