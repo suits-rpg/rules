@@ -1,6 +1,7 @@
 import chai from 'chai';
 import Character from '../lib/Character';
 const assert = chai.assert;
+import {Teams} from '../lib/Teams';
 
 describe('Character', function () {
   let char;
@@ -31,5 +32,17 @@ describe('Character', function () {
 
     it('should have skill rank 6', () => assert.equal(char.skillRank('running'), 6, 'gets the right rank'));
     it('should get rank 0 for non-set skill', () => assert.equal(char.skillRank('acting'), 0, 'unset skill is zero'));
+  });
+
+  describe('Teams', () => {
+    var teams;
+
+    beforeEach(() => {
+      teams = new Teams();
+      teams.add('alphans').add('betans');
+      char.team = teams.getTeam('alphans');
+    });
+
+    it('has the right teamName', () => assert.equal(char.teamName, 'alphans'));
   });
 });
