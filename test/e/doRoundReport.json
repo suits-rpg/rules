@@ -1,0 +1,86 @@
+[
+  {
+    "event": "round.start",
+    "data": 0
+  },
+  {
+    "event": "act.start",
+    "data": {
+      "char": "Alphan 1"
+    }
+  },
+  {
+    "event": "setTarget",
+    "data": {
+      "char": "Alphan 1",
+      "target": "Alphan 3"
+    }
+  },
+  {
+    "event": "act.end",
+    "data": {
+      "char": "Alphan 1"
+    }
+  },
+  {
+    "event": "act.start",
+    "data": {
+      "char": "Alphan 2"
+    }
+  },
+  {
+    "event": "setTarget",
+    "data": {
+      "char": "Alphan 2",
+      "target": "Alphan 1"
+    }
+  },
+  {
+    "event": "act.end",
+    "data": {
+      "char": "Alphan 2"
+    }
+  },
+  {
+    "event": "act.start",
+    "data": {
+      "char": "Alphan 3"
+    }
+  },
+  {
+    "event": "setTarget",
+    "data": {
+      "char": "Alphan 3",
+      "target": "Betan 2"
+    }
+  },
+  {
+    "event": "act.end",
+    "data": {
+      "char": "Alphan 3"
+    }
+  },
+  {
+    "event": "act.start",
+    "data": {
+      "char": "Betan 2"
+    }
+  },
+  {
+    "event": "setTarget",
+    "data": {
+      "char": "Betan 2",
+      "target": "Betan 3"
+    }
+  },
+  {
+    "event": "act.end",
+    "data": {
+      "char": "Betan 2"
+    }
+  },
+  {
+    "event": "round.end",
+    "data": 0
+  }
+]

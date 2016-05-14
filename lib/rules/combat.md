@@ -28,6 +28,12 @@ A multiple attack is successful only if
 * the two cards are sequential in rank (a 4 and a 5, an King (4) and a 3, etc.
 * the highest card drawn is still a successful attack. 
 
+Note even if a _multiple_ attack is not successful you can still get in a successful _single_ 
+attack with your highest card. The disadvantage of a multiple attack is that you _never_ get to 
+add your cards' value together. you _can_ multiple attack two enemies if they are in front of you.
+
+If you are outnumbered, you are forced to use your secondary weapon in defense, and cannot multiple attack. 
+
 ## Multiple Shots
 
 Guns with autofire (assault rifles, machine guns, most modern pistols) attack multiply by design.  
@@ -86,6 +92,19 @@ In non-combat contests when you take 2x Power loss, you lose; the last man stand
 
 Combat has a more complex system of loss, weapons and armor. 
 
+## Rounds
+
+A round in combat is a second long; in that amount of time, everyone gets a _turn_.
+
+### Movement
+ 
+If you are unengaged you can move up to your reflexes, in Meters, in a round. 
+* If you can move in a straight line, you can move up to an opponent 
+  and attack at the end of the movement(charge) with a hand weapon.  
+* You can move up to a yard and take an action. 
+
+every 10 mph = 4 meter/second; every 7 kph = 2 meters/second. 
+
 ### Order of action
 
 For the first round, everyone draws a card; if that card is under your reflexes, you act in descending order 
@@ -102,6 +121,36 @@ If multiple people attempt to act at the same level, they act in ascending order
 
 If there are large numbers of identical minions, they can be grouped in clusters of 2 - 4 each to determine order. 
 Ideally, break up the clusters so that they are made of minions in different locations to reduce coordinated advantage.
+
+Note there are a lot of complex integrations possible with a team battle, but unless you have two weapons, 
+you only have one chance to take action since your last action. If you have a slow weapon,
+"taking action" means readying your weapon. 
+
+For eaample, Bob and Jon are fighting Rod and Tod. 
+
+The order goes
+ 1. Bob
+ 2. Rod
+ 3. Jon
+ 4. Tod
+ 
+1. **Bob's turn** Bob engages Rod; Rod opts to engage as well. Rod wins the contest. 
+2. **Rod's turn** Rod, because he engaged Bob (since his "last turn") cannot act on his round. 
+3. **Jon's turn** Jon engages Todd. Tod chooses to defend, and does so successfully, for no result. 
+4. **Tod's turn** Tod chooses to engage with Bob. Bob has the option of engaging Todd; he has engaged 
+   _on_ his turn but not _since_ his turn, so Bob could engage Tod now (and lose his turn), but 
+   he is having too much fun whaling on Rod so he opts instead to defend against Tod, and engage Rod on Bob's 
+   action. 
+   
+If you have poker chips you can track this by giving each player a blue chip and a white chip _after_ their turn.
+* You can act offensively if you have a blue chip. If you also have a white chip, you can draw two cards. 
+* You can act defensively if engaged, by spending a white chip. 
+* If you have a secondary weapon or shield, you get up to two white chips. 
+  You can still attack with at most two cards,  but you can defend (with two cards) on someone elses' turn 
+  at a cost of one chip and still act normally on your round. 
+* If you have a slow weapon, and you have no blue chips, _after_ your turn, you get two blue chips.
+  On your round if you have two blue chips, you can spend one blue chip(to ready your weapon). 
+  You can only engage (on your turn or someone elses) if you have _exactly_ one blue chip. 
 
 ### Defensive response
 
@@ -120,22 +169,36 @@ Alternatively you can use the sum of both of your cards for defense.
 
 You can choose whether to use one or two cards after looking at your cards. 
 
-* If you successfully defend, they can still act on their turn with the second card. 
+* If you successfully defend, you can still act on their turn with the second card. 
 * if your opponent wins the contest, you lose their ability to act on their action, and must discard the other card.
   (i.e., if you both overdraw you can still act.)
 * If you are playing with a single deck, the defender must return their card to the deck and draws a single card for their action. 
 
-If you are engaged when you have no cards left, you can draw a one or two cards from the deck in defense; however,
-if you draw two cards, you _must_ use the sum of the cards, or overdraw and lose the contest. 
+If you are engaged when you have no cards left, you can draw a one or two cards (your choice) 
+from the deck in defense; however, if you draw two cards, you _must_ use the sum of the cards, 
+or overdraw and lose the contest. 
 
 The option to respond defensively is not available to the person who initiated a contest. 
 
+#### Two Item Defense
+
+If you have a shield or a second weapon in hand, and are outnumbered, 
+you can defend one hand to hand attack with two cards on someone elses' action _and_ engage someone _else_ on your action,
+also with two cards. Or vice versa; you can engage with someone else on their action, and defend with two cards
+on yours. 
+
 ### Engagement
 
+Engagement is when you, on your turn, decide to attack someone else. 
+* If they have not engaged since their last action, they can decide to counter engage you as well. 
+  If this is the case, one or the other of you is going to get hit, unless you both overdraw. 
+* If your opponent opts NOT to engage (or cannot as they have engaged someone else since their turn, _or_ have an unready weapon)
+  then there are two possible results: 1) you hit them, 2) you don't. 
+  
 Once you have begun a contest with a person, you can only disengage if 
 
 * your opponent(s) is/are outnumbered by your allies
-* all your opponents did not attack you last round, or overdrew their attack
+* all your opponents did not attack you last round, or overdrew their attack.
 
 #### Power Phase
 
@@ -403,7 +466,52 @@ WARHAMMER 2,  4,  5,  (7)   9,  11, 12  Hard, AP 33%
 The Warhammer seems on a pure power basis to be superior, especially against armor. 
 However the cutting weapon will cause more 
 
+#### Weapon Sizes
+
+The larger the weapon, the more damage it does; see the leverage table for details. However there are
+other effects for weapon sizes:
+
+##### Small Weapons
+
+Small weapons do less damage; however they can be used in your off hand with another small or medium
+weapon for extra defense and rarely an extra attack. 
+
+Small weapons are -2 defense against Large weapons, unless you have a shield. 
+
+##### Medium Weapons 
+
+Medium weapons are -1 defense against Large wespons unless you have a shield. 
+
+##### Large Weapons 
+
+Large weapons require two hands; 
+this means you cannot use a shield or off hand weapon with a large weapon. 
+
+##### Pole Weapons
+
+Pole weapons are like Large Weapons. Only Spears, Warhammers, and Axes can be pole weapons. 
+Pole spears do +1 power; other pole weapons do +2 power. 
+Pole weapons require one round to lift before being used. This is a variant on Slow; 
+there are no exceptions to this - you can't use bonus cards to lift a polearm slower. 
+Polearms are +1 to your defense versus all weapons -- even other Pole Weapons. 
+
+Polearms are around 8' long; they cannot be taken in many situations like natural caves, 
+dense marshes, etc. because of their great size. On the plus side, their defense bonus applies 
+to any allies directly in front of the user, and a polearm user can attack over an ally, at -1 
+to their offensive skill. A single polearm user can defend up to two allies at once. 
+
+Polearms provide great overlapping defense. The maximum defensive bonus you get from 
+multiple polearms is +2. 
+
 ### Ranged Weapons
+
+Ranged Weapons allow you to attack faster , longer, and (in modern times) with much greate effect than hand weapons. 
+
+You cannot "get better at" dodging bullets (and for this purpose, arrows). Your defensive rank
+vs. ranged weapons is your (Reflexes + 5)/2, round up, if you are aware
+
+If you move you are also much harder to hit; add the square root of your meters travelled if you travelled 3 or more meters,
+and if you draw under that with a high card, automatically avoid fire. 
 
 Range (In Meters) 
 
@@ -430,7 +538,7 @@ For the purposes of this table,
 
 #### Point Blank range 
 
-your target receives 1/2 defense. However if they are in striking range, your attack skill
+your target receives 1/2 defense. However if they are in striking range (< 3m), your attack skill
 is also halved!
 
 #### Medium Range

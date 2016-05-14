@@ -1,0 +1,110 @@
+[
+  {
+    "char": {
+      "name": "Alphan 1",
+      "mind": 5,
+      "body": 6,
+      "reflexes": 6,
+      "spirit": 5,
+      "health": "awake",
+      "state": "ready",
+      "team": "Alphans",
+      "target": ""
+    },
+    "order": 1,
+    "tie": 0,
+    "reflexes": 6,
+    "actFirst": true,
+    "weaponReady": true
+  },
+  {
+    "char": {
+      "name": "Alphan 2",
+      "mind": 5,
+      "body": 5,
+      "reflexes": 7,
+      "spirit": 5,
+      "health": "awake",
+      "state": "ready",
+      "team": "Alphans",
+      "target": ""
+    },
+    "order": 3,
+    "tie": 0,
+    "reflexes": 7,
+    "actFirst": true,
+    "weaponReady": true
+  },
+  {
+    "char": {
+      "name": "Alphan 3",
+      "mind": 5,
+      "body": 4,
+      "reflexes": 8,
+      "spirit": 5,
+      "health": "awake",
+      "state": "ready",
+      "team": "Alphans",
+      "target": ""
+    },
+    "order": 3,
+    "tie": 0,
+    "reflexes": 8,
+    "actFirst": true,
+    "weaponReady": true
+  },
+  {
+    "char": {
+      "name": "Betan 1",
+      "mind": 5,
+      "body": 7,
+      "reflexes": 5,
+      "spirit": 5,
+      "health": "awake",
+      "state": "ready",
+      "team": "Betans",
+      "target": ""
+    },
+    "order": 10,
+    "tie": 0,
+    "reflexes": 5,
+    "actFirst": false,
+    "weaponReady": true
+  },
+  {
+    "char": {
+      "name": "Betan 2",
+      "mind": 5,
+      "body": 6,
+      "reflexes": 6,
+      "spirit": 5,
+      "health": "awake",
+      "state": "ready",
+      "team": "Betans",
+      "target": ""
+    },
+    "order": 5,
+    "tie": 0,
+    "reflexes": 6,
+    "actFirst": true,
+    "weaponReady": true
+  },
+  {
+    "char": {
+      "name": "Betan 3",
+      "mind": 5,
+      "body": 5,
+      "reflexes": 7,
+      "spirit": 5,
+      "health": "awake",
+      "state": "ready",
+      "team": "Betans",
+      "target": ""
+    },
+    "order": 8,
+    "tie": 0,
+    "reflexes": 7,
+    "actFirst": false,
+    "weaponReady": true
+  }
+]

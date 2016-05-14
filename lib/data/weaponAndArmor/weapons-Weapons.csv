@@ -1,9 +1,8 @@
-Name,Type,Advantage,Disadvantage,Offense,Defense,Damage
-Axe,Cutting,,Slow,,,+1
-Blades,Cutting,,,,+1,
-Bludgeon,Hard,Cheap,Slow,,,+1
-Warhammer,Hard,AP 33%,,,,-1
-Stick,Hard,Very Cheap,Blunt,,,-1
-Foil,Piercing,,Fragile,+1,+1,
-Spear,Piercing,Cheap,,-1,,
-Pick,Piercing,,Slow,,,+1
+Name,Type,Blunt,expense,AP,Slow,Offense,Defense,Damage
+Axe,Cutting,,80%,,1,,,+1
+Blades,Cutting,,100%,,,,+1,
+Bludgeon,Hard,,50%,,1,,,
+Warhammer,Hard,,80%,50%,,,,-1
+Stick,Hard,1,25%,,,,,-1
+Spear,Piercing,,50%,,,-1,,
+Pick,Piercing,,75%,25%,1,,,+1
