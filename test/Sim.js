@@ -5,6 +5,12 @@ import {Deck, Card, SUITS, VALUES} from '../lib/Deck';
 import Character from '../lib/Character';
 
 const assert = chai.assert;
+const startEndReport = report => report.reduce((memo, event) => {
+    if (/act\./.test(event.event)) {
+        memo.push([event.event, event.data.char]);
+    }
+    return memo;
+}, []);
 
 describe('Sim', () => {
     let deck;
@@ -72,9 +78,9 @@ describe('Sim', () => {
         it('starts at round 0', () => assert.equal(sim.round, 0));
 
         describe('round one', () => {
-            var report = [];
+            let report;
             beforeEach(() => {
-                const orderData = sim.initative._charMeta;
+                report = [];
                 sim.onAny((event, data) => {
                     report.push({
                         event: event,
@@ -84,20 +90,54 @@ describe('Sim', () => {
                 sim.doRound();
             });
 
+            /**
+             * With the character stats and the pre-geneerated card draws,
+             * you will have some characters not acting on the first round.
+             * Also the order of action should reflect the initiative class.
+             */
             it('should have some of the characters act', () => {
-                const startEndReport = report.reduce((memo, event) => {
-                    if (/act\./.test(event.event)){
-                        memo.push([event.event, event.data.char]);
-                    }
-                    return memo;
-                }, []);
-                
-                console.log('startEndReport: ', JSON.stringify(startEndReport, true, 4));
-                
-                assert.deepEqual(startEndReport, require('./e/startEndReport.json'));
+                assert.deepEqual(startEndReport(report), require('./e/startEndReport.json'));
             });
 
             it('goes to round 1', () => assert.equal(sim.round, 1));
+
+            describe('second round', () => {
+                let tally;
+                
+                beforeEach(() => {
+                    report = [];
+                    sim.doRound(); // do the second report            
+                    tally = report.reduce((tally, item) => {
+                        console.log('report: ', item);
+                        const event = item.event;
+                        if (/^act\.(start|end)/.test(event)) {
+                            const name = item.data.char;
+                            if (!tally[name]) {
+                                tally[name] = {};
+                            }
+                            if (tally[name][event]) {
+                                ++tally[name][event];
+                            } else {
+                                tally[name][event] = 1;
+                            }
+                        }
+                        return tally;
+                    }, {});
+                });
+
+                it('should have everyone', () => assert.deepEqual(startEndReport(report), require('./e/startEndReport2.json')));
+
+                it('goes to round 2', () => assert.equal(sim.round, 2));
+
+                /**
+                 * this validates that
+                 * 1) every character is given an act
+                 * 2) every characters' act goes through completely.
+                 */
+                it('includes everyone', () => {
+                    assert.deepEqual(tally, require('./e/turn2tally.json'));
+                });
+            });
         });
     });
 });
