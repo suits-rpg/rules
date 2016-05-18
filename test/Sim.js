@@ -3,6 +3,7 @@ import Sim from '../lib/Sim';
 import {Teams} from '../lib/Teams';
 import {Deck, Card, SUITS, VALUES} from '../lib/Deck';
 import Character from '../lib/Character';
+import {weapons} from '../lib/Weapons';
 
 const assert = chai.assert;
 const startEndReport = report => report.reduce((memo, event) => {
@@ -16,6 +17,7 @@ describe('Sim', () => {
     let deck;
     let sim;
     let teams;
+    let chars;
 
     beforeEach(() => {
         let props;
@@ -34,9 +36,16 @@ describe('Sim', () => {
             return new Card(value, suit);
         });
 
+        chars = [];
 
-        var chars = [];
         // alphans
+        
+        const skills = [{
+            name: 'Hand Weapon', levels: 2, attr: 'reflexes'
+        }];
+        const alphanWeapons = [weapons['medium blades']];
+        const betanWeapons = alphanWeapons;
+
         for (let i of [0, 1, 2]) {
             props = {
                 name: 'Alphan ' + (i + 1),
@@ -44,7 +53,9 @@ describe('Sim', () => {
                 body: 6 - i,
                 mind: 5,
                 Will: 5 + i,
-                team: teams.getTeam('Alphans')
+                team: teams.getTeam('Alphans'),
+                skills: skills,
+                weapons: alphanWeapons
             };
 
             chars.push(new Character(props));
@@ -58,7 +69,9 @@ describe('Sim', () => {
                 body: 7 - j,
                 mind: 5,
                 Will: 5 + j,
-                team: teams.getTeam('Betans')
+                team: teams.getTeam('Betans'),
+                skills: skills,
+                weapons: betanWeapons
             };
 
             chars.push(new Character(props));
@@ -108,7 +121,6 @@ describe('Sim', () => {
                     report = [];
                     sim.doRound(); // do the second report            
                     tally = report.reduce((tally, item) => {
-                        console.log('report: ', item);
                         const event = item.event;
                         if (/^act\.(start|end)/.test(event)) {
                             const name = item.data.char;
@@ -136,6 +148,19 @@ describe('Sim', () => {
                  */
                 it('includes everyone', () => {
                     assert.deepEqual(tally, require('./e/turn2tally.json'));
+                });
+                
+                it('has engaged everyone', () => {
+                    for (let orderItem of sim.currentOrder) {
+                        let enemy = orderItem.char.target;
+                        assert.ok(enemy, 'every character has enemy');
+                    }
+                });
+
+                it('has set everyone\'s currentWeapon', () => {
+                    for (let char of chars) {
+                        assert.equal(char.currentWeapon ? char.currentWeapon.name : '', 'medium blades');
+                    }
                 });
             });
         });
