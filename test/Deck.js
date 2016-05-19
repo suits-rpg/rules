@@ -23,7 +23,7 @@ describe('Deck(factory)', () => {
     });
 });
 
-describe.only('Hand', () => {
+describe('Hand', () => {
     let deck;
     let hand;
 
@@ -70,7 +70,6 @@ describe.only('Hand', () => {
             const cardCombos = hand.combos(8);
 
             const cStr = cardCombos.map(combo => combo.map(cf => cf.toString()));
-            // console.log('combos at 8', cStr);
 
             assert.deepEqual(cStr, [
                     [
@@ -128,15 +127,17 @@ describe.only('Hand', () => {
 
     describe('bestPair', () => {
         let best;
+        let bestForSkill;
         /**
          *  lowest value for one cards is the best sum
          */
         describe('(3)', () => {
             beforeEach(() => {
                 best = hand.bestPair(3);
+                bestForSkill = hand.bestForSkill(3);
             });
             it('should give you the best pair - rank 4', () => {
-                assert.equal(best.rank, 3);
+                assert.equal(bestForSkill.result, 3);
             });
 
             it('should give the expected card ranks', () => {
@@ -149,9 +150,10 @@ describe.only('Hand', () => {
         describe('(8)', () => {
             beforeEach(() => {
                 best = hand.bestPair(8);
+                bestForSkill = hand.bestForSkill(8);
             });
             it('should give you the best pair - rank 4', () => {
-                assert.equal(best.rank, 4);
+                assert.equal(bestForSkill.result, 4);
             });
 
             it('should give the expected card ranks', () => {
@@ -165,9 +167,10 @@ describe.only('Hand', () => {
         describe('(11)', () => {
             beforeEach(() => {
                 best = hand.bestPair(11);
+                bestForSkill = hand.bestForSkill(11);
             });
             it('should give you the best pair - rank 11', () => {
-                assert.equal(best.rank, 11);
+                assert.equal(bestForSkill.result, 11);
             });
 
             it('should give the expected card ranks', () => {
@@ -182,9 +185,10 @@ describe.only('Hand', () => {
         describe('(14)', () => {
             beforeEach(() => {
                 best = hand.bestPair(14);
+                bestForSkill = hand.bestForSkill(14);
             });
             it('should give you the best pair - rank 14', () => {
-                assert.equal(best.rank, 14);
+                assert.equal(bestForSkill.result, 14);
             });
 
             it('should give the expected card ranks', () => {
@@ -192,6 +196,23 @@ describe.only('Hand', () => {
             });
         });
 
+        describe('overdraw', () => {
+            let oHand;
+
+            beforeEach(() => {
+                const deck = new Deck(8, index => {
+                    const value = [8, 9, 10][index % 3];
+                    const suit = SUITS[index % SUITS.length];
+                    return new Card(value, suit);
+                });
+
+                oHand = deck.draw(2);
+            });
+
+            it('should result in an overdraw', () => {
+                assert.equal(oHand.bestForSkill(6).result, 'overdraw');
+            });
+        });
     });
 });
 

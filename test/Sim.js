@@ -1,5 +1,5 @@
 import chai from 'chai';
-import Sim from '../lib/Sim';
+import {Sim} from '../lib/Sim';
 import {Teams} from '../lib/Teams';
 import {Deck, Card, SUITS, VALUES} from '../lib/Deck';
 import Character from '../lib/Character';
@@ -12,6 +12,8 @@ const startEndReport = report => report.reduce((memo, event) => {
     }
     return memo;
 }, []);
+
+const s = cards => cards.map(card => card.toString());
 
 describe('Sim', () => {
     let deck;
@@ -39,7 +41,7 @@ describe('Sim', () => {
         chars = [];
 
         // alphans
-        
+
         const skills = [{
             name: 'Hand Weapon', levels: 2, attr: 'reflexes'
         }];
@@ -85,6 +87,20 @@ describe('Sim', () => {
             var report = sim.characters.map(c => c.toJSON());
             assert.deepEqual(report, require('./e/SimsReport.json'));
         });
+        
+        describe('character skills', () =>{
+            let skillsList;
+            beforeEach(() => {
+                skillsList = chars.reduce((list, char) => {
+                   list[char.name] = char.skills;
+                    return list;
+                }, {});
+            });
+
+            it('should have characters with expected skills', () => {
+                console.log('character skills: ', skillsList);
+            });
+        });
     });
 
     describe('round', () => {
@@ -103,6 +119,29 @@ describe('Sim', () => {
                 sim.doRound();
             });
 
+            describe('attack results', () => {
+                let attacks;
+                beforeEach(() => {
+                    attacks = report.reduce((memo, event) => {
+                        if (event.event === 'attack') {
+                            const pResult = {
+                                result: event.data.result,
+                                charCards: s(event.data.charDraw.cards),
+                                targetCards: s(event.data.targetDraw.cards)
+                            };
+                            memo.push(pResult);
+                        }
+                        return memo;
+                    }, []);
+                });
+
+                it('should have results for each attack', () => {
+                    console.log('attacks: ', require('util').inspect(attacks, {depth: 3}));
+                    assert.deepEqual(attacks, ['no result', 'no result', 'no result', 'no result']
+                        , 'attacks are recorded');
+                })
+            });
+
             /**
              * With the character stats and the pre-geneerated card draws,
              * you will have some characters not acting on the first round.
@@ -116,7 +155,7 @@ describe('Sim', () => {
 
             describe('second round', () => {
                 let tally;
-                
+
                 beforeEach(() => {
                     report = [];
                     sim.doRound(); // do the second report            
@@ -149,7 +188,7 @@ describe('Sim', () => {
                 it('includes everyone', () => {
                     assert.deepEqual(tally, require('./e/turn2tally.json'));
                 });
-                
+
                 it('has engaged everyone', () => {
                     for (let orderItem of sim.currentOrder) {
                         let enemy = orderItem.char.target;

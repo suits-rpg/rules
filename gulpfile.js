@@ -21,10 +21,11 @@ gulp.task('static', function () {
             rules: {
                 indent: 0,
                 'no-trailing-spaces': 0,
-                'space-before-function-paren': 0,
+               // 'space-before-function-paren': 0,
                 'no-multiple-empty-lines': 0,
                 'quote-props': 0,
                 'no-unneeded-ternary': 0,
+                'padded-blocks': 0,
                 'max-nested-callbacks': 0
             }
         }))

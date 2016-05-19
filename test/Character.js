@@ -12,7 +12,10 @@ describe('Character', function () {
             body: 4,
             mind: 5,
             reflexes: 6,
-            spirit: 7
+            spirit: 7,
+            skills: [
+                {name: 'running', attr: 'body', level: 2}
+            ]
         });
     });
 
@@ -27,9 +30,7 @@ describe('Character', function () {
         it('should set name', () => assert.equal(char.name, 'foo', 'name is set'));
     });
 
-    describe('addSkill', () => {
-        beforeEach(() => char.addSkill('running', 'body', 2));
-
+    describe('skills', () => {
         it('should have skill rank 6', () => assert.equal(char.skillRank('running'), 6, 'gets the right rank'));
         it('should get rank 0 for non-set skill', () => assert.equal(char.skillRank('acting'), 0, 'unset skill is zero'));
     });
