@@ -43,7 +43,7 @@ describe('Sim', () => {
         // alphans
 
         const skills = [{
-            name: 'Hand Weapon', levels: 2, attr: 'reflexes'
+            name: 'Hand Weapons', levels: 2, attr: 'reflexes'
         }];
         const alphanWeapons = [weapons['medium blades']];
         const betanWeapons = alphanWeapons;
@@ -87,12 +87,12 @@ describe('Sim', () => {
             var report = sim.characters.map(c => c.toJSON());
             assert.deepEqual(report, require('./e/SimsReport.json'));
         });
-        
-        describe('character skills', () =>{
+
+        describe('character skills', () => {
             let skillsList;
             beforeEach(() => {
                 skillsList = chars.reduce((list, char) => {
-                   list[char.name] = char.skills;
+                    list[char.name] = char.skills;
                     return list;
                 }, {});
             });
@@ -124,21 +124,16 @@ describe('Sim', () => {
                 beforeEach(() => {
                     attacks = report.reduce((memo, event) => {
                         if (event.event === 'attack') {
-                            const pResult = {
-                                result: event.data.result,
-                                charCards: s(event.data.charDraw.cards),
-                                targetCards: s(event.data.targetDraw.cards)
-                            };
-                            memo.push(pResult);
+                            memo.push(event.data);
                         }
                         return memo;
                     }, []);
+
                 });
 
                 it('should have results for each attack', () => {
-                    console.log('attacks: ', require('util').inspect(attacks, {depth: 3}));
-                    assert.deepEqual(attacks, ['no result', 'no result', 'no result', 'no result']
-                        , 'attacks are recorded');
+                    assert.deepEqual(attacks, require('./e/round1attacks.json'), 
+                        'attacks are recorded');
                 })
             });
 

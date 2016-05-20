@@ -1,0 +1,70 @@
+[
+  {
+    "result": "tie",
+    "charDraw": {
+      "result": 6,
+      "cards": [
+        "6 of heart",
+        "9 of club"
+      ]
+    },
+    "targetDraw": {
+      "result": 6,
+      "cards": [
+        "4 of spade",
+        "J of diamond"
+      ]
+    }
+  },
+  {
+    "result": "Alphan 3 hits Alphan 2",
+    "charDraw": {
+      "result": 5,
+      "cards": [
+        "K of club",
+        "A of spade"
+      ]
+    },
+    "targetDraw": {
+      "result": 6,
+      "cards": [
+        "Q of diamond",
+        "3 of heart"
+      ]
+    }
+  },
+  {
+    "result": "Alphan 3 hits Betan 2",
+    "charDraw": {
+      "result": 8,
+      "cards": [
+        "5 of spade",
+        "8 of diamond"
+      ]
+    },
+    "targetDraw": {
+      "result": 6,
+      "cards": [
+        "7 of heart",
+        "6 of club"
+      ]
+    }
+  },
+  {
+    "result": "Betan 2 hits Betan 1",
+    "charDraw": {
+      "result": 6,
+      "cards": [
+        "4 of diamond",
+        "J of heart"
+      ]
+    },
+    "targetDraw": {
+      "result": 4,
+      "cards": [
+        "2 of club",
+        "K of spade"
+      ]
+    }
+  }
+]
