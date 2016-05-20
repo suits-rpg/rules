@@ -98,15 +98,44 @@ describe('Sim', () => {
             });
 
             it('should have characters with expected skills', () => {
-                console.log('character skills: ', skillsList);
+                assert.deepEqual(skillsList, {
+                    'Alphan 1': {'Hand Weapons': 6},
+                    'Alphan 2': {'Hand Weapons': 7},
+                    'Alphan 3': {'Hand Weapons': 8},
+                    'Betan 1': {'Hand Weapons': 5},
+                    'Betan 2': {'Hand Weapons': 6},
+                    'Betan 3': {'Hand Weapons': 7}
+                }, 'characters have skills');
             });
         });
     });
 
-    describe('round', () => {
+    describe('simulation', () => {
         it('starts at round 0', () => assert.equal(sim.round, 0));
 
-        describe('round one', () => {
+        describe('init.startRound (round 0)', () => {
+            let chipReport;
+
+            beforeEach(() => {
+                chipReport = [];
+                sim.init.startRound(0);
+
+                for (let char of chars) {
+                    let cr = {
+                        char: char.name,
+                        blueChips: char.blueChips,
+                        whiteChips: char.whiteChips
+                    };
+                    chipReport.push(cr);
+                }
+            });
+
+            it('should have some characters with blue, some without', () => {
+                assert.deepEqual(chipReport, require('./e/firstRoundChipReport.json'));
+            })
+        });
+
+        describe('first round', () => {
             let report;
             beforeEach(() => {
                 report = [];
@@ -121,6 +150,7 @@ describe('Sim', () => {
 
             describe('attack results', () => {
                 let attacks;
+                let noops;
                 beforeEach(() => {
                     attacks = report.reduce((memo, event) => {
                         if (event.event === 'attack') {
@@ -129,17 +159,28 @@ describe('Sim', () => {
                         return memo;
                     }, []);
 
+                    noops = report.reduce((memo, event) => {
+                        if (event.event === 'act.noop') {
+                            memo.push(event.data);
+                        }
+                        return memo;
+                    }, []);
+
                 });
 
                 it('should have results for each attack', () => {
-                    assert.deepEqual(attacks, require('./e/round1attacks.json'), 
+
+                    console.log('attacks: ', JSON.stringify(attacks));
+                    console.log('noops: ', JSON.stringify(noops));
+                    
+                    assert.deepEqual(attacks, require('./e/round1attacks.json'),
                         'attacks are recorded');
                 })
             });
 
             /**
              * With the character stats and the pre-geneerated card draws,
-             * you will have some characters not acting on the first round.
+             * you will have some characters not acting on the firstCard round.
              * Also the order of action should reflect the initiative class.
              */
             it('should have some of the characters act', () => {
@@ -152,7 +193,6 @@ describe('Sim', () => {
                 let tally;
 
                 beforeEach(() => {
-                    report = [];
                     sim.doRound(); // do the second report            
                     tally = report.reduce((tally, item) => {
                         const event = item.event;

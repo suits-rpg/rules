@@ -25,7 +25,7 @@ describe('Initiative', () => {
       order = init.order(0);
       order1 = init.order(1);
     });
-    it('should not have bob in the first round', () => {
+    it('should not have bob in the firstCard round', () => {
       assert.deepEqual(_(order).map(item => item.char.name).sortBy(_.identity).value(), ['jon', 'rob']);
     });
 
@@ -33,7 +33,7 @@ describe('Initiative', () => {
       assert.deepEqual(_(order1).map(item => item.char.name).sortBy(_.identity).value(), ['bob', 'jon', 'rob']);
     });
 
-    it('have the users in the expected order in the first round', () => {
+    it('have the users in the expected order in the firstCard round', () => {
       assert.deepEqual(_(order).map(item => item.char.name).value(), ['jon', 'rob']);
     });
 

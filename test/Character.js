@@ -60,4 +60,41 @@ describe('Character', function () {
             it('should make character knocked out', () => assert.equal(char.health, 'knocked out'));
         });
     });
+
+    describe('chips', () => {
+        describe('start', () => {
+            it('starts with no white chips', () => assert.equal(char.whiteChips, 0, 'no white chips'));
+            it('starts with no blue chips', () => assert.equal(char.blueChips, 0, 'no blue chips'));
+        });
+
+        describe('after UpdateChips', () => {
+            beforeEach(() => {
+                char.updateChips();
+            });
+
+            it('updates to 1 white chips', () => assert.equal(char.whiteChips, 1, '1 white chips'));
+            it('updates to 1 blue chips', () => assert.equal(char.blueChips, 1, '1 blue chips'));
+        });
+
+        describe('after updateChipsPassive', () => {
+            beforeEach(() => {
+                char.updateChipsPassive();
+            });
+
+            it('updates to 2 white chips', () => assert.equal(char.whiteChips, 2, '2 white chips'));
+            it('updates to 0 blue chips', () => assert.equal(char.blueChips, 0, '0 blue chips'));
+        });
+
+        describe('de-crazify chips', () => {
+            beforeEach(() => {
+                char.blueChips = 7;
+                char.whiteChips = 9;
+                char.cleanChips();
+            });
+            it('resets a strange tally to a legal value', () => {
+                it('updates to 1 white chips', () => assert.equal(char.whiteChips, 1, '1 white chips'));
+                it('updates to 1 blue chips', () => assert.equal(char.blueChips, 1, '1 blue chips'));
+            })
+        });
+    })
 });

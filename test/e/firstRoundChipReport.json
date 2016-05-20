@@ -1,5 +1,6 @@
 [
   {
+    "actor": "Alphan 1",
     "result": "Alphan 1 hits Betan 1",
     "charDraw": {
       "result": 6,
@@ -17,6 +18,7 @@
     }
   },
   {
+    "actor": "Alphan 2",
     "result": "Alphan 2 hits Betan 3",
     "charDraw": {
       "result": 6,
@@ -34,6 +36,7 @@
     }
   },
   {
+    "actor": "Alphan 3",
     "result": "Alphan 3 hits Betan 3",
     "charDraw": {
       "result": 7,
@@ -50,6 +53,7 @@
     }
   },
   {
+    "actor": "Betan 2",
     "result": "Alphan 2 hits Betan 2",
     "charDraw": {
       "result": 4,

@@ -248,7 +248,7 @@ describe('Deck', () => {
 
             it('should have 1 fewer card', () => assert.equal(deck.cardsLeft, 51));
 
-            it('should have a hand of the first card', () => assert.equal(first.toString(), hand.toString()));
+            it('should have a hand of the firstCard card', () => assert.equal(first.toString(), hand.toString()));
         });
 
         describe('draw many', () => {
