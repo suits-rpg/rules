@@ -1,8 +1,8 @@
-Name,Type,Blunt,expense,AP,Slow,Offense,Defense,Damage
-Axe,Cutting,,80%,,1,,,+1
-Blades,Cutting,,100%,,,,+1,
-Bludgeon,Hard,,50%,,1,,,
-Warhammer,Hard,,80%,50%,,,,-1
-Stick,Hard,1,25%,,,,,-1
-Spear,Piercing,,50%,,,-1,,
-Pick,Piercing,,75%,25%,1,,,+1
+name,type,blunt,cost,ap,slow,power,club,spade,diamond,heart
+Axe,Cutting,,80%,,1,+1,50% Armor,1 Stun/3 Pow,1 Bleed/2 Major,-1 Ref/2 Major
+Blades,Cutting,,100%,,,,75% Armor,1 Stun/3 Pow,1 Bleed/2 Major,-1 Ref/2 Major
+Bludgeon,Hard,,50%,,1,+1,50% Armor,1 Stun/3 Pow,1 Bleed/4 Major,-1 Ref/2 Major
+Warhammer,Hard,,80%,50%,,,25% Armor,1 Stun/3 Pow,1 Bleed/3 Major,-1 Ref/2 Major
+Stick,Hard,1,25%,,,-1,75% Armor,1 Stun/3 Pow,Extra Attack,-1 Ref/2 Major
+Spear,Piercing,,50%,,,,50% Armor,1 Stun/2 Pow,1 Bleed/2 Major,-1 Ref/2 Major
+Pick,Piercing,,75%,25%,1,+1,75% Armor,1 Stun/2 Pow,1 Bleed/2 major,-1 Ref/2 Major

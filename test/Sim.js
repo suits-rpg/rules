@@ -13,8 +13,6 @@ const startEndReport = report => report.reduce((memo, event) => {
     return memo;
 }, []);
 
-const s = cards => cards.map(card => card.toString());
-
 describe('Sim', () => {
     let deck;
     let sim;
@@ -132,13 +130,33 @@ describe('Sim', () => {
 
             it('should have some characters with blue, some without', () => {
                 assert.deepEqual(chipReport, require('./e/firstRoundChipReport.json'));
-            })
+            });
         });
 
         describe('first round', () => {
             let report;
+            let attacks;
+            let noops;
+
+            const tallyReports = () => {
+                attacks = report.reduce((memo, event) => {
+                    if (event.event === 'attack') {
+                        memo.push(event.data);
+                    }
+                    return memo;
+                }, []);
+
+                noops = report.reduce((memo, event) => {
+                    if (event.event === 'act.noop') {
+                        memo.push(event.data);
+                    }
+                    return memo;
+                }, []);
+            };
+
             beforeEach(() => {
                 report = [];
+                noops = [];
                 sim.onAny((event, data) => {
                     report.push({
                         event: event,
@@ -146,36 +164,19 @@ describe('Sim', () => {
                     });
                 });
                 sim.doRound();
+                tallyReports();
             });
 
-            describe('attack results', () => {
-                let attacks;
-                let noops;
-                beforeEach(() => {
-                    attacks = report.reduce((memo, event) => {
-                        if (event.event === 'attack') {
-                            memo.push(event.data);
-                        }
-                        return memo;
-                    }, []);
+            it('should have results for each attack', () => {
+                // console.log('attacks: ', JSON.stringify(attacks));
+                // console.log('noops: ', JSON.stringify(noops));
 
-                    noops = report.reduce((memo, event) => {
-                        if (event.event === 'act.noop') {
-                            memo.push(event.data);
-                        }
-                        return memo;
-                    }, []);
+                assert.deepEqual(attacks, require('./e/round1attacks.json'),
+                    'attacks are recorded');
+            });
 
-                });
-
-                it('should have results for each attack', () => {
-
-                    console.log('attacks: ', JSON.stringify(attacks));
-                    console.log('noops: ', JSON.stringify(noops));
-                    
-                    assert.deepEqual(attacks, require('./e/round1attacks.json'),
-                        'attacks are recorded');
-                })
+            it('should have no noops', () => {
+                assert.deepEqual(noops, [], 'no noops in round 1');
             });
 
             /**
@@ -190,52 +191,18 @@ describe('Sim', () => {
             it('goes to round 1', () => assert.equal(sim.round, 1));
 
             describe('second round', () => {
-                let tally;
-
                 beforeEach(() => {
-                    sim.doRound(); // do the second report            
-                    tally = report.reduce((tally, item) => {
-                        const event = item.event;
-                        if (/^act\.(start|end)/.test(event)) {
-                            const name = item.data.char;
-                            if (!tally[name]) {
-                                tally[name] = {};
-                            }
-                            if (tally[name][event]) {
-                                ++tally[name][event];
-                            } else {
-                                tally[name][event] = 1;
-                            }
-                        }
-                        return tally;
-                    }, {});
+                    report = [];
+                    noops = [];
+                    sim.doRound();
+                    tallyReports();
                 });
 
-                it('should have everyone', () => assert.deepEqual(startEndReport(report), require('./e/startEndReport2.json')));
+                it('attack results', () => assert.deepEqual(attacks, require('./e/round2attacks.json')));
+                
+                it('should have noops', () => assert.deepEqual(noops, require('./e/round2noops.json')));
 
                 it('goes to round 2', () => assert.equal(sim.round, 2));
-
-                /**
-                 * this validates that
-                 * 1) every character is given an act
-                 * 2) every characters' act goes through completely.
-                 */
-                it('includes everyone', () => {
-                    assert.deepEqual(tally, require('./e/turn2tally.json'));
-                });
-
-                it('has engaged everyone', () => {
-                    for (let orderItem of sim.currentOrder) {
-                        let enemy = orderItem.char.target;
-                        assert.ok(enemy, 'every character has enemy');
-                    }
-                });
-
-                it('has set everyone\'s currentWeapon', () => {
-                    for (let char of chars) {
-                        assert.equal(char.currentWeapon ? char.currentWeapon.name : '', 'medium blades');
-                    }
-                });
             });
         });
     });

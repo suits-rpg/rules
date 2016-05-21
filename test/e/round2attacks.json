@@ -3,35 +3,35 @@
     "actor": "Alphan 1",
     "result": "Alphan 1 hits Betan 1",
     "charDraw": {
-      "result": 6,
+      "result": 4,
       "cards": [
-        "4 of spade",
-        "J of diamond"
+        "A of diamond",
+        "Q of heart"
       ]
     },
     "targetDraw": {
-      "result": 4,
+      "result": 3,
       "cards": [
-        "2 of heart",
-        "K of club"
+        "3 of club",
+        "10 of spade"
       ]
     }
   },
   {
     "actor": "Alphan 2",
-    "result": "Alphan 2 hits Betan 3",
+    "result": "Betan 3 hits Alphan 2",
     "charDraw": {
-      "result": 6,
+      "result": 5,
       "cards": [
-        "Q of diamond",
-        "3 of heart"
+        "5 of diamond",
+        "8 of heart"
       ]
     },
     "targetDraw": {
-      "result": 5,
+      "result": 7,
       "cards": [
-        "10 of club",
-        "5 of spade"
+        "7 of club",
+        "6 of spade"
       ]
     }
   },
@@ -39,33 +39,33 @@
     "actor": "Alphan 3",
     "result": "Alphan 3 hits Betan 3",
     "charDraw": {
-      "result": 7,
+      "result": 4,
       "cards": [
-        "7 of heart",
-        "6 of club"
+        "9 of diamond",
+        "4 of heart"
       ]
     },
     "targetDraw": {
-      "result": "overdraw",
+      "result": 2,
       "cards": [
-        "9 of spade"
+        "J of club"
       ]
     }
   },
   {
     "actor": "Betan 2",
-    "result": "tie between Betan 2 and Alphan 2",
+    "result": "Betan 2 hits Alphan 2",
     "charDraw": {
-      "result": 4,
+      "result": 6,
       "cards": [
-        "J of heart",
-        "2 of club"
+        "2 of spade",
+        "K of diamond"
       ]
     },
     "targetDraw": {
-      "result": 4,
+      "result": 1,
       "cards": [
-        "K of spade"
+        "A of heart"
       ]
     }
   }

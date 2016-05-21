@@ -1,73 +1,32 @@
 [
   {
-    "actor": "Alphan 1",
-    "result": "Alphan 1 hits Betan 1",
-    "charDraw": {
-      "result": 6,
-      "cards": [
-        "4 of spade",
-        "J of diamond"
-      ]
-    },
-    "targetDraw": {
-      "result": 4,
-      "cards": [
-        "2 of heart",
-        "K of club"
-      ]
-    }
+    "char": "Alphan 1",
+    "blueChips": 1,
+    "whiteChips": 1
   },
   {
-    "actor": "Alphan 2",
-    "result": "Alphan 2 hits Betan 3",
-    "charDraw": {
-      "result": 6,
-      "cards": [
-        "Q of diamond",
-        "3 of heart"
-      ]
-    },
-    "targetDraw": {
-      "result": 5,
-      "cards": [
-        "10 of club",
-        "5 of spade"
-      ]
-    }
+    "char": "Alphan 2",
+    "blueChips": 1,
+    "whiteChips": 1
   },
   {
-    "actor": "Alphan 3",
-    "result": "Alphan 3 hits Betan 3",
-    "charDraw": {
-      "result": 7,
-      "cards": [
-        "7 of heart",
-        "6 of club"
-      ]
-    },
-    "targetDraw": {
-      "result": "overdraw",
-      "cards": [
-        "9 of spade"
-      ]
-    }
+    "char": "Alphan 3",
+    "blueChips": 1,
+    "whiteChips": 1
   },
   {
-    "actor": "Betan 2",
-    "result": "Alphan 2 hits Betan 2",
-    "charDraw": {
-      "result": 4,
-      "cards": [
-        "J of heart",
-        "2 of club"
-      ]
-    },
-    "targetDraw": {
-      "result": 5,
-      "cards": [
-        "K of spade",
-        "A of diamond"
-      ]
-    }
+    "char": "Betan 1",
+    "blueChips": 0,
+    "whiteChips": 2
+  },
+  {
+    "char": "Betan 2",
+    "blueChips": 1,
+    "whiteChips": 1
+  },
+  {
+    "char": "Betan 3",
+    "blueChips": 0,
+    "whiteChips": 2
   }
 ]

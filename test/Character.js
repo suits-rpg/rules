@@ -94,7 +94,7 @@ describe('Character', function () {
             it('resets a strange tally to a legal value', () => {
                 it('updates to 1 white chips', () => assert.equal(char.whiteChips, 1, '1 white chips'));
                 it('updates to 1 blue chips', () => assert.equal(char.blueChips, 1, '1 blue chips'));
-            })
+            });
         });
-    })
+    });
 });
