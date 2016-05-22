@@ -111,7 +111,7 @@ describe('Sim', () => {
     describe('simulation', () => {
         it('starts at round 0', () => assert.equal(sim.round, 0));
 
-        describe('init.startRound (round 0)', () => {
+        describe('init.startRound', () => {
             let chipReport;
 
             beforeEach(() => {
@@ -137,6 +137,7 @@ describe('Sim', () => {
             let report;
             let attacks;
             let noops;
+            let hits;
 
             const tallyReports = () => {
                 attacks = report.reduce((memo, event) => {
@@ -152,11 +153,18 @@ describe('Sim', () => {
                     }
                     return memo;
                 }, []);
+
+                hits = chars.reduce((memo, char) => {
+                    memo[char.name] = {
+                        shock: char.shock,
+                        wounds: char.wounds
+                    };
+                    return memo;
+                }, {});
             };
 
             beforeEach(() => {
                 report = [];
-                noops = [];
                 sim.onAny((event, data) => {
                     report.push({
                         event: event,
@@ -171,7 +179,7 @@ describe('Sim', () => {
                 // console.log('attacks: ', JSON.stringify(attacks));
                 // console.log('noops: ', JSON.stringify(noops));
 
-                assert.deepEqual(attacks, require('./e/round1attacks.json'),
+                assert.deepEqual(attacks, require('./e/firstRoundAttacks.json'),
                     'attacks are recorded');
             });
 
@@ -180,12 +188,16 @@ describe('Sim', () => {
             });
 
             /**
-             * With the character stats and the pre-geneerated card draws,
+             * With the character stats and the pre-generated card draws,
              * you will have some characters not acting on the firstCard round.
              * Also the order of action should reflect the initiative class.
              */
             it('should have some of the characters act', () => {
                 assert.deepEqual(startEndReport(report), require('./e/startEndReport.json'));
+            });
+
+            it('damages some characters:', () => {
+                console.log('hits: ', JSON.stringify(hits));
             });
 
             it('goes to round 1', () => assert.equal(sim.round, 1));
@@ -199,7 +211,7 @@ describe('Sim', () => {
                     // console.log('second round attacks: ', JSON.stringify(attacks));
                 });
 
-                it('attack results', () => assert.deepEqual(attacks, require('./e/round2attacks.json')));
+                it('attack results', () => assert.deepEqual(attacks, require('./e/secondRoundAttacks.json')));
 
                 it('should have noops', () => assert.deepEqual(noops, require('./e/round2noops.json')));
 
