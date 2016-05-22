@@ -97,4 +97,27 @@ describe('Character', function () {
             });
         });
     });
+
+    describe('.impact', () => {
+        it('should have the proper distribution for Hard weapons', () => {
+            char.impact(8, {damageType: 'Hard'});
+
+            assert.equal(char.shock, 4);
+            assert.equal(char.wounds, 4);
+        });
+
+        it('should have the proper distribution for Cutting weapons', () => {
+            char.impact(8, {damageType: 'Cutting'});
+
+            assert.equal(char.shock, 3);
+            assert.equal(char.wounds, 5);
+        });
+
+        it('should have the proper distribution for Piercing weapons', () => {
+            char.impact(8, {damageType: 'Piercing'});
+
+            assert.equal(char.shock, 2);
+            assert.equal(char.wounds, 6);
+        });
+    });
 });
