@@ -125,7 +125,7 @@ describe('Hand', () => {
         });
     });
 
-    describe('bestPair', () => {
+    describe('bestPair/bestForSkill', () => {
         let best;
         let bestForSkill;
         /**
@@ -137,7 +137,7 @@ describe('Hand', () => {
                 bestForSkill = hand.bestForSkill(3);
             });
             it('should give you the best pair - rank 4', () => {
-                assert.equal(bestForSkill.result, 3);
+                assert.equal(bestForSkill.rank, 3);
             });
 
             it('should give the expected card ranks', () => {
@@ -153,7 +153,7 @@ describe('Hand', () => {
                 bestForSkill = hand.bestForSkill(8);
             });
             it('should give you the best pair - rank 4', () => {
-                assert.equal(bestForSkill.result, 4);
+                assert.equal(bestForSkill.rank, 4);
             });
 
             it('should give the expected card ranks', () => {
@@ -170,7 +170,7 @@ describe('Hand', () => {
                 bestForSkill = hand.bestForSkill(11);
             });
             it('should give you the best pair - rank 11', () => {
-                assert.equal(bestForSkill.result, 11);
+                assert.equal(bestForSkill.rank, 11);
             });
 
             it('should give the expected card ranks', () => {
@@ -188,7 +188,7 @@ describe('Hand', () => {
                 bestForSkill = hand.bestForSkill(14);
             });
             it('should give you the best pair - rank 14', () => {
-                assert.equal(bestForSkill.result, 14);
+                assert.equal(bestForSkill.rank, 14);
             });
 
             it('should give the expected card ranks', () => {
@@ -210,7 +210,7 @@ describe('Hand', () => {
             });
 
             it('should result in an overdraw', () => {
-                assert.equal(oHand.bestForSkill(6).result, 'overdraw');
+                assert.ok(oHand.bestForSkill(6).over, 'overdraw');
             });
         });
     });

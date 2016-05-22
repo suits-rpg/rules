@@ -1,72 +1,108 @@
 [
   {
     "actor": "Alphan 1",
-    "result": "Alphan 1 hits Betan 1",
     "charDraw": {
-      "result": 6,
-      "cards": [
+      "rank": 6,
+      "cardsDrawn": [
         "4 of spade",
         "J of diamond"
-      ]
+      ],
+      "cardsUsed": [
+        "<< 4 of spade -- rank 4 >>",
+        "<< J of diamond -- rank 2 >>"
+      ],
+      "over": false
     },
     "targetDraw": {
-      "result": 4,
-      "cards": [
+      "rank": 4,
+      "cardsDrawn": [
         "2 of heart",
         "K of club"
-      ]
-    }
+      ],
+      "cardsUsed": [
+        "<< [null] -- rank 0 -- invalid >>",
+        "<< K of club -- rank 4 >>"
+      ],
+      "over": false
+    },
+    "result": "Alphan 1 hits Betan 1"
   },
   {
     "actor": "Alphan 2",
-    "result": "Alphan 2 hits Betan 3",
     "charDraw": {
-      "result": 6,
-      "cards": [
+      "rank": 6,
+      "cardsDrawn": [
         "Q of diamond",
         "3 of heart"
-      ]
+      ],
+      "cardsUsed": [
+        "<< Q of diamond -- rank 3 >>",
+        "<< 3 of heart -- rank 3 >>"
+      ],
+      "over": false
     },
     "targetDraw": {
-      "result": 5,
-      "cards": [
+      "rank": 5,
+      "cardsDrawn": [
         "10 of club",
         "5 of spade"
-      ]
-    }
+      ],
+      "cardsUsed": [
+        "<< [null] -- rank 0 -- invalid >>",
+        "<< 5 of spade -- rank 5 >>"
+      ],
+      "over": false
+    },
+    "result": "Alphan 2 hits Betan 3"
   },
   {
     "actor": "Alphan 3",
-    "result": "Alphan 3 hits Betan 3",
     "charDraw": {
-      "result": 7,
-      "cards": [
+      "rank": 7,
+      "cardsDrawn": [
         "7 of heart",
         "6 of club"
-      ]
+      ],
+      "cardsUsed": [
+        "<< 7 of heart -- rank 7 >>",
+        "<< [null] -- rank 0 -- invalid >>"
+      ],
+      "over": false
     },
     "targetDraw": {
-      "result": "overdraw",
-      "cards": [
+      "rank": 0,
+      "cardsDrawn": [
         "9 of spade"
-      ]
-    }
+      ],
+      "cardsUsed": [],
+      "over": true
+    },
+    "result": "Alphan 3 hits Betan 3"
   },
   {
     "actor": "Betan 2",
-    "result": "tie between Betan 2 and Alphan 2",
     "charDraw": {
-      "result": 4,
-      "cards": [
+      "rank": 4,
+      "cardsDrawn": [
         "J of heart",
         "2 of club"
-      ]
+      ],
+      "cardsUsed": [
+        "<< J of heart -- rank 2 >>",
+        "<< 2 of club -- rank 2 >>"
+      ],
+      "over": false
     },
     "targetDraw": {
-      "result": 4,
-      "cards": [
+      "rank": 4,
+      "cardsDrawn": [
         "K of spade"
-      ]
-    }
+      ],
+      "cardsUsed": [
+        "<< K of spade -- rank 4 >>"
+      ],
+      "over": false
+    },
+    "result": "tie between Betan 2 and Alphan 2"
   }
 ]

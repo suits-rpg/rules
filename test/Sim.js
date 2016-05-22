@@ -196,10 +196,11 @@ describe('Sim', () => {
                     noops = [];
                     sim.doRound();
                     tallyReports();
+                    // console.log('second round attacks: ', JSON.stringify(attacks));
                 });
 
                 it('attack results', () => assert.deepEqual(attacks, require('./e/round2attacks.json')));
-                
+
                 it('should have noops', () => assert.deepEqual(noops, require('./e/round2noops.json')));
 
                 it('goes to round 2', () => assert.equal(sim.round, 2));
