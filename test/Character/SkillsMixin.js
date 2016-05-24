@@ -27,11 +27,16 @@ describe('Character/SkillsMixin', function () {
             spirit: 7,
             skills: [
                 {name: 'Hand Weapons', attr: 'reflexes', level: 2},
-                {name: 'Philosophy', attr: 'reflexes', level: 4}
+                {name: 'Philosophy', attr: 'mind', level: 4}
             ],
         });
     });
 
     it('should have all the skills', () => assert.deepEqual(_(char.skills).keys().value(),
         ['Hand Weapons', 'Philosophy']));
+
+    it('should have the right rank', () => {
+        assert.equal(char.skills['Hand Weapons'], 8);
+        assert.equal(char.skills.Philosophy, 9);
+    });
 });

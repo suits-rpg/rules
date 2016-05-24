@@ -25,7 +25,7 @@
       ],
       "over": false
     },
-    "result": "Alphan 1 hits Betan 1"
+    "result": "Alphan 1 hits Betan 1 amount: 5"
   },
   {
     "actor": "Alphan 2",
@@ -53,7 +53,7 @@
       ],
       "over": false
     },
-    "result": "Alphan 2 hits Betan 3"
+    "result": "Alphan 2 hits Betan 3 amount: 4"
   },
   {
     "actor": "Alphan 3",
@@ -77,7 +77,7 @@
       "cardsUsed": [],
       "over": true
     },
-    "result": "Alphan 3 hits Betan 3"
+    "result": "Alphan 3 hits Betan 3 amount: 3"
   },
   {
     "actor": "Betan 2",

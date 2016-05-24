@@ -1,5 +1,5 @@
 import chai from 'chai';
-import Character from '../lib/Character';
+import Character from '../lib/Character/Character';
 const assert = chai.assert;
 import {Teams} from '../lib/Teams';
 

@@ -25,7 +25,7 @@
       ],
       "over": false
     },
-    "result": "Alphan 1 hits Betan 1"
+    "result": "Alphan 1 hits Betan 1 amount: 5"
   },
   {
     "actor": "Alphan 2",
@@ -53,7 +53,7 @@
       ],
       "over": false
     },
-    "result": "Betan 3 hits Alphan 2"
+    "result": "Betan 3 hits Alphan 2 amount: 4"
   },
   {
     "actor": "Alphan 3",
@@ -79,7 +79,7 @@
       ],
       "over": false
     },
-    "result": "Alphan 3 hits Betan 3"
+    "result": "Alphan 3 hits Betan 3 amount: 3"
   },
   {
     "actor": "Betan 2",
@@ -105,6 +105,16 @@
       ],
       "over": false
     },
-    "result": "Betan 2 hits Alphan 2"
+    "result": "Betan 2 hits Alphan 2 amount: 5"
+  },
+  {
+    "char": "Betan 3",
+    "recover": true,
+    "shock": 0
+  },
+  {
+    "char": "Betan 1",
+    "recover": true,
+    "shock": 2
   }
 ]

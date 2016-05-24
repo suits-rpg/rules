@@ -1,5 +1,5 @@
 import chai from 'chai';
-import CharacterSkill from '../lib/CharacterSkill';
+import CharacterSkill from '../lib/Character/CharacterSkill';
 const assert = chai.assert;
 
 describe('CharacterSkill', function () {
