@@ -1,9 +1,9 @@
 import chai from 'chai';
-import {Deck, Card, SUITS, VALUES} from '../lib/Deck';
+import {Deck, Card, SUITS, VALUES} from '../lib/deck/Deck';
 const assert = chai.assert;
 import _ from 'lodash';
 
-describe('Deck(factory)', () => {
+describe('deck(factory)', () => {
     let deck;
     beforeEach(() => {
         deck = new Deck(8, index => {

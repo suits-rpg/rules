@@ -1,5 +1,5 @@
 import chai from 'chai';
-import SkillsMixin from './../../lib/Character/SkillsMixin';
+import skillsMixin from './../../lib/Character/SkillsMixin';
 import _ from 'lodash';
 
 const assert = chai.assert;
@@ -13,9 +13,10 @@ describe('Character/SkillsMixin', function () {
             this.mind = props.mind;
         }
     }
-    class Character extends SkillsMixin(Base) {
+    class Character extends skillsMixin(Base) {
         skillRank(name) { // a stub
-            return name === 'Hand Weapons' ? 2 + this.reflexes : Math.round(this.reflexes/2) }
+            return name === 'Hand Weapons' ? 2 + this.reflexes : Math.round(this.reflexes / 2);
+        }
     }
 
     beforeEach(() => {
@@ -28,7 +29,7 @@ describe('Character/SkillsMixin', function () {
             skills: [
                 {name: 'Hand Weapons', attr: 'reflexes', level: 2},
                 {name: 'Philosophy', attr: 'mind', level: 4}
-            ],
+            ]
         });
     });
 

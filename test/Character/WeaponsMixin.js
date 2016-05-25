@@ -1,5 +1,5 @@
 import chai from 'chai';
-import WeaponsMixin from './../../lib/Character/WeaponsMixin';
+import weaponsMixin from './../../lib/Character/WeaponsMixin';
 
 const assert = chai.assert;
 
@@ -11,9 +11,10 @@ describe('Character/WeaponMixin', function () {
             this.reflexes = props.reflexes;
         }
     }
-    class Character extends WeaponsMixin(Base) {
+    class Character extends weaponsMixin(Base) {
         skillRank(name) { // a stub
-            return name === 'Hand Weapons' ? 2 + this.reflexes : Math.round(this.reflexes/2) }
+            return name === 'Hand Weapons' ? 2 + this.reflexes : Math.round(this.reflexes / 2);
+        }
     }
 
     beforeEach(() => {
@@ -48,7 +49,7 @@ describe('Character/WeaponMixin', function () {
         it('should have weapon name', () => assert.equal(boot.name, 'Boot with Nails'));
 
         it('should reflect rank', () => assert.equal(boot.rank, 8));
-        
-        it ('should reflect damageType', () => assert.equal(boot.damageType, 'Hard'));
+
+        it('should reflect damageType', () => assert.equal(boot.damageType, 'Hard'));
     });
 });

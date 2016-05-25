@@ -1,7 +1,7 @@
 import chai from 'chai';
 import {Sim} from '../lib/Sim';
 import {Teams} from '../lib/Teams';
-import {Deck, Card, SUITS, VALUES} from '../lib/Deck';
+import {Deck, Card, SUITS, VALUES} from '../lib/deck/Deck';
 import Character from '../lib/Character/Character';
 import {weapons} from '../lib/Weapons';
 

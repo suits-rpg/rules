@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {Deck, Card, SUITS, VALUES} from '../lib/Deck';
+import {Deck, Card, SUITS, VALUES} from '../lib/deck/Deck';
 import Initiative from '../lib/Initiative';
 import _ from 'lodash';
 const assert = chai.assert;

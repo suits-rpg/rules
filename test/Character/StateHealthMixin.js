@@ -1,5 +1,5 @@
 import chai from 'chai';
-import StateHealthMixin from './../../lib/Character/StateHealthMixin';
+import stateHealthMixin from './../../lib/Character/StateHealthMixin';
 
 const assert = chai.assert;
 
@@ -11,7 +11,7 @@ describe('Character/StateHealthMixin', function () {
             this.body = props.body;
         }
     }
-    class Character extends StateHealthMixin(Base) {
+    class Character extends stateHealthMixin(Base) {
     }
 
     beforeEach(() => {
