@@ -1,10 +1,18 @@
 import chai from 'chai';
-import Character from '../lib/Character/Character';
-const assert = chai.assert;
-import {Teams} from '../lib/Teams';
+import StateHealthMixin from './../../lib/Character/StateHealthMixin';
 
-describe('Character', function () {
+const assert = chai.assert;
+
+describe('Character/StateHealthMixin', function () {
     let char;
+    class Base { // a stub
+        constructor(props) {
+            this.name = props.name;
+            this.body = props.body;
+        }
+    }
+    class Character extends StateHealthMixin(Base) {
+    }
 
     beforeEach(() => {
         char = new Character({
@@ -12,24 +20,12 @@ describe('Character', function () {
             body: 4,
             mind: 5,
             reflexes: 6,
-            spirit: 7,
-            skills: [
-                {name: 'running', attr: 'body', level: 2}
-            ]
+            spirit: 7
         });
     });
-    
-    describe('Teams', () => {
-        var teams;
 
-        beforeEach(() => {
-            teams = new Teams();
-            teams.add('alphans').add('betans');
-            char.team = teams.getTeam('alphans');
-        });
-
-        it('has the right teamName', () => assert.equal(char.teamName, 'alphans'));
-    });
+    it('should start with state active', () => assert.equal(char.state, 'ready'));
+    it('should start with health awake', () => assert.equal(char.health, 'awake'));
 
     describe('state', () => {
         describe('start', () => {
