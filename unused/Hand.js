@@ -1,5 +1,5 @@
 import Comb from 'js-combinatorics';
-import CardFixedRank from './CardFixedRank';
+import CardFixedRank from './../lib/deck/CardFixedRank';
 
 const _sr = {
     club: 0,

@@ -1,6 +1,8 @@
 import chai from 'chai';
-import {Deck, Card, SUITS, VALUES} from '../lib/deck/Deck';
-import Initiative from '../lib/Initiative';
+import Deck from '../../lib/deck/Deck';
+import SUITS from '../../lib/deck/suits.json';
+import VALUES from '../../lib/deck/values.json';
+import Initiative from '../../lib/Sim/Initiative';
 import _ from 'lodash';
 const assert = chai.assert;
 
@@ -12,12 +14,12 @@ describe('Initiative', () => {
     let order1;
 
     beforeEach(() => {
-      deck = new Deck(8, index => {
+      deck = new Deck(index => {
         const value = VALUES[Math.abs(2 - index) % VALUES.length];
         const suit = SUITS[index % SUITS.length];
-        return new Card(value, suit);
+        return {value, suit};
       });
-// deck == A of club,3 of spade,5 of diamond,7 of heart,9 of club,J of spade,K of diamond,2 of heart
+
       init = new Initiative(deck);
       init.addCharacter({reflexes: 2, name: 'bob'});
       init.addCharacter({reflexes: 3, name: 'rob'});

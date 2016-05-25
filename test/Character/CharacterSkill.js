@@ -1,5 +1,5 @@
 import chai from 'chai';
-import CharacterSkill from '../lib/Character/CharacterSkill';
+import CharacterSkill from '../../lib/Character/CharacterSkill';
 const assert = chai.assert;
 
 describe('CharacterSkill', function () {
@@ -29,7 +29,7 @@ describe('CharacterSkill', function () {
     });
   });
 
-  describe('.level', function () {
+ describe('.level', function () {
     it('should be set', function () {
       assert.equal(cs.level, LEVEL, 'it has the right level');
     });

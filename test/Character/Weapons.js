@@ -1,6 +1,6 @@
 import chai from 'chai';
-import {weapons} from '../lib/Weapons';
-import CharacterWeapon from '../lib/CharacterWeapon';
+import {weapons} from '../../lib/Character/Weapons';
+import CharacterWeapon from '../../lib/Character/CharacterWeapon';
 const assert = chai.assert;
 
 describe('weapons', function () {

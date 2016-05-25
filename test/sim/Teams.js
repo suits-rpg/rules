@@ -1,5 +1,5 @@
 import chai from 'chai';
-import {Teams, Team} from '../lib/Teams';
+import {Teams, Team} from '../../lib/Sim/Teams';
 const assert = chai.assert;
 
 describe('Team', () => {
