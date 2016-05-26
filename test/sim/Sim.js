@@ -1,9 +1,11 @@
 import chai from 'chai';
-import {Sim} from '../lib/Sim/Sim';
-import {Teams} from '../lib/Sim/Teams';
-import {Deck, Card, SUITS, VALUES} from '../unused/Deck';
-import Character from '../lib/Character/Character';
-import {weapons} from '../lib/Character/Weapons';
+import {Sim} from '../../lib/Sim/Sim';
+import {Teams} from '../../lib/Sim/Teams';
+import Deck from '../../lib/deck/Deck';
+import SUITS from '../../lib/deck/suits.json';
+import VALUES from '../../lib/deck/values.json';
+import Character from '../../lib/Character/Character';
+import {weapons} from '../../lib/Character/Weapons';
 
 const assert = chai.assert;
 const startEndReport = report => report.reduce((memo, event) => {
@@ -26,14 +28,14 @@ describe('Sim', () => {
         teams.add('Alphans');
         teams.add('Betans');
 
-        deck = new Deck(100, index => {
+        deck = new Deck(index => {
             let n = index % VALUES.length;
             if (n % 2) {
                 n = (VALUES.length - 1) - n;
             }
             const value = VALUES[n];
             const suit = SUITS[index % SUITS.length];
-            return new Card(value, suit);
+            return {value: value, suit: suit};
         });
 
         chars = [];
@@ -83,7 +85,7 @@ describe('Sim', () => {
     describe('constructor', () => {
         it('should have characters as entered', () => {
             var report = sim.characters.map(c => c.toJSON());
-            assert.deepEqual(report, require('./SimExpects/characters.json'));
+            assert.deepEqual(report, require('./../../unused_tests/SimExpects/characters.json'));
         });
 
         describe('character skills', () => {
@@ -129,15 +131,15 @@ describe('Sim', () => {
             });
 
             it('should have some characters with blue, some without', () => {
-                assert.deepEqual(chipReport, require('./SimExpects/firstRoundChipReport.json'));
+                assert.deepEqual(chipReport, require('./../../unused_tests/SimExpects/firstRoundChipReport.json'));
             });
         });
 
         describe('first round', () => {
-            let report;
-            let attacks;
-            let noops;
-            let hits;
+            let report; // complete event log
+            let attacks; // report from characters who attacked
+            let noops; // report from characters who do not act because they acted passively on someone elses' turn
+            let hits; // report of characters health. 
 
             const tallyReports = () => {
                 attacks = report.reduce((memo, event) => {
@@ -194,11 +196,11 @@ describe('Sim', () => {
              * Also the order of action should reflect the initiative class.
              */
             it('should have some of the characters act', () => {
-                assert.deepEqual(startEndReport(report), require('./SimExpects/startEndReport.json'));
+                assert.deepEqual(startEndReport(report), require('./../../unused_tests/SimExpects/startEndReport.json'));
             });
 
-            it('has expected damage results:', () => {
-                assert.deepEqual(hits, require('./SimExpects/firstRoundHits.json'));
+            it('has expected hits:', () => {
+                assert.deepEqual(hits, require('./../../unused_tests/SimExpects/firstRoundHits.json'));
             });
 
             it('goes to round 1', () => assert.equal(sim.round, 1));
@@ -210,12 +212,12 @@ describe('Sim', () => {
                     sim.doRound();
                     tallyReports();
                    // console.log('hits, round 2:', JSON.stringify(hits, true, 4));
-                     console.log('attacks, round 2:', JSON.stringify(attacks, true, 4));
+                    // console.log('attacks, round 2:', JSON.stringify(attacks, true, 4));
                 });
 
-                it.skip('attack results', () => assert.deepEqual(attacks, require('./SimExpects/secondRoundAttacks.json')));
+                it.skip('attack results', () => assert.deepEqual(attacks, require('./../../unused_tests/SimExpects/secondRoundAttacks.json')));
 
-                it('should have noops', () => assert.deepEqual(noops, require('./SimExpects/secondRoundNoops.json')));
+                it('should have noops', () => assert.deepEqual(noops, require('./../../unused_tests/SimExpects/secondRoundNoops.json')));
 
                 it('goes to round 2', () => assert.equal(sim.round, 2));
             });

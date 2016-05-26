@@ -17,9 +17,9 @@ describe('Initiative', () => {
       deck = new Deck(index => {
         const value = VALUES[Math.abs(2 - index) % VALUES.length];
         const suit = SUITS[index % SUITS.length];
-        return {value: value, suit: suit}
+        return {value, suit};
       });
-// deck == A of club,3 of spade,5 of diamond,7 of heart,9 of club,J of spade,K of diamond,2 of heart
+
       init = new Initiative(deck);
       init.addCharacter({reflexes: 2, name: 'bob'});
       init.addCharacter({reflexes: 3, name: 'rob'});
