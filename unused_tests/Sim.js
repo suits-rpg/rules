@@ -1,9 +1,9 @@
 import chai from 'chai';
-import {Sim} from '../lib/Sim';
-import {Teams} from '../lib/Teams';
-import {Deck, Card, SUITS, VALUES} from '../lib/deck/Deck';
+import {Sim} from '../lib/Sim/Sim';
+import {Teams} from '../lib/Sim/Teams';
+import {Deck, Card, SUITS, VALUES} from '../unused/Deck';
 import Character from '../lib/Character/Character';
-import {weapons} from '../lib/Weapons';
+import {weapons} from '../lib/Character/Weapons';
 
 const assert = chai.assert;
 const startEndReport = report => report.reduce((memo, event) => {
