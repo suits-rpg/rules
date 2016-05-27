@@ -28,13 +28,19 @@ describe('Sim', () => {
         teams.add('Alphans');
         teams.add('Betans');
 
+        const pseudoRandom = ('' + Math.PI).replace('.', '')
+            .split('')
+            .map(n => parseInt(n))
+            .map(n => n % SUITS.length);
+
         deck = new Deck(index => {
             let n = index % VALUES.length;
             if (n % 2) {
                 n = (VALUES.length - 1) - n;
             }
             const value = VALUES[n];
-            const suit = SUITS[index % SUITS.length];
+            const suitsIndex = pseudoRandom[index % pseudoRandom.length];
+            const suit = SUITS[suitsIndex];
             return {value: value, suit: suit};
         });
 
