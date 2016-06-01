@@ -1,0 +1,132 @@
+[
+  {
+    "recover": true,
+    "char": "Alphan 1",
+    "shock": 2
+  },
+  {
+    "actor": "Alphan 2",
+    "charDraw": {
+      "rank": 5,
+      "cardsDrawn": [
+        "10 of heart",
+        "5 of spade"
+      ],
+      "cardsUsed": [
+        "<< [null] -- rank 0 -- invalid >>",
+        "<< 5 of spade -- rank 5 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 7,
+      "cardsDrawn": [
+        "8 of heart",
+        "7 of heart"
+      ],
+      "cardsUsed": [
+        "<< [null] -- rank 0 -- invalid >>",
+        "<< 7 of heart -- rank 7 >>"
+      ],
+      "highSuitRank": 3,
+      "over": false
+    },
+    "result": "Betan 3 hits Alphan 2 amount: 5"
+  },
+  {
+    "actor": "Alphan 3",
+    "charDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "6 of spade",
+        "9 of club"
+      ],
+      "cardsUsed": [
+        "<< 6 of spade -- rank 6 >>",
+        "<< [null] -- rank 0 -- invalid >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "4 of spade",
+        "J of spade"
+      ],
+      "cardsUsed": [
+        "<< 4 of spade -- rank 4 >>",
+        "<< J of spade -- rank 2 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "result": "tie between Alphan 3 and Betan 3"
+  },
+  {
+    "actor": "Betan 2",
+    "charDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "2 of spade",
+        "K of diamond"
+      ],
+      "cardsUsed": [
+        "<< 2 of spade -- rank 2 >>",
+        "<< K of diamond -- rank 4 >>"
+      ],
+      "highSuitRank": 2,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 4,
+      "cardsDrawn": [
+        "A of diamond",
+        "Q of spade"
+      ],
+      "cardsUsed": [
+        "<< A of diamond -- rank 1 >>",
+        "<< Q of spade -- rank 3 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "result": "Betan 2 hits Alphan 1 amount: 6"
+  },
+  {
+    "recover": true,
+    "char": "Betan 3",
+    "shock": 2
+  },
+  {
+    "actor": "Betan 1",
+    "charDraw": {
+      "rank": 5,
+      "cardsDrawn": [
+        "5 of club",
+        "8 of spade"
+      ],
+      "cardsUsed": [
+        "<< 5 of club -- rank 5 >>",
+        "<< [null] -- rank 0 -- invalid >>"
+      ],
+      "highSuitRank": 0,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 7,
+      "cardsDrawn": [
+        "7 of heart",
+        "6 of spade"
+      ],
+      "cardsUsed": [
+        "<< 7 of heart -- rank 7 >>",
+        "<< [null] -- rank 0 -- invalid >>"
+      ],
+      "highSuitRank": 3,
+      "over": false
+    },
+    "result": "Alphan 2 hits Betan 1 amount: 5"
+  }
+]

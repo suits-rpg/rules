@@ -9,42 +9,26 @@ In a contest, you draw _two_ cards for each contestant.
 * If either or both card is under your skill, you can use the highest as your rank. 
 * If the _sum_ of the cards is under your skill, that is your rank. 
 
-## Fast Attacks, two weapons. 
+## Fast Attacks
 
 Some weapons get multiple attacks per round; these include pistols, automatic weapons, etc.
 Optionally, if you have two weapons in hand, you can gain multiple attacks.
 Note, even if you HAVE two weapons, attacking with both weapons in one round is optional 
 and must be declared prior to drawing. 
 
+## Two items
+
 In all cases having a second weapon in hand is +1 Defense, except vs. ranged weapons. 
 This is true regardless of whether or not you opt for a second attack. 
 
+A second-weapon defense bonus does _not_ apply against ranged/thrown weapons. 
+
 * Anyone can attack with two weapons as long as one of them is small. 
-* A hand to hand fighter whose Body equals the Sum of the minimum strength of both weapons 
-  can attack with larger weapons, as long as neither are slow. 
-
-A multiple attack is successful only if 
-
-* the two cards are sequential in rank (a 4 and a 5, an King (4) and a 3, etc.
-* the highest card drawn is still a successful attack. 
-
-Note even if a _multiple_ attack is not successful you can still get in a successful _single_ 
-attack with your highest card. The disadvantage of a multiple attack is that you _never_ get to 
-add your cards' value together. you _can_ multiple attack two enemies if they are in front of you.
-
-If you are outnumbered, you are forced to use your secondary weapon in defense, and cannot multiple attack. 
-
-## Multiple Shots
-
-Guns with autofire (assault rifles, machine guns, most modern pistols) attack multiply by design.  
-With automatic weapons, each shot(or burst) is a single draw, and with each successive draw your 
-skill goes down by 1/2 at PB range, 1 at short range, 2 at medium range, and 4 at long range. 
-
-If you opt to shoot more than once in a round, each shot is resolved with a single card.
-
-If you have multiple guns WITH multiple shots the gun in your off hand is at 1/2 skill. 
-
-* Firing two-handed with multi shot 
+* Because all large weapons are two handed, by definition, there are only two legal two-handed
+  options: a small weapon and a medium weapon, and two small weapons. 
+  
+Also, you may have a shield in your off hand. Shields have a Defense bonus that is determined
+by their size. Shields give defense bonuses against all attacks from the front, ranged or hand to hand.
 
 ## Minions
 
@@ -108,25 +92,44 @@ every 10 mph = 4 meter/second; every 7 kph = 2 meters/second.
 ### Order of action
 
 For the first round, everyone draws a card; if that card is under your reflexes, you act in descending order 
-of the card value. If it is not, you still act on that phase, but do not act on the first round. 
-
-If you have a slow weapon, halve your skill for this purpose.
-
-Note the order of action, with overdraws in parentheses. 
-
-You do not HAVE to act at the same level as your card; if there is a reason you want to 
-delay, you can act in a phase below your skill. 
+of the card value. If it is not, you still act on that phase, but do not act on the first round.
+Write down the list of actors in order of action. Note overdraws with a parentheses. 
 
 If multiple people attempt to act at the same level, they act in ascending order of skill. redraw to resolve ties.
 
-If there are large numbers of identical minions, they can be grouped in clusters of 2 - 4 each to determine order. 
+If there are large numbers (~10+) of identical minions, they can be grouped in clusters of 2 - 4 each to determine order. 
 Ideally, break up the clusters so that they are made of minions in different locations to reduce coordinated advantage.
 
 Note there are a lot of complex integrations possible with a team battle, but unless you have two weapons, 
 you only have one chance to take action since your last action. If you have a slow weapon,
 "taking action" means readying your weapon. 
 
-For eaample, Bob and Jon are fighting Rod and Tod. 
+### Frequency of Action
+
+Whether you attack on your turn or counterattack on someone elses' turn, you still only get one opportunity to attack
+each round.
+ 
+#### Frequency of use
+
+From the time _after_ your action up until and _including_ your turn, you can only use each weapon/attack mode once.
+Even if you have a fast weapon, like an automatic rifle, you still use it once, resolving multiple attacks.
+The exception to that is shields, which can be used (defensively) as many times in this period as its defensive rating; 
+medium shields can be used twice, for instance, as they are D2. 
+ 
+You can track usability of weapons and shields by different colored poker chips; for instance, a blue chip
+can be used for your primary weapon, and a white chip (or chips) can be used for your shield or off-hand weapon. 
+These chips are issued at the end of your turn. 
+
+You can always opt to dodge on your turn instead of using an item to conserve poker chips; only a good idea if you 
+are outnumbered. 
+
+After your turn if you use a weapon to attack or defend on someone else's turn, you can't use that same weapon (or attack
+that same person) on their turn. 
+
+Slow weapons, when used, become unready. The second time they are used, you are just readying it; no draw is required, 
+you just change the status of the weapon. 
+
+For example, Bob and Jon are fighting Rod and Tod. 
 
 The order goes
  1. Bob
@@ -150,7 +153,7 @@ If you have poker chips you can track this by giving each player a blue chip and
   at a cost of one chip and still act normally on your round. 
 * If you have a slow weapon, and you have no blue chips, _after_ your turn, you get two blue chips.
   On your round if you have two blue chips, you can spend one blue chip(to ready your weapon). 
-  You can only engage (on your turn or someone elses) if you have _exactly_ one blue chip. 
+  You can only engage (on your turn or someone else's) if you have _exactly_ one blue chip. 
 
 ### Defensive response
 
@@ -223,35 +226,15 @@ Each +/- adjusts the loss the winner inflicts on the loser by 25%; so if your ba
 
 #### Bonus for suit
 
-The winner's power bonus is based on the _single best_ suit in the cards they use.
+The winner's power bonus is based on the suit of the _highest_ ranked card; for this purpose,
+Aces and Face cards are high. In the case of a tie, take the last card drawn.
 
 * +0 for clubs
 * +1 for spades
 * +2 for hearts
 * +3 for diamonds
 
-Additionally, face cards add to your power bonus. If you have multiple face cards 
-add the bonus for _each_ face card you use in the contest.
-
-* +1 for Aces
-* +2 for Jacks
-* +3 for Queens
-* +4 for Kings
-
-If the defender doesn't overdraw, they get a negative bonus for their _single best_ card: 
-
-* -3 for clubs
-* -2 for Spades
-* -1 for hearts
-*  0 for diamonds
-
-Additionally, if the defender doesn't overdraw, they get a negative bonus for _each_ face card
-they use in defense.
-
-* -1 for Aces
-* -2 for Jacks
-* -3 for Queens
-* -4 for Kings
+If the defender doesn't overdraw, they get a negative bonus, as described. 
 
 So, the "worth" of the suit of the card depends a lot on whether you win or lose...
 
@@ -639,6 +622,8 @@ Slow: adds an extra round of recovery after a successful attack. When readying a
       weapon you still can defend normally. 
 Note - awkward and slow modifiers combine. 
 
+# Special Circumstances
+
 ## Bonus Cards (optional) 
 
 To add a little strategy, when you get a face card, you can choose to receive a bonus card
@@ -715,3 +700,32 @@ If your opponent has no armor to lose, treat as a Heart.
 
 +1/-1 Power Bonus. Add this to the Suit bonus value when determine weapon effect. 
 
+### Multiple attacks
+  
+A multiple attack is successful only if 
+
+* the two cards are sequential in rank (a 4 and a 5, an King (4) and a 3, etc.
+* a sequential _descending_ (6, 5) draw is also a succesful attack. 
+
+You cannot both multiple attack and receive a defensive bonus for the second weapon; 
+once you multiple attack, until your next action, you don't get to apply a defensive bonus for the 
+secondary weapon. 
+
+This is comparable to "splitting" in blackjack; each card is resolved as a successful attack. 
+However, if the result of the first attack is you getting hit, your second attack does not occur. 
+The good news is, you never get counter-hit twice if you initiate a multiple attack. 
+
+If you are outnumbered, you are forced to use your secondary weapon in defense, and cannot multiple attack. 
+
+You are never _obligated_ to attack multiply; you can always opt to attack only with one weapon, 
+and defend with the other one. 
+
+## Multiple Shots
+
+Guns with autofire (assault rifles, machine guns, most modern pistols) attack multiply by design.  
+With automatic weapons, each shot(or burst) is a single draw, and with each successive draw your 
+skill goes down by 1/2 at PB range, 1 at short range, 2 at medium range, and 4 at long range. 
+
+If you opt to shoot more than once in a round, each shot is resolved with a single card.
+
+If you have multiple guns WITH multiple shots the gun in your off hand is at 1/2 skill. 

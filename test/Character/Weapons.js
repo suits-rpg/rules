@@ -20,8 +20,10 @@ describe('weapons', function () {
             charWeapon = new CharacterWeapon(charMock, sword);
         });
 
+        // skillRank for Hand Weapons is in mock of character
         it('should have the rank of 7', () => assert.equal(charWeapon.rank, 7, 'skill reflects charWeapon'));
 
-        it('should have a base power of 5', () => assert.equal(charWeapon.basePower, 5));
+        // base power is 100% of body
+        it('should have a base power of 6', () => assert.equal(charWeapon.basePower, 6));
     });
 });

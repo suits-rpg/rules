@@ -1,8 +1,8 @@
 {
   "Alphan 1": {
-    "shock": 0,
-    "wounds": 0,
-    "health": "awake"
+    "shock": 5,
+    "wounds": 6,
+    "health": "dazed"
   },
   "Alphan 2": {
     "shock": 0,
@@ -16,7 +16,7 @@
   },
   "Betan 1": {
     "shock": 5,
-    "wounds": 0,
+    "wounds": 1,
     "health": "awake"
   },
   "Betan 2": {
@@ -26,7 +26,7 @@
   },
   "Betan 3": {
     "shock": 7,
-    "wounds": 0,
+    "wounds": 1,
     "health": "dazed"
   }
 }
