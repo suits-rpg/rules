@@ -2,7 +2,7 @@ import chai from 'chai';
 import Deck from '../../lib/deck/Deck';
 import SUITS from '../../lib/deck/suits.json';
 import VALUES from '../../lib/deck/values.json';
-import Initiative from '../../lib/Sim/Initiative';
+import Initiative from '../../lib/simulation/Initiative';
 import _ from 'lodash';
 const assert = chai.assert;
 

@@ -1,6 +1,6 @@
 import chai from 'chai';
-import {Sim} from '../../lib/Sim/Sim';
-import {Teams} from '../../lib/Sim/Teams';
+import Sim from '../../lib/simulation/Sim';
+import {Teams} from '../../lib/simulation/Teams';
 import Deck from '../../lib/deck/Deck';
 import SUITS from '../../lib/deck/suits.json';
 import VALUES from '../../lib/deck/values.json';
@@ -94,6 +94,20 @@ describe('Sim', () => {
             assert.deepEqual(report, require('./SimExpects/characters.json'));
         });
 
+        describe('ensureTarget/hasTarget', () => {
+            it('should start with no target', () => {
+                for (let char of chars) {
+                    assert.isNotOk(sim.hasTarget(char), 'has no target');
+                }
+            });
+            
+            it('should set the target of one character', () => {
+                const withTarget = chars[2];
+                sim.setTarget(withTarget);
+                assert.isOk(sim.hasTarget(withTarget), 'has a target');
+            });
+        });
+
         describe('character skills', () => {
             let skillsList;
             beforeEach(() => {
@@ -116,7 +130,7 @@ describe('Sim', () => {
         });
     });
 
-    describe('simulation', () => {
+    describe('Sim', () => {
         it('starts at round 0', () => assert.equal(sim.round, 0));
 
         describe('init.startRound', () => {

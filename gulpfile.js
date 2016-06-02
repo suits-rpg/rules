@@ -66,15 +66,22 @@ gulp.task('watch', function () {
     gulp.watch(['lib/**/*.js', 'test/**'], ['test']);
 });
 
-gulp.task('babel', ['clean'], function () {
+gulp.task('babel', ['clean'], function (cb) {
     return gulp.src('lib/**/*.js')
         .pipe(babel())
         .pipe(gulp.dest('dist'));
+    cb();
+});
+
+gulp.task('json', function (cb) {
+    return gulp.src('lib/**/*.json')
+        .pipe(gulp.dest('dist'));
+    cb();
 });
 
 gulp.task('clean', function () {
     return del('dist');
 });
 
-gulp.task('prepublish', ['nsp', 'babel']);
+gulp.task('prepublish', ['nsp', 'babel', 'json']);
 gulp.task('default', ['static', 'test']);

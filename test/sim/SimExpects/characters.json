@@ -6,7 +6,7 @@
     "reflexes": 6,
     "spirit": 5,
     "health": "awake",
-    "state": "ready",
+    "state": "canAct",
     "team": "Alphans",
     "target" : ""
   },
@@ -17,7 +17,7 @@
     "reflexes": 7,
     "spirit": 5,
     "health": "awake",
-    "state": "ready",
+    "state": "canAct",
     "team": "Alphans",
     "target" : ""
   },
@@ -28,7 +28,7 @@
     "reflexes": 8,
     "spirit": 5,
     "health": "awake",
-    "state": "ready",
+    "state": "canAct",
     "team": "Alphans",
     "target" : ""
   },
@@ -39,7 +39,7 @@
     "reflexes": 5,
     "spirit": 5,
     "health": "awake",
-    "state": "ready",
+    "state": "canAct",
     "team": "Betans",
     "target" : ""
   },
@@ -50,7 +50,7 @@
     "reflexes": 6,
     "spirit": 5,
     "health": "awake",
-    "state": "ready",
+    "state": "canAct",
     "team": "Betans",
     "target" : ""
   },
@@ -61,7 +61,7 @@
     "reflexes": 7,
     "spirit": 5,
     "health": "awake",
-    "state": "ready",
+    "state": "canAct",
     "team": "Betans",
     "target" : ""
   }

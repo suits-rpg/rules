@@ -24,12 +24,12 @@ describe('Character/StateHealthMixin', function () {
         });
     });
 
-    it('should start with state active', () => assert.equal(char.state, 'ready'));
+    it('should start with state active', () => assert.equal(char.state, 'canAct'));
     it('should start with health awake', () => assert.equal(char.health, 'awake'));
 
     describe('state', () => {
         describe('start', () => {
-            it('shoud start as state:ready', () => assert.equal(char.state, 'ready'));
+            it('shoud start as state:canAct', () => assert.equal(char.state, 'canAct'));
             it('should start as health:active', () => assert.equal(char.health, 'awake'));
         });
 
@@ -38,6 +38,18 @@ describe('Character/StateHealthMixin', function () {
 
             it('should make character sleep', () => assert.equal(char.state, 'inactive'));
             it('should make character knocked out', () => assert.equal(char.health, 'knocked out'));
+        });
+
+        describe('act', () => {
+            beforeEach(() => char.act());
+
+            it('should be acted', () => assert.equal(char.state, 'acted'));
+
+            describe('reset', () => {
+                beforeEach(() => char.resetAction());
+
+                it('should reset to canAct', () => assert.equal(char.state, 'canAct'));
+            });
         });
     });
 

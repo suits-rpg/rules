@@ -1,6 +1,6 @@
 import chai from 'chai';
 import targetTeamsMixin from './../../lib/Character/TargetTeamMixin';
-import {Teams} from '../../lib/Sim/Teams';
+import {Teams} from '../../lib/simulation/Teams';
 const assert = chai.assert;
 
 describe('Character/TargetTeams', function () {
