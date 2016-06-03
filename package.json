@@ -14,8 +14,8 @@
   "main": "dist/index.js",
   "keywords": [
     "rpg",
-    "irl",
-    "playing card game"
+    "cards",
+    "suits"
   ],
   "devDependencies": {
     "babel-core": "^5.5.0",
@@ -23,7 +23,7 @@
     "chai": "^3.5.0",
     "del": "^2.0.2",
     "eslint": "^2.1.0",
-    "eslint-config-xo-space": "^0.12.0",
+    "eslint-config-xo-space": "^0.13.0",
     "eslint-plugin-babel": "^3.1.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.1.0",
@@ -42,17 +42,16 @@
       "mocha": true
     }
   },
-  "repository": "suits-rpg/suits-rules",
+  "repository": "git@github.com:suits-rpg/rules.git",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
   "license": "MIT",
   "dependencies": {
-    "es6-collections": "^0.5.6",
     "eventemitter2": "^1.0.3",
     "js-combinatorics": "^0.5.2",
-    "lodash": "^4.12.0",
+    "lodash": "^4.13.1",
     "mcp": "^1.3.4"
   }
 }

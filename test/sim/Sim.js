@@ -217,7 +217,7 @@ describe('Sim', () => {
 
                 it('attack results', () => {
                     // console.log('hits, round 2:', JSON.stringify(hits, true, 4));
-                    console.log('noops, round 2:', JSON.stringify(noops, true, 4));
+                    // console.log('noops, round 2:', JSON.stringify(noops, true, 4));
                     //  console.log('attacks, round 2:', JSON.stringify(attacks, true, 4));
                     assert.deepEqual(attacks, require('./SimExpects/secondRoundAttacks.json'));
                 });
