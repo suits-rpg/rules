@@ -35,7 +35,8 @@
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
-    "isparta": "^3.0.3"
+    "isparta": "^3.0.3",
+    "json-loader": "^0.5.4"
   },
   "eslintConfig": {
     "extends": "xo-space",

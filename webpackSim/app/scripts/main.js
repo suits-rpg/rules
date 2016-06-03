@@ -1,4 +1,5 @@
 var suits = require('../../../dist');
+var _ = require('lodash');
 
 const Sim = suits.Sim;
 const Teams = suits.Teams;
@@ -18,21 +19,7 @@ teams = new Teams();
 teams.add('Alphans');
 teams.add('Betans');
 
-const pseudoRandom = String(Math.PI)
-    .replace('.', '')
-    .split('')
-    .map(n => parseInt(n, 10) % SUITS.length);
-
-deck = new Deck(index => {
-    let n = index % VALUES.length;
-    if (n % 2) {
-        n = (VALUES.length - 1) - n;
-    }
-    const value = VALUES[n];
-    const suitsIndex = pseudoRandom[index % pseudoRandom.length];
-    const suit = SUITS[suitsIndex];
-    return {value: value, suit: suit};
-});
+deck = new Deck();
 
 chars = [];
 
@@ -77,5 +64,22 @@ for (let j of [0, 1, 2]) {
 
 sim = new Sim(chars, teams, deck);
 
-sim.doRound();
+var charData = _.map(chars, char => ({
+    name: char.name,
+    reflexes: char.reflexes,
+    body: char.body,
+    mind: char.mind,
+    team: char.team.name
+}));
+
+var container = document.getElementById('characters');
+var hot = new Handsontable(container,
+    {
+        data: charData
+    });
+
+while(!teams.done) {
+    sim.doRound();
+    
+}
 

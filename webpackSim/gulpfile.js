@@ -22,6 +22,11 @@ gulp.task('webpack', function () {
     console.log('webpack');
     return gulp.src('app/scripts/main.js')
         .pipe(webpack({
+            module: {
+                loaders: [
+                    { test: /\.json$/, loader: "json" }
+                ]
+            }
         }))
         .pipe(through2.obj(NoopPlugin))
         .pipe(gulp.dest('app/scripts/'))
