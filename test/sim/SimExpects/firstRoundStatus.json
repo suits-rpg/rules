@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Alphan 1",
+    "health": "dazed",
+    "target": "Betan 1"
+  },
+  {
+    "name": "Alphan 2",
+    "health": "awake",
+    "target": "Betan 3"
+  },
+  {
+    "name": "Alphan 3",
+    "health": "awake",
+    "target": "Betan 3"
+  },
+  {
+    "name": "Betan 1",
+    "health": "awake",
+    "target": "Alphan 1"
+  },
+  {
+    "name": "Betan 2",
+    "health": "awake",
+    "target": "Alphan 1"
+  },
+  {
+    "name": "Betan 3",
+    "health": "dazed",
+    "target": "Alphan 2"
+  }
+]

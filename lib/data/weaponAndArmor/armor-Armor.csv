@@ -1,11 +1,8 @@
-,Absorption,Body Bonus,Defense,Ranged Defense,1,2,3,4,5,6,7,8,9,10
-Leather,1,,,,1,1,1,1,1,1,1,1,1,1
-Ring Mail,1,,,,1,1,1,1,1,1,1,1,1,1
-Chainmail,2,,,,2,2,2,2,2,2,2,2,2,2
-Scale Armor,2,33%,,,2,3,3,3,4,4,4,5,5,5
-Plated Armor,3,33%,+1,,3,4,4,4,5,5,5,6,6,6
-Light Plate,4,33%,+1,+1,4,5,5,5,6,6,6,7,7,7
-Heavy Plate,4,33%,+1,+1,4,5,5,5,6,6,6,7,7,7
-Small Shield,,,+1,,,,,,,,,,,
-Shield,,,+2,+1,,,,,,,,,,
-Large Shield,,,+3,+2,,,,,,,,,,
+Name,Absorption,Defense,Ranged Defense
+Leather,1,,
+Ring Mail,2,,
+Chainmail,3,,
+Scale Armor,4,,
+Plated Armor,4,+1,
+Light Plate,5,+1,+1
+Heavy Plate,6,+1,+1

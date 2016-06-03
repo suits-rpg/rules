@@ -1,0 +1,97 @@
+[
+  {
+    "recover": true,
+    "char": "Alphan 2",
+    "shock": 1
+  },
+  {
+    "actor": "Alphan 3",
+    "charDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "4 of heart",
+        "J of spade"
+      ],
+      "cardsUsed": [
+        "<< 4 of heart -- rank 4 >>",
+        "<< J of spade -- rank 2 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "2 of club",
+        "K of spade"
+      ],
+      "cardsUsed": [
+        "<< 2 of club -- rank 2 >>",
+        "<< K of spade -- rank 4 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "result": "tie between Alphan 3 and Betan 3"
+  },
+  {
+    "actor": "Betan 2",
+    "charDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "Q of spade",
+        "3 of diamond"
+      ],
+      "cardsUsed": [
+        "<< Q of spade -- rank 3 >>",
+        "<< 3 of diamond -- rank 3 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 5,
+      "cardsDrawn": [
+        "10 of diamond",
+        "5 of spade"
+      ],
+      "cardsUsed": [
+        "<< [null] -- rank 0 -- invalid >>",
+        "<< 5 of spade -- rank 5 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "result": "Betan 2 hits Alphan 3 amount: 6"
+  },
+  {
+    "actor": "Betan 3",
+    "charDraw": {
+      "rank": 7,
+      "cardsDrawn": [
+        "8 of heart",
+        "7 of spade"
+      ],
+      "cardsUsed": [
+        "<< [null] -- rank 0 -- invalid >>",
+        "<< 7 of spade -- rank 7 >>"
+      ],
+      "highSuitRank": 1,
+      "over": false
+    },
+    "targetDraw": {
+      "rank": 6,
+      "cardsDrawn": [
+        "6 of club",
+        "9 of spade"
+      ],
+      "cardsUsed": [
+        "<< 6 of club -- rank 6 >>",
+        "<< [null] -- rank 0 -- invalid >>"
+      ],
+      "highSuitRank": 0,
+      "over": false
+    },
+    "result": "Betan 3 hits Alphan 2 amount: 5"
+  }
+]

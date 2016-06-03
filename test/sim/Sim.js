@@ -100,7 +100,7 @@ describe('Sim', () => {
                     assert.isNotOk(sim.hasTarget(char), 'has no target');
                 }
             });
-            
+
             it('should set the target of one character', () => {
                 const withTarget = chars[2];
                 sim.setTarget(withTarget);
@@ -142,6 +142,7 @@ describe('Sim', () => {
             let attacks; // report from characters who attacked
             let noops; // report from characters who do not act because they acted passively on someone elses' turn
             let hits; // report of characters health. 
+            let status;
 
             const tallyReports = () => {
                 attacks = report.reduce((memo, event) => {
@@ -168,6 +169,20 @@ describe('Sim', () => {
                     };
                     return memo;
                 }, {});
+
+                status = chars.map(char => {
+                    var data = {
+                        name: char.name,
+                        health: char.health
+                    };
+                    if (char.target) {
+                        data.target = char.target.name;
+                    } else {
+                        data.target = '(none)';
+                    }
+
+                    return data;
+                });
             };
 
             beforeEach(() => {
@@ -180,6 +195,11 @@ describe('Sim', () => {
                 });
                 sim.doRound();
                 tallyReports();
+            });
+
+            it('should have the expected status and targeting', () => {
+              //  console.log('status, round 1', JSON.stringify(status));
+                assert.deepEqual(status, require('./SimExpects/firstRoundStatus.json', ' status as recorded'));
             });
 
             it('should have results for each attack', () => {
@@ -222,11 +242,41 @@ describe('Sim', () => {
                     assert.deepEqual(attacks, require('./SimExpects/secondRoundAttacks.json'));
                 });
 
+                it('should have the expected status and targeting', () => {
+                    //  console.log('status, round 3', JSON.stringify(status));
+                    assert.deepEqual(status, require('./SimExpects/secondRoundStatus.json', ' status as recorded'));
+                });
                 it('has expected hits:', () => assert.deepEqual(hits, require('./SimExpects/secondRoundHits.json')));
 
                 it('should have noops', () => assert.deepEqual(noops, require('./SimExpects/secondRoundNoops.json')));
 
                 it('goes to round 2', () => assert.equal(sim.round, 2));
+                
+                describe('third round', () => {
+                    beforeEach(() => {
+                        report = [];
+                        noops = [];
+                        sim.doRound();
+                        tallyReports();
+                    });
+
+                    it('attack results', () => {
+                         console.log('hits, round 3:', JSON.stringify(hits, true, 4));
+                         console.log('noops, round 3:', JSON.stringify(noops, true, 4));
+                         console.log('attacks, round 3:', JSON.stringify(attacks, true, 4));
+                        assert.deepEqual(attacks, require('./SimExpects/thirdRoundAttacks.json'));
+                    });
+
+                    it('should have the expected status and targeting', () => {
+                        // console.log('status, round 3', JSON.stringify(status));
+                        assert.deepEqual(status, require('./SimExpects/thirdRoundStatus.json', ' status as recorded'));
+                    });
+                    it('has expected hits:', () => assert.deepEqual(hits, require('./SimExpects/thirdRoundHits.json')));
+
+                    it('should have noops', () => assert.deepEqual(noops, require('./SimExpects/thirdRoundNoops.json')));
+
+                    it('goes to round 3', () => assert.equal(sim.round, 3));
+                });
             });
         });
     });
