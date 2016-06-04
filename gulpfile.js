@@ -89,8 +89,9 @@ gulp.task('json', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', function () {
-    return del('dist');
+gulp.task('clean', function (cb) {
+    return del.sync('dist');
+    cb();
 });
 
 gulp.task('prepublish', ['nsp', 'clean', 'babel', 'json']);

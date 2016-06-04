@@ -1,2 +1,10 @@
 [
+    {
+        "char": "Alphan 1",
+        "reason": "inactive"
+    },
+    {
+        "char": "Betan 3",
+        "reason": "inactive"
+    }
 ]

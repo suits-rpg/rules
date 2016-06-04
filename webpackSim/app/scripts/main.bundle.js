@@ -75,15 +75,18 @@
 	    name: 'Hand Weapons', levels: 2, attr: 'reflexes'
 	}];
 	const alphanWeapons = [weapons['medium blades']];
-	const betanWeapons = alphanWeapons;
+	const betanWeapons = [weapons['medium spear']];
+	const COUNT = 2;
+	const DELAY = 500;
+	const attr = (i, n) => n ? 5 - Math.floor(COUNT / 2) + i : 5 + Math.floor(COUNT / 2) - i;
 
-	for (let i of [0, 1, 2]) {
+	for (let i of  _.range(0, COUNT)) {
 	    props = {
 	        name: 'Alphan ' + (i + 1),
-	        reflexes: 6 + i,
-	        body: 6 - i,
+	        reflexes: attr(i, true),
+	        body: attr(i),
 	        mind: 5,
-	        Will: 5 + i,
+	        Will: attr(i, true),
 	        team: teams.getTeam('Alphans'),
 	        skills: skills,
 	        weapons: alphanWeapons
@@ -93,13 +96,13 @@
 	}
 
 	// betans
-	for (let j of [0, 1, 2]) {
+	for (let j of _.range(0, COUNT)) {
 	    props = {
 	        name: 'Betan ' + (j + 1),
-	        reflexes: 5 + j,
-	        body: 7 - j,
+	        reflexes: attr(j, true),
+	        body: attr(j),
 	        mind: 5,
-	        Will: 5 + j,
+	        Will: attr(j, true),
 	        team: teams.getTeam('Betans'),
 	        skills: skills,
 	        weapons: betanWeapons
@@ -120,10 +123,38 @@
 	    shock: char.shock,
 	    wounds: char.wounds,
 	    state: char.state,
-	    health: char.health
+	    health: char.health,
+	    weapon: char.currentWeapon ? char.currentWeapon.name : '(none)',
+	    target: char.target ? char.target.name : '(none)'
 	}));
 
+	let turn = 0;
 	sim.onAny((event, data) => {
+	    console.log(event, data);
+	    let notes = '';
+	    switch (event) {
+	        case 'round.start':
+	            turn = 1;
+	            break;
+
+	        case 'act.start':
+	            ++turn;
+	            break;
+
+	        case 'attack':
+	            notes = data.result.message;
+	            break;
+	        default:
+	    }
+	    const char = data.char ? data.char.name : '--';
+	    if (!/\.(start|end|chooseWeapon)/.test(event)) {
+	        $('#evts').DataTable()
+	            .row.add({
+	                event: event, turn: turn, round: sim.round, actor: char,
+	                notes: notes
+	            })
+	            .draw(true);
+	    }
 	});
 
 	const doRound = () => {
@@ -135,20 +166,34 @@
 	    table.draw();
 
 	    if (!teams.done) {
-	        setTimeout(doRound, 2000);
+	        setTimeout(doRound, DELAY);
 	    } else {
 	        console.log('sim done');
 	    }
 	};
+	$.extend($.fn.dataTable.defaults, {
+	    paging: false,
+	    searching: false,
+	    info: false,
+	});
 
 	$(document)
 	    .ready(() => {
+	        $('#evts')
+	            .DataTable({
+	                data: [],
+	                columns: [
+	                    {data: 'round', title: 'Round', className: 'short'},
+	                    {data: 'turn', title: 'Turn', className: 'short'},
+	                    {data: 'event', title: 'Event', className: 'medium'},
+	                    {data: 'actor', title: 'Actor', className: 'medium'},
+	                    {data: 'notes', title: 'Notes', className: 'long'}
+	                ]
+	            });
+
 	        $('#characters')
 	            .DataTable({
 	                data: charData(),
-	                paging: false,
-	                search: false,
-	                info: false,
 	                columns: [
 	                    {data: 'name', title: 'Name'},
 	                    {data: 'reflexes', title: 'REF'},
@@ -158,12 +203,14 @@
 	                    {data: 'team', title: 'Team'},
 	                    {data: 'health', title: 'Health'},
 	                    {data: 'shock', title: 'Shock'},
-	                    {data: 'wounds', title: 'Wounds'}
+	                    {data: 'wounds', title: 'Wounds'},
+	                    {data: 'weapon', title: 'Weapon'},
+	                    {data: 'target', title: 'Target'}
 	                ]
 	            }).column(5).order('asc');
-	        doRound();
-	    });
 
+	        setTimeout(doRound, 2000);
+	    });
 
 
 /***/ },
@@ -19852,7 +19899,7 @@
 	        value: function act(characterOrder) {
 	            var char = characterOrder.char;
 
-	            this.emit('act.start', { char: char.name });
+	            this.emit('act.start', { char: char });
 	            if (char.health === 'dazed') {
 	                this._recover(char);
 	            } else {
@@ -19863,30 +19910,30 @@
 	                        if (!char.currentWeapon) {
 	                            // @TODO: only need weapon if there is a target?
 	                            if (!this._chooseWeapon(char)) {
-	                                this.emit('act.noop', { char: char.name, reason: 'no weapon' });
+	                                this.emit('act.noop', { char: char, reason: 'no weapon' });
 	                                return;
 	                            }
 	                        }
 
 	                        if (!char.currentWeapon.ready) {
 	                            char.currentWeapon.readyWeapon();
-	                            this.emit('act.readyWeapon', { char: char.name, weapon: char.currentWeapon.name });
+	                            this.emit('act.readyWeapon', { char: char, weapon: char.currentWeapon.name });
 	                        } else if (this._ensureTarget(char)) {
 	                            this._resolveAttack(characterOrder);
 	                            if (char.state === 'acted') {
 	                                char.resetAction();
 	                            }
 	                        } else {
-	                            this.emit('act.noop', { char: char.name, reason: 'no target' });
+	                            this.emit('act.noop', { char: char, reason: 'no target' });
 	                        }
 	                        break;
 
 	                    case 'inactive':
-	                        this.emit('act.noop', { char: char.name, reason: 'inactive' });
+	                        this.emit('act.noop', { char: char, reason: 'inactive' });
 	                        break;
 
 	                    case 'acted':
-	                        this.emit('act.noop', { char: char.name, reason: 'already acted' });
+	                        this.emit('act.noop', { char: char, reason: 'already acted' });
 	                        char.resetAction();
 	                        break;
 
@@ -19896,7 +19943,7 @@
 	            }
 
 	            this.emit('act.end', {
-	                char: char.name
+	                char: char
 	            });
 	        }
 
@@ -19927,7 +19974,7 @@
 	                }
 
 	                this.emit('recover', {
-	                    char: char.name,
+	                    char: char,
 	                    shock: toRecover
 	                });
 
@@ -19988,7 +20035,7 @@
 	                enemy = enemies[this.deck.card().rank() % enemies.length];
 	            }
 
-	            this.emit('setTarget', { char: char.name, target: enemy ? enemy.name : '' });
+	            this.emit('setTarget', { char: char, target: enemy ? enemy : {} });
 	            char.target = enemy;
 	        }
 	    }, {
@@ -21047,22 +21094,22 @@
 	            // @TODO: allow for defensive stalemate
 	            if (charBestCards.over) {
 	                if (targetBestCards.over) {
-	                    result = 'overdraw tie between ' + this.char.name + ' and ' + this.target.name;
+	                    result = { message: 'overdraw tie between ' + this.char.name + ' and ' + this.target.name };
 	                } else if (this.target.state === 'canAct') {
 	                    result = this.hit(this.target, this.char, targetBestCards, charBestCards);
 	                } else {
-	                    result = 'overdraw attack from ' + this.char.name + ' to ' + this.target.name;
+	                    result = { message: 'overdraw attack from ' + this.char.name + ' to ' + this.target.name };
 	                }
 	            } else if (targetBestCards.over) {
 	                result = this.hit(this.char, this.target, charBestCards, targetBestCards);
 	            } else if (charBestCards.rank === targetBestCards.rank) {
-	                result = 'tie between ' + this.char.name + ' and ' + this.target.name;
+	                result = { message: 'tie between ' + this.char.name + ' and ' + this.target.name };
 	            } else if (charBestCards.rank > targetBestCards.rank) {
 	                result = this.hit(this.char, this.target, charBestCards, targetBestCards); // character hits target
 	            } else if (this.target.state === 'canAct') {
 	                    result = this.hit(this.target, this.char, targetBestCards, charBestCards); // target hits character
 	                } else {
-	                        result = 'target ' + this.target.name + ' defended';
+	                        result = { message: 'target ' + this.target.name + ' defended' };
 	                    }
 
 	            /**
@@ -21075,7 +21122,8 @@
 	            }
 
 	            var out = {
-	                actor: this.char.name,
+	                char: this.char,
+	                target: this.target,
 	                charDraw: charBestCards.toJSON(),
 	                targetDraw: targetBestCards.toJSON(),
 	                result: result
@@ -21087,10 +21135,11 @@
 	        value: function hit(fromChar, toChar, fromDraw, toDraw) {
 	            //
 	            var basePower = fromChar.currentWeapon.basePower;
-	            var ratio = Math.max(0.25, (4 + fromDraw.highSuitRank - toDraw.highSuitRank) / 4);
-	            var netPower = Math.round(ratio * basePower);
-	            toChar.impact(netPower, fromChar.currentWeapon.weapon, fromChar);
-	            return fromChar.name + ' hits ' + toChar.name + ' amount: ' + basePower;
+	            var ratio = Math.max(0.33, (3 + fromDraw.highSuitRank - toDraw.highSuitRank) / 3);
+	            var power = Math.round(ratio * basePower);
+	            toChar.impact(power, fromChar.currentWeapon.weapon, fromChar);
+	            var message = fromChar.name + ' hits ' + toChar.name;
+	            return { message: message, basePower: basePower, ratio: ratio, power: power };
 	        }
 	    }, {
 	        key: 'sim',

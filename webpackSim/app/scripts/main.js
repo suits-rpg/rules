@@ -29,15 +29,18 @@ const skills = [{
     name: 'Hand Weapons', levels: 2, attr: 'reflexes'
 }];
 const alphanWeapons = [weapons['medium blades']];
-const betanWeapons = alphanWeapons;
+const betanWeapons = [weapons['medium spear']];
+const COUNT = 2;
+const DELAY = 500;
+const attr = (i, n) => n ? 5 - Math.floor(COUNT / 2) + i : 5 + Math.floor(COUNT / 2) - i;
 
-for (let i of [0, 1, 2]) {
+for (let i of  _.range(0, COUNT)) {
     props = {
         name: 'Alphan ' + (i + 1),
-        reflexes: 6 + i,
-        body: 6 - i,
+        reflexes: attr(i, true),
+        body: attr(i),
         mind: 5,
-        Will: 5 + i,
+        Will: attr(i, true),
         team: teams.getTeam('Alphans'),
         skills: skills,
         weapons: alphanWeapons
@@ -47,13 +50,13 @@ for (let i of [0, 1, 2]) {
 }
 
 // betans
-for (let j of [0, 1, 2]) {
+for (let j of _.range(0, COUNT)) {
     props = {
         name: 'Betan ' + (j + 1),
-        reflexes: 5 + j,
-        body: 7 - j,
+        reflexes: attr(j, true),
+        body: attr(j),
         mind: 5,
-        Will: 5 + j,
+        Will: attr(j, true),
         team: teams.getTeam('Betans'),
         skills: skills,
         weapons: betanWeapons
@@ -74,10 +77,38 @@ const charData = () => _.map(chars, char => ({
     shock: char.shock,
     wounds: char.wounds,
     state: char.state,
-    health: char.health
+    health: char.health,
+    weapon: char.currentWeapon ? char.currentWeapon.name : '(none)',
+    target: char.target ? char.target.name : '(none)'
 }));
 
+let turn = 0;
 sim.onAny((event, data) => {
+    console.log(event, data);
+    let notes = '';
+    switch (event) {
+        case 'round.start':
+            turn = 1;
+            break;
+
+        case 'act.start':
+            ++turn;
+            break;
+
+        case 'attack':
+            notes = data.result.message;
+            break;
+        default:
+    }
+    const char = data.char ? data.char.name : '--';
+    if (!/\.(start|end|chooseWeapon)/.test(event)) {
+        $('#evts').DataTable()
+            .row.add({
+                event: event, turn: turn, round: sim.round, actor: char,
+                notes: notes
+            })
+            .draw(true);
+    }
 });
 
 const doRound = () => {
@@ -89,20 +120,34 @@ const doRound = () => {
     table.draw();
 
     if (!teams.done) {
-        setTimeout(doRound, 2000);
+        setTimeout(doRound, DELAY);
     } else {
         console.log('sim done');
     }
 };
+$.extend($.fn.dataTable.defaults, {
+    paging: false,
+    searching: false,
+    info: false,
+});
 
 $(document)
     .ready(() => {
+        $('#evts')
+            .DataTable({
+                data: [],
+                columns: [
+                    {data: 'round', title: 'Round', className: 'short'},
+                    {data: 'turn', title: 'Turn', className: 'short'},
+                    {data: 'event', title: 'Event', className: 'medium'},
+                    {data: 'actor', title: 'Actor', className: 'medium'},
+                    {data: 'notes', title: 'Notes', className: 'long'}
+                ]
+            });
+
         $('#characters')
             .DataTable({
                 data: charData(),
-                paging: false,
-                search: false,
-                info: false,
                 columns: [
                     {data: 'name', title: 'Name'},
                     {data: 'reflexes', title: 'REF'},
@@ -112,9 +157,11 @@ $(document)
                     {data: 'team', title: 'Team'},
                     {data: 'health', title: 'Health'},
                     {data: 'shock', title: 'Shock'},
-                    {data: 'wounds', title: 'Wounds'}
+                    {data: 'wounds', title: 'Wounds'},
+                    {data: 'weapon', title: 'Weapon'},
+                    {data: 'target', title: 'Target'}
                 ]
             }).column(5).order('asc');
-        doRound();
-    });
 
+        setTimeout(doRound, 2000);
+    });

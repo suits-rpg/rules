@@ -19,7 +19,6 @@ function NoopPlugin(file, encoding, done) {
 
 
 gulp.task('webpack', function () {
-    console.log('webpack');
     return gulp.src('app/scripts/main.js')
         .pipe(webpack({
             module: {
@@ -29,8 +28,9 @@ gulp.task('webpack', function () {
             }
         }))
         .pipe(through2.obj(NoopPlugin))
-        .pipe(gulp.dest('app/scripts/'))
+        .pipe(gulp.dest('app/scripts/'));
 });
+
 
 gulp.task('styles', () => {
     return gulp.src('app/styles/*.scss')
@@ -47,7 +47,7 @@ gulp.task('styles', () => {
         .pipe(reload({stream: true}));
 });
 
-gulp.task('scripts', ['webpack'], () => {
+gulp.task('scripts', () => {
     return gulp.src('app/scripts/**/*.js')
         .pipe($.plumber())
         .pipe($.sourcemaps.init())

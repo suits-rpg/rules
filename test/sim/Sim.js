@@ -6,6 +6,7 @@ import SUITS from '../../lib/deck/suits.json';
 import VALUES from '../../lib/deck/values.json';
 import Character from '../../lib/Character/Character';
 import {weapons} from '../../lib/Character/Weapons';
+import fs from 'fs';
 
 const assert = chai.assert;
 const startEndReport = report => report.reduce((memo, event) => {
@@ -188,6 +189,12 @@ describe('Sim', () => {
             beforeEach(() => {
                 report = [];
                 sim.onAny((event, data) => {
+                    if (data.char) {
+                        data.char = data.char.name;
+                    }
+                    if (data.target) {
+                        data.target = data.target.name;
+                    }
                     report.push({
                         event: event,
                         data: data
@@ -198,14 +205,15 @@ describe('Sim', () => {
             });
 
             it('should have the expected status and targeting', () => {
-              //  console.log('status, round 1', JSON.stringify(status));
-                assert.deepEqual(status, require('./SimExpects/firstRoundStatus.json', ' status as recorded'));
+                const dest = '/SimExpects/firstRoundStatus.json';
+                // fs.writeFileSync(__dirname + dest, JSON.stringify(status));
+                assert.deepEqual(status, require('.' + dest), ' status as recorded');
             });
 
             it('should have results for each attack', () => {
-                //   console.log('hits, round 1:', JSON.stringify(hits, true, 4));
-                // console.log('attacks, round 1:', JSON.stringify(attacks, true, 4));
-                assert.deepEqual(attacks, require('./SimExpects/firstRoundAttacks.json'), 'attacks are recorded');
+                const dest = '/SimExpects/firstRoundAttacks.json';
+                // fs.writeFileSync(__dirname +  dest, JSON.stringify(attacks, true, 4));
+                assert.deepEqual(attacks, require('.' + dest), 'attacks are recorded');
             });
 
             it('should have no noops', () => {
@@ -222,7 +230,9 @@ describe('Sim', () => {
             });
 
             it('has expected hits:', () => {
-                assert.deepEqual(hits, require('./SimExpects/firstRoundHits.json'));
+                const dest = '/SimExpects/firstRoundHits.json';
+                // fs.writeFileSync(__dirname +  dest, JSON.stringify(hits, true, 4));
+                assert.deepEqual(hits, require('.' + dest));
             });
 
             it('goes to round 1', () => assert.equal(sim.round, 1));
@@ -236,22 +246,30 @@ describe('Sim', () => {
                 });
 
                 it('attack results', () => {
-                    // console.log('hits, round 2:', JSON.stringify(hits, true, 4));
-                    // console.log('noops, round 2:', JSON.stringify(noops, true, 4));
-                    //  console.log('attacks, round 2:', JSON.stringify(attacks, true, 4));
-                    assert.deepEqual(attacks, require('./SimExpects/secondRoundAttacks.json'));
+                    const dest = '/SimExpects/secondRoundAttacks.json';
+                    // fs.writeFileSync(__dirname +  dest, JSON.stringify(attacks, true, 4));
+                    assert.deepEqual(attacks, require('.' + dest));
                 });
 
                 it('should have the expected status and targeting', () => {
-                    //  console.log('status, round 3', JSON.stringify(status));
-                    assert.deepEqual(status, require('./SimExpects/secondRoundStatus.json', ' status as recorded'));
+                    const dest = '/SimExpects/secondRoundStatus.json'
+                    // fs.writeFileSync(__dirname +  dest, JSON.stringify(status, true, 4));
+                    assert.deepEqual(status, require('.' + dest, ' status as recorded'));
                 });
-                it('has expected hits:', () => assert.deepEqual(hits, require('./SimExpects/secondRoundHits.json')));
+                it('has expected hits:', () => {
+                    const dest = '/SimExpects/secondRoundHits.json';
+                    // fs.writeFileSync(__dirname +  dest, JSON.stringify(hits, true, 4));
+                    assert.deepEqual(hits, require('.' + dest));
+                });
 
-                it('should have noops', () => assert.deepEqual(noops, require('./SimExpects/secondRoundNoops.json')));
+                it('should have noops', () => {
+                    const dest = '/SimExpects/secondRoundNoops.json';
+                    // fs.writeFileSync(__dirname +  dest, JSON.stringify(noops, true, 4));
+                    assert.deepEqual(noops, require('.' + dest));
+                });
 
                 it('goes to round 2', () => assert.equal(sim.round, 2));
-                
+
                 describe('third round', () => {
                     beforeEach(() => {
                         report = [];
@@ -261,19 +279,27 @@ describe('Sim', () => {
                     });
 
                     it('attack results', () => {
-                        // console.log('hits, round 3:', JSON.stringify(hits, true, 4));
-                        // console.log('noops, round 3:', JSON.stringify(noops, true, 4));
-                        // console.log('attacks, round 3:', JSON.stringify(attacks, true, 4));
-                        assert.deepEqual(attacks, require('./SimExpects/thirdRoundAttacks.json'));
+                        const dest = '/SimExpects/thirdRoundAttacks.json';
+                        // fs.writeFileSync(__dirname + dest, JSON.stringify(attacks, true, 4));
+                        assert.deepEqual(attacks, require('.' + dest));
                     });
 
                     it('should have the expected status and targeting', () => {
-                        // console.log('status, round 3', JSON.stringify(status));
-                        assert.deepEqual(status, require('./SimExpects/thirdRoundStatus.json', ' status as recorded'));
+                        const dest = '/SimExpects/thirdRoundStatus.json';
+                        // fs.writeFileSync(__dirname + dest, JSON.stringify(status, true, 4));
+                        assert.deepEqual(status, require('.' + dest));
                     });
-                    it('has expected hits:', () => assert.deepEqual(hits, require('./SimExpects/thirdRoundHits.json')));
+                    it('has expected hits:', () => {
+                        const dest = '/SimExpects/thirdRoundHits.json';
+                        // fs.writeFileSync(__dirname + dest, JSON.stringify(hits, true, 4));
+                        assert.deepEqual(hits, require('.' + dest));
+                    });
 
-                    it('should have noops', () => assert.deepEqual(noops, require('./SimExpects/thirdRoundNoops.json')));
+                    it('should have noops', () => {
+                        const dest = '/SimExpects/thirdRoundNoops.json';
+                        // fs.writeFileSync(__dirname +  dest, JSON.stringify(noops, true, 4));
+                        assert.deepEqual(noops, require('.' + dest));
+                    });
 
                     it('goes to round 3', () => assert.equal(sim.round, 3));
                 });

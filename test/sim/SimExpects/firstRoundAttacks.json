@@ -1,122 +1,146 @@
 [
-  {
-    "actor": "Alphan 1",
-    "charDraw": {
-      "rank": 6,
-      "cardsDrawn": [
-        "4 of heart",
-        "J of spade"
-      ],
-      "cardsUsed": [
-        "<< 4 of heart -- rank 4 >>",
-        "<< J of spade -- rank 2 >>"
-      ],
-      "highSuitRank": 1,
-      "over": false
+    {
+        "char": "Alphan 1",
+        "target": "Betan 1",
+        "charDraw": {
+            "rank": 6,
+            "cardsDrawn": [
+                "4 of heart",
+                "J of spade"
+            ],
+            "cardsUsed": [
+                "<< 4 of heart -- rank 4 >>",
+                "<< J of spade -- rank 2 >>"
+            ],
+            "highSuitRank": 1,
+            "over": false
+        },
+        "targetDraw": {
+            "rank": 4,
+            "cardsDrawn": [
+                "2 of club",
+                "K of spade"
+            ],
+            "cardsUsed": [
+                "<< [null] -- rank 0 -- invalid >>",
+                "<< K of spade -- rank 4 >>"
+            ],
+            "highSuitRank": 1,
+            "over": false
+        },
+        "result": {
+            "message": "Alphan 1 hits Betan 1",
+            "basePower": 6,
+            "ratio": 1,
+            "power": 6
+        }
     },
-    "targetDraw": {
-      "rank": 4,
-      "cardsDrawn": [
-        "2 of club",
-        "K of spade"
-      ],
-      "cardsUsed": [
-        "<< [null] -- rank 0 -- invalid >>",
-        "<< K of spade -- rank 4 >>"
-      ],
-      "highSuitRank": 1,
-      "over": false
+    {
+        "char": "Alphan 2",
+        "target": "Betan 3",
+        "charDraw": {
+            "rank": 6,
+            "cardsDrawn": [
+                "Q of spade",
+                "3 of heart"
+            ],
+            "cardsUsed": [
+                "<< Q of spade -- rank 3 >>",
+                "<< 3 of heart -- rank 3 >>"
+            ],
+            "highSuitRank": 1,
+            "over": false
+        },
+        "targetDraw": {
+            "rank": 5,
+            "cardsDrawn": [
+                "10 of heart",
+                "5 of spade"
+            ],
+            "cardsUsed": [
+                "<< [null] -- rank 0 -- invalid >>",
+                "<< 5 of spade -- rank 5 >>"
+            ],
+            "highSuitRank": 1,
+            "over": false
+        },
+        "result": {
+            "message": "Alphan 2 hits Betan 3",
+            "basePower": 5,
+            "ratio": 1,
+            "power": 5
+        }
     },
-    "result": "Alphan 1 hits Betan 1 amount: 6"
-  },
-  {
-    "actor": "Alphan 2",
-    "charDraw": {
-      "rank": 6,
-      "cardsDrawn": [
-        "Q of spade",
-        "3 of heart"
-      ],
-      "cardsUsed": [
-        "<< Q of spade -- rank 3 >>",
-        "<< 3 of heart -- rank 3 >>"
-      ],
-      "highSuitRank": 1,
-      "over": false
+    {
+        "char": "Alphan 3",
+        "target": "Betan 3",
+        "charDraw": {
+            "rank": 7,
+            "cardsDrawn": [
+                "7 of spade",
+                "6 of spade"
+            ],
+            "cardsUsed": [
+                "<< 7 of spade -- rank 7 >>",
+                "<< [null] -- rank 0 -- invalid >>"
+            ],
+            "highSuitRank": 1,
+            "over": false
+        },
+        "targetDraw": {
+            "rank": 4,
+            "cardsDrawn": [
+                "9 of spade",
+                "4 of diamond"
+            ],
+            "cardsUsed": [
+                "<< [null] -- rank 0 -- invalid >>",
+                "<< 4 of diamond -- rank 4 >>"
+            ],
+            "highSuitRank": 2,
+            "over": false
+        },
+        "result": {
+            "message": "Alphan 3 hits Betan 3",
+            "basePower": 4,
+            "ratio": 0.6666666666666666,
+            "power": 3
+        }
     },
-    "targetDraw": {
-      "rank": 5,
-      "cardsDrawn": [
-        "10 of heart",
-        "5 of spade"
-      ],
-      "cardsUsed": [
-        "<< [null] -- rank 0 -- invalid >>",
-        "<< 5 of spade -- rank 5 >>"
-      ],
-      "highSuitRank": 1,
-      "over": false
-    },
-    "result": "Alphan 2 hits Betan 3 amount: 5"
-  },
-  {
-    "actor": "Alphan 3",
-    "charDraw": {
-      "rank": 7,
-      "cardsDrawn": [
-        "7 of spade",
-        "6 of spade"
-      ],
-      "cardsUsed": [
-        "<< 7 of spade -- rank 7 >>",
-        "<< [null] -- rank 0 -- invalid >>"
-      ],
-      "highSuitRank": 1,
-      "over": false
-    },
-    "targetDraw": {
-      "rank": 4,
-      "cardsDrawn": [
-        "9 of spade",
-        "4 of diamond"
-      ],
-      "cardsUsed": [
-        "<< [null] -- rank 0 -- invalid >>",
-        "<< 4 of diamond -- rank 4 >>"
-      ],
-      "highSuitRank": 2,
-      "over": false
-    },
-    "result": "Alphan 3 hits Betan 3 amount: 4"
-  },
-  {
-    "actor": "Betan 2",
-    "charDraw": {
-      "rank": 6,
-      "cardsDrawn": [
-        "2 of spade",
-        "K of heart"
-      ],
-      "cardsUsed": [
-        "<< 2 of spade -- rank 2 >>",
-        "<< K of heart -- rank 4 >>"
-      ],
-      "highSuitRank": 3,
-      "over": false
-    },
-    "targetDraw": {
-      "rank": 4,
-      "cardsDrawn": [
-        "A of spade",
-        "Q of club"
-      ],
-      "cardsUsed": [
-        "<< A of spade -- rank 1 >>",
-        "<< Q of club -- rank 3 >>"
-      ],
-      "highSuitRank": 0,
-      "over": false
-    },
-    "result": "Betan 2 hits Alphan 1 amount: 6"
-  }
+    {
+        "char": "Betan 2",
+        "target": "Alphan 1",
+        "charDraw": {
+            "rank": 6,
+            "cardsDrawn": [
+                "2 of spade",
+                "K of heart"
+            ],
+            "cardsUsed": [
+                "<< 2 of spade -- rank 2 >>",
+                "<< K of heart -- rank 4 >>"
+            ],
+            "highSuitRank": 3,
+            "over": false
+        },
+        "targetDraw": {
+            "rank": 4,
+            "cardsDrawn": [
+                "A of spade",
+                "Q of club"
+            ],
+            "cardsUsed": [
+                "<< A of spade -- rank 1 >>",
+                "<< Q of club -- rank 3 >>"
+            ],
+            "highSuitRank": 0,
+            "over": false
+        },
+        "result": {
+            "message": "Betan 2 hits Alphan 1",
+            "basePower": 6,
+            "ratio": 2,
+            "power": 12
+        }
+    }
 ]

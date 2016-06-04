@@ -1,10 +1,14 @@
 [
-  {
-    "char": "Alphan 1",
-    "reason": "inactive"
-  },
-  {
-    "char": "Betan 1",
-    "reason": "inactive"
-  }
+    {
+        "char": "Alphan 1",
+        "reason": "inactive"
+    },
+    {
+        "char": "Alphan 2",
+        "reason": "inactive"
+    },
+    {
+        "char": "Betan 3",
+        "reason": "inactive"
+    }
 ]
