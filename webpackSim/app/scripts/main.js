@@ -64,22 +64,57 @@ for (let j of [0, 1, 2]) {
 
 sim = new Sim(chars, teams, deck);
 
-var charData = _.map(chars, char => ({
+const charData = () => _.map(chars, char => ({
     name: char.name,
     reflexes: char.reflexes,
     body: char.body,
     mind: char.mind,
-    team: char.team.name
+    spirit: char.spirit,
+    team: char.team.name,
+    shock: char.shock,
+    wounds: char.wounds,
+    state: char.state,
+    health: char.health
 }));
 
-var container = document.getElementById('characters');
-var hot = new Handsontable(container,
-    {
-        data: charData
-    });
+sim.onAny((event, data) => {
+});
 
-while(!teams.done) {
+const doRound = () => {
     sim.doRound();
-    
-}
+    console.log('sim round ', sim.round);
+    const table = $('#characters').DataTable();
+    table.clear()
+        .rows.add(charData());
+    table.draw();
+
+    if (!teams.done) {
+        setTimeout(doRound, 2000);
+    } else {
+        console.log('sim done');
+    }
+};
+
+$(document)
+    .ready(() => {
+        $('#characters')
+            .DataTable({
+                data: charData(),
+                paging: false,
+                search: false,
+                info: false,
+                columns: [
+                    {data: 'name', title: 'Name'},
+                    {data: 'reflexes', title: 'REF'},
+                    {data: 'body', title: 'BODY'},
+                    {data: 'mind', title: 'MIND'},
+                    {data: 'spirit', title: 'SPI'},
+                    {data: 'team', title: 'Team'},
+                    {data: 'health', title: 'Health'},
+                    {data: 'shock', title: 'Shock'},
+                    {data: 'wounds', title: 'Wounds'}
+                ]
+            }).column(5).order('asc');
+        doRound();
+    });
 

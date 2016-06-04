@@ -4,7 +4,7 @@
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
-    "handsontable": "^0.25.0"
+    "datatables.net": "^1.10.12"
   },
   "overrides": {
     "bootstrap-sass": {

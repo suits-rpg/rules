@@ -261,9 +261,9 @@ describe('Sim', () => {
                     });
 
                     it('attack results', () => {
-                         console.log('hits, round 3:', JSON.stringify(hits, true, 4));
-                         console.log('noops, round 3:', JSON.stringify(noops, true, 4));
-                         console.log('attacks, round 3:', JSON.stringify(attacks, true, 4));
+                        // console.log('hits, round 3:', JSON.stringify(hits, true, 4));
+                        // console.log('noops, round 3:', JSON.stringify(noops, true, 4));
+                        // console.log('attacks, round 3:', JSON.stringify(attacks, true, 4));
                         assert.deepEqual(attacks, require('./SimExpects/thirdRoundAttacks.json'));
                     });
 
