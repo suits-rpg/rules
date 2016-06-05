@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Axe",
+    "type": "Cutting",
+    "blunt": "",
+    "cost": "80%",
+    "ap": "",
+    "slow": "1",
+    "power": "+1",
+    "club": "50% Armor",
+    "spade": "1 Stun/3 Pow",
+    "diamond": "1 Bleed/2 Major",
+    "heart": "-1 Ref/2 Major"
+  },
+  {
+    "name": "Blades",
+    "type": "Cutting",
+    "blunt": "",
+    "cost": "100%",
+    "ap": "",
+    "slow": "",
+    "power": "",
+    "club": "75% Armor",
+    "spade": "1 Stun/3 Pow",
+    "diamond": "1 Bleed/2 Major",
+    "heart": "-1 Ref/2 Major"
+  },
+  {
+    "name": "Bludgeon",
+    "type": "Hard",
+    "blunt": "",
+    "cost": "50%",
+    "ap": "",
+    "slow": "1",
+    "power": "+1",
+    "club": "50% Armor",
+    "spade": "1 Stun/3 Pow",
+    "diamond": "1 Bleed/4 Major",
+    "heart": "-1 Ref/2 Major"
+  },
+  {
+    "name": "Warhammer",
+    "type": "Hard",
+    "blunt": "",
+    "cost": "80%",
+    "ap": "50%",
+    "slow": "",
+    "power": "",
+    "club": "25% Armor",
+    "spade": "1 Stun/3 Pow",
+    "diamond": "1 Bleed/3 Major",
+    "heart": "-1 Ref/2 Major"
+  },
+  {
+    "name": "Stick",
+    "type": "Hard",
+    "blunt": "1",
+    "cost": "25%",
+    "ap": "",
+    "slow": "",
+    "power": "-1",
+    "club": "75% Armor",
+    "spade": "1 Stun/3 Pow",
+    "diamond": "Extra Attack",
+    "heart": "-1 Ref/2 Major"
+  },
+  {
+    "name": "Spear",
+    "type": "Piercing",
+    "blunt": "",
+    "cost": "50%",
+    "ap": "",
+    "slow": "",
+    "power": "",
+    "club": "50% Armor",
+    "spade": "1 Stun/2 Pow",
+    "diamond": "1 Bleed/2 Major",
+    "heart": "-1 Ref/2 Major"
+  },
+  {
+    "name": "Pick",
+    "type": "Piercing",
+    "blunt": "",
+    "cost": "75%",
+    "ap": "25%",
+    "slow": "1",
+    "power": "+1",
+    "club": "75% Armor",
+    "spade": "1 Stun/2 Pow",
+    "diamond": "1 Bleed/2 major",
+    "heart": "-1 Ref/2 Major"
+  }
+]

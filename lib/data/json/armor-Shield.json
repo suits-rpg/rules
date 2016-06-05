@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Small Shield",
+    "Absorption": "",
+    "Defense": "+1",
+    "Ranged Defense": ""
+  },
+  {
+    "Name": "Shield",
+    "Absorption": "",
+    "Defense": "+2",
+    "Ranged Defense": "+1"
+  },
+  {
+    "Name": "Large Shield",
+    "Absorption": "",
+    "Defense": "+3",
+    "Ranged Defense": "+2"
+  }
+]

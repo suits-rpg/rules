@@ -1,0 +1,29 @@
+[
+  {
+    "Size": "small",
+    "Piercing": "60%",
+    "Cutting": "75%",
+    "Hard": "100%",
+    "vs Small": "",
+    "vs Medium": "",
+    "vs Large": ""
+  },
+  {
+    "Size": "medium",
+    "Piercing": "75%",
+    "Cutting": "100%",
+    "Hard": "125%",
+    "vs Small": "+1",
+    "vs Medium": "",
+    "vs Large": ""
+  },
+  {
+    "Size": "large",
+    "Piercing": "100%",
+    "Cutting": "125%",
+    "Hard": "150%",
+    "vs Small": "+1",
+    "vs Medium": "+1",
+    "vs Large": ""
+  }
+]

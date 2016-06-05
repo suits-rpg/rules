@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "Leather",
+    "Absorption": "1",
+    "Defense": "",
+    "Ranged Defense": ""
+  },
+  {
+    "Name": "Ring Mail",
+    "Absorption": "2",
+    "Defense": "",
+    "Ranged Defense": ""
+  },
+  {
+    "Name": "Chainmail",
+    "Absorption": "3",
+    "Defense": "",
+    "Ranged Defense": ""
+  },
+  {
+    "Name": "Scale Armor",
+    "Absorption": "4",
+    "Defense": "",
+    "Ranged Defense": ""
+  },
+  {
+    "Name": "Plated Armor",
+    "Absorption": "4",
+    "Defense": "+1",
+    "Ranged Defense": ""
+  },
+  {
+    "Name": "Light Plate",
+    "Absorption": "5",
+    "Defense": "+1",
+    "Ranged Defense": "+1"
+  },
+  {
+    "Name": "Heavy Plate",
+    "Absorption": "6",
+    "Defense": "+1",
+    "Ranged Defense": "+1"
+  }
+]
