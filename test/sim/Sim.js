@@ -95,17 +95,17 @@ describe('Sim', () => {
             assert.deepEqual(report, require('./SimExpects/characters.json'));
         });
 
-        describe('ensureTarget/hasTarget', () => {
+        describe('ensureTarget', () => {
             it('should start with no target', () => {
                 for (let char of chars) {
-                    assert.isNotOk(sim.hasTarget(char), 'has no target');
+                    assert.isNotOk(char.hasActiveTarget, 'has no target');
                 }
             });
 
             it('should set the target of one character', () => {
                 const withTarget = chars[2];
                 sim.setTarget(withTarget);
-                assert.isOk(sim.hasTarget(withTarget), 'has a target');
+                assert.isOk(withTarget.hasActiveTarget, 'has a target');
             });
         });
 

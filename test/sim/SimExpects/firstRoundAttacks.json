@@ -31,6 +31,7 @@
         "result": {
             "message": "Alphan 1 hits Betan 1",
             "basePower": 6,
+            "boostedPower": 6,
             "ratio": 1,
             "power": 6
         }
@@ -67,6 +68,7 @@
         "result": {
             "message": "Alphan 2 hits Betan 3",
             "basePower": 5,
+            "boostedPower": 5,
             "ratio": 1,
             "power": 5
         }
@@ -103,6 +105,7 @@
         "result": {
             "message": "Alphan 3 hits Betan 3",
             "basePower": 4,
+            "boostedPower": 3,
             "ratio": 0.6666666666666666,
             "power": 3
         }
@@ -139,6 +142,7 @@
         "result": {
             "message": "Betan 2 hits Alphan 1",
             "basePower": 6,
+            "boostedPower": 12,
             "ratio": 2,
             "power": 12
         }
