@@ -36,18 +36,6 @@ Draws can get pretty tedious with minions. For faster play, minions only get one
 bonus for face cards (as in optional rules). If the minions are legion you can even break them into 
 groups of four and only draw for every group; as in, "Minion 1, 5, and 9 draws a 4..."
 
-### Swarms 
-
-Some minions are so numerous that attacking individually is not feasible. For them, you can break them into 
-swarms, whose base attack rating is augmented by their population. For instance, a herd of kittens 
-may only attack at skill 3, but for every 4 kittens, their skill goes up by 1. 
-
-Attacking a swarm is also hard, because they are tiny; they may have a high defense (say, 7) that goes 
-_down_ by each additional kitten. You kill one kitten for winning, +1 for every full 2 points of 
-marginal success. so if you draw a 10 and they draw a 3, you kill 4 kittens (1 at 4, 6, 8, and 10);
-
-The downside, most armor is not swarm-proof. You get at best 33% of your armor's defense against swarms.
-
 ## Card Value
 
 the numeric value of face cards are varying based on the "blackjack rule"; at the holder's option: 
@@ -163,39 +151,36 @@ Put another way, if you are attacked by three people, you must defend against tw
 however, you don't have to engage someone that attacks you; you can choose to respond with a defense only, and attack
 another combatant. 
 
-You must declare your choice to respond defensively before you look at your cards. 
+One exception to these rules is that you always get your (lower) shield bonus against missile attacks from
+the front sector no matter how many there are, because you aren't moving your shield to block missiles,
+just using it as cover. (and your rank against missiles is always (5 + reflexes)/2, round down. )
 
-If you opt to defend, you can use one of your cards for defense and save the other for your action. 
-However, you cannot defend against and attack the same person in the same round; 
-i.e., you cannot participate in two contests with the same person in a round.
-Alternatively you can use the sum of both of your cards for defense. 
+You must declare your defensive mode before you look at your cards. 
 
-You can choose whether to use one or two cards after looking at your cards. 
+Example: a person with a medium spear and a medium shield is attacked by six people. 
 
-* If you successfully defend, you can still act on their turn with the second card. 
-* if your opponent wins the contest, you lose their ability to act on their action, and must discard the other card.
-  (i.e., if you both overdraw you can still act.)
-* If you are playing with a single deck, the defender must return their card to the deck and draws a single card for their action. 
+1. On the first contest, the fighter opts to use their spear,
+   but as he is outnumbered, reserves the shield for later attacks. 
+   He wins the contest, and hits his opponent, who is wounded but not killed.
+2. On the second contest, the fighter blocks with the shield. He wins again, but cannot 
+   counterattack. 
+3. On the third contest, neither his weapon or shield are ready; he dodges successfully,
+   but cannot counterattack as his spear is unready.
+4. On the fourth contest, which occurs on the fighters' turn, his weapon is unready,
+   so he has no opportunity to act; at the end of the round, both his shield and weapon are ready.
+5. On the fifth contest, he uses his shield, which is now ready, to successfully block. 
+   He won't be able to use it til after his next active turn.
+6. His sixth person fires a bow at him. He blocks with the shield. 
 
-If you are engaged when you have no cards left, you can draw a one or two cards (your choice) 
-from the deck in defense; however, if you draw two cards, you _must_ use the sum of the cards, 
-or overdraw and lose the contest. 
-
-The option to respond defensively is not available to the person who initiated a contest. 
-
-#### Two Item Defense
-
-If you have a shield or a second weapon in hand, and are outnumbered, 
-you can defend one hand to hand attack with two cards on someone elses' action _and_ engage someone _else_ on your action,
-also with two cards. Or vice versa; you can engage with someone else on their action, and defend with two cards
-on yours. 
+Note that for simplicity's sake we ignored in this example the fact 
 
 ### Engagement
 
 Engagement is when you, on your turn, decide to attack someone else. 
 * If they have not engaged since their last action, they can decide to counter engage you as well. 
   If this is the case, one or the other of you is going to get hit, unless you both overdraw. 
-* If your opponent opts NOT to engage (or cannot as they have engaged someone else since their turn, _or_ have an unready weapon)
+* If your opponent opts NOT to engage 
+  (or cannot as they have engaged someone else since their turn, _or_ have an unready weapon)
   then there are two possible results: 1) you hit them, 2) you don't. 
   
 Once you have begun a contest with a person, you can only disengage if 
@@ -314,6 +299,8 @@ You may "pin" someone who is dazed by continually attacking them. As long as you
 successful, they cannot act _or_ recover status. This is how, for instance, you can 
 whittle down a heavily armored foe. 
 
+All your skills are halved (round up) when dazed. 
+
 ##### Wounds (Major Loss)
 
 Minor Loss (Shock) can be recovered from relatively quickly. However a single large loss --
@@ -404,29 +391,27 @@ If you are under the care of a doctor, they can heal another 1/2 point of wounds
 
 ### Your Power Bonus
 
-Loss is calculated from a combination of the attackers' sheer power (Body * Weapon Leverage + Weapon Boost (if any)),
-adjusted by the suit of their card and the defenders' card. 
+Loss is calculated from a combination of the attackers' sheer power multiplied by the power ratio.
+the Suit Bonus adjusts the power by 33% per point, to a minimum of 33% of the base.
 
-The sum of all the above bonuses is added and cross indexed on the scale below. Round up at or past
-0.5. Power Bonuses cannot be lower than -3. 
+The sum of all the above bonuses is added and cross indexed on the scale below.
 
 Its best to pre-compute a weapons' effect from -3 to +3. This chart should help:
 
 Power Bonus
-                    
-PB,     Ratio,   Power
-  ,         ,   1,   2,   3,   4,   5,   6,   7,   8,   9,   10
-  
--3,      1/4,   0,   1,   1,   1,   1,   2,   2,   2,   2,   3
--2,      1/2,   1,   1,   2,   2,   3,   3,   4,   4,   5,   5
 
--1,      3/4,   1,   2,   2,   3,   4,   5,   5,   6,   7,   8
- 0,    1    ,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10
- 
- 1,    1 1/4,   1,   3,   4,   5,   6,   8,   9,  10,  11,  13
- 2,    1 1/2,   2,   3,   5,   6,   8,   9,  11,  12,  14,  15
- 
- 3,    1 3/4,   2,   4,   5,   7,   9,  11,  12,  14,  16,  18
+            Base Power
+            
+Scale, SB,  1,  2,  3,  4,   5,   6,   7,   8,   9,  10
+
+1/3,   -2,  0,  1,  1,  1,   2,   2,   2,   3,   3,  3
+2/3,   -1,  1,  1,  2,  3,   3,   4,   5,   5,   6,  7
+
+1,      0,  1,  2,  3,  4,   5,   6,   7,   8,   9,  10
+
+1 1/3,  1,  1,  3,  4,  5,   7,   8,   9,  11,  12,  13
+1 2/3,  2,  2,  3,  5,  7,   8,  10,  12,  13,  15,  17
+2,      3,  2,  4,  6,  8,  10,  12,  14,  16,  18,  20
  
 To compute basis for powers > 10, use power 10 + power remainder.
 
@@ -451,47 +436,29 @@ However the cutting weapon will cause more
 
 #### Weapon Sizes
 
-The larger the weapon, the more damage it does; see the leverage table for details. However there are
-other effects for weapon sizes:
+If you have a weapon two full sizes larger than your opponent, you get a +1 defensive bonus.
+This only occurs in a contest in which you opt to counterattack (and your weapon is ready. 
 
-##### Small Weapons
+When you are fighting in formation and you are between two people whose weapon is longer than
+your attacker, you get a +1 defensive bonus, regardless of the ready state of any of the
+weapons in formation. This adds to any defensive bonus you may have do to your status. 
 
-Small weapons do less damage; however they can be used in your off hand with another small or medium
-weapon for extra defense and rarely an extra attack. 
+Even a single spear can boost the defense of two adjacent fighters by limiting their opponents'
+actions. Use common sense here; an attacker coming in at 90º or from behind won't be affected by the spear.
 
-Small weapons are -2 defense against Large weapons, unless you have a shield. 
+Example: a line of pikemen (pole spears) all get +1 to their defensive bonus. If one of them is attacked
+by someone with a medium sword, they get +1 for having a pike two sizes longer than the sword,
+and +1 for their friends, for a net +2 defense.
 
-##### Medium Weapons 
-
-Medium weapons are -1 defense against Large wespons unless you have a shield. 
-
-##### Large Weapons 
-
-Large weapons require two hands; 
-this means you cannot use a shield or off hand weapon with a large weapon. 
-
-##### Pole Weapons
-
-Pole weapons are like Large Weapons. Only Spears, Warhammers, and Axes can be pole weapons. 
-Pole spears do +1 power; other pole weapons do +2 power. 
-Pole weapons require one round to lift before being used. This is a variant on Slow; 
-there are no exceptions to this - you can't use bonus cards to lift a polearm slower. 
-Polearms are +1 to your defense versus all weapons -- even other Pole Weapons. 
-
-Polearms are around 8' long; they cannot be taken in many situations like natural caves, 
-dense marshes, etc. because of their great size. On the plus side, their defense bonus applies 
-to any allies directly in front of the user, and a polearm user can attack over an ally, at -1 
-to their offensive skill. A single polearm user can defend up to two allies at once. 
-
-Polearms provide great overlapping defense. The maximum defensive bonus you get from 
-multiple polearms is +2. 
+If they were attacked by someone with a Large axe, they just get the +1 bonus from their friends,
+but no bonus from the relative size of their specific weapons. 
 
 ### Ranged Weapons
 
 Ranged Weapons allow you to attack faster , longer, and (in modern times) with much greate effect than hand weapons. 
 
 You cannot "get better at" dodging bullets (and for this purpose, arrows). Your defensive rank
-vs. ranged weapons is your (Reflexes + 5)/2, round up, if you are aware
+vs. ranged weapons is your (Reflexes + 5)/2, round up.
 
 If you move you are also much harder to hit; add the square root of your meters travelled if you travelled 3 or more meters,
 and if you draw under that with a high card, automatically avoid fire. 
@@ -507,7 +474,7 @@ Short            ,    Body x 0.5,   Body x 1,     Body x 2,     Body x 4,    Bod
 Medium           ,    Body x 1,     Body x 2,     Body x 4,     Body x 8,    Body x 12.
 Long             ,    Body x 2,     Body x 4,     Body x 8,     Body x 16,   Body x 24
 Very Long        ,    Body x 4,     Body x 8,     Body x 16,    Body x 32,   Body x 48
-Extra Long       ,    Body x 8,     Body x 16,    Body x 32,	Body x 64,   Body x 128
+Extra Long       ,    Body x 8,     Body x 16,    Body x 32,      Body x 64,   Body x 128
 
 The Body value for powered weapons is the weapons' Boost
 The maximum effective Body for range calculation is 10.
@@ -540,7 +507,7 @@ Cutting,     defender's threshold for wounds = 3/4 Body
 Piercing,    Defender's threshold for wounds = 1/2 Body
 
 Slow,        recovers for 1 round after succesful attack
-AP #,        reduce armor by # per 3 points of overkill
+AP,          The chance that your weapon will ignore half the targets' armor
 D#,          Adds to your defense. Defense -1  if used with sm. Shield
                 no extra defense with larger shield.
 1 or 2 h,    can be used with either 1 or two hands. 
@@ -553,16 +520,14 @@ Blast,		 Skill is to lob round in target; 1 yard bounce/failure.
              Power is halved every two yards in open air. 
              Defense is impossible within 2 yards, halved within 4 yards, doubled past 8 yards. 
              
+See "special situations" for info on burst weapons.
 
-Burst weapons are resolved in clumps of 4. The number of bullets that hit depend on range, 
-and the suit of a second card:
+##### Armor Piercing
 
-Suit,   Point Blank,    Short, Medium ,   Long ,  Maximum
+Armor Piercing weapons sometimes ignore half the targets' armor. 
 
-Heart     ,    4   ,    3    ,    2   ,    2   ,    1   
-Diamond   ,    3   ,    2    ,    1   ,    1   ,    1   
-Spade     ,    2   ,    1    ,    1   ,    1   ,    0   
-Club      ,    2   ,    1    ,    1   ,    0   ,    0   
+* 25% AP weapons ignore half the targets' armor if both the winners' cards are the same suit. 
+* 50% AP weapons ignore half the targets' armor if both the winners' cards are the same color.
 
 AIMING
 
@@ -592,37 +557,26 @@ MINIMUM WEAPON STRENGTH
 If you are under strength for a Body it is awkward; or more awkward as it may be.  
 it you are at 75% minimum Body or below you cannot use a weapon at all. 
 
-ARMOR
-
-Armor,          Abs,  Boost,    Def,    Msl Def,    Notes
- 
-Tower Shield,      ,       ,     +3,         +4,    OnBlock, Slow
-Large Shield,      ,       ,     +2,         +3,    OnBlock, Slow
-Shield,            ,       ,     +1,         +2,    OnBlock
-
-All shields use one hand completely, and cannot be combined with any 2-handed weapons. 
-Foils "clever" bonus is lost when using Large or Tower shields.
-
-Leather,           ,    +1
-Chain,          33%,    +2
-Scale,          33%,    +3,    +1
-Light Plate,    50%,    +4,    +1,            ,    Awkward
-Plate,          50%,    +5,    +2,            ,    Awkward
-War Plate,      50%,    +6,    +2,            ,    Awkward
-
-Kevlar			25%,    +6,      ,            ,    +1 vs non-bullets
-Plated Kevlar   33%,    +8,    +2,            ,   +4 vs non-bullets
-
- 
-The absorption of armor is based on the wearer's body (round on or past 0.5) 
-+ an absolute absorption boost. 
-OnBlock: defensive benefit only if the defender doesn't overdraw their skill.
-Awkward: -25% to users Reflexes/Skill, with a minimum -1 penalty.
-Slow: adds an extra round of recovery after a successful attack. When readying a slow 
-      weapon you still can defend normally. 
-Note - awkward and slow modifiers combine. 
-
 # Special Circumstances
+
+## Defensive Bonuses
+
+A defensive bonus can be earned by the following:
+
+* Using a shield or secondary weapon (+1...3)
+* Having a weapon two ranks larger than your opponent (polearm > medium weapon, large weapon > small weapon)
+
+The maximum defensive bonus is 3. 
+
+Your defensive bonus boosts your defensive rank; this may boost it beyond your skill rank, as long
+as the cards you draw are within your skill rank.
+
+For instance, a fighter with a large shield (+3 defense) and a skill of 7 draws a 5. His rank in the contest
+is 5/8. He is attacked by a fighter with a draw of 6; as 6 is > 5 and < 8, nothing happens that round. 
+
+Note, most defenses are active; attacks from behind negate any defensive bonuses. 
+
+Also, each defensive device can only be used once per turn. they are readied at the end of your turn. 
 
 ## Bonus Cards (optional) 
 
@@ -700,12 +654,17 @@ If your opponent has no armor to lose, treat as a Heart.
 
 +1/-1 Power Bonus. Add this to the Suit bonus value when determine weapon effect. 
 
-### Multiple attacks
+## Multiple attacks
   
+If you have a weapon in either hand, you have a small chance of hitting with both weapons.
+Your good hand can have a weapon that is a medium or small sized weapon. 
+Your off hand weapon must be small. It is always optional.
+
 A multiple attack is successful only if 
 
 * the two cards are sequential in rank (a 4 and a 5, an King (4) and a 3, etc.
 * a sequential _descending_ (6, 5) draw is also a succesful attack. 
+* both cards are above the defender's rank (or they overdraw).
 
 You cannot both multiple attack and receive a defensive bonus for the second weapon; 
 once you multiple attack, until your next action, you don't get to apply a defensive bonus for the 
@@ -713,7 +672,18 @@ secondary weapon.
 
 This is comparable to "splitting" in blackjack; each card is resolved as a successful attack. 
 However, if the result of the first attack is you getting hit, your second attack does not occur. 
-The good news is, you never get counter-hit twice if you initiate a multiple attack. 
+
+If both your cards are above the defender's rank, you hit with each weapon(major weapon first); 
+both weapons do -1 damage.
+If one of your cards is above the defender's rank, you hit with only your major weapon. 
+
+The attacker must declare a multiple attack before the defender reveals their cards. 
+In the rare circumstance of two multiple attacks face to face, there are three possibilities:
+
+* One fighter has two cards above both the others', and succeeds as usual. 
+* One fighter has one card above the defenders, and one card equal to the high card of his opponent;
+  in which case they hit once with their major weapon. 
+* The cards are equal, and no hits land. 
 
 If you are outnumbered, you are forced to use your secondary weapon in defense, and cannot multiple attack. 
 
@@ -723,9 +693,47 @@ and defend with the other one.
 ## Multiple Shots
 
 Guns with autofire (assault rifles, machine guns, most modern pistols) attack multiply by design.  
-With automatic weapons, each shot(or burst) is a single draw, and with each successive draw your 
-skill goes down by 1/2 at PB range, 1 at short range, 2 at medium range, and 4 at long range. 
+With automatic weapons, shots are broken into bursts of 4 or fewer bullets.
+Each shot(or burst) is a single draw, and with each successive draw your 
+skill goes down by a fixed amount due to recoil. 
 
-If you opt to shoot more than once in a round, each shot is resolved with a single card.
+* 1 at PB range
+* 2 at short range
+* 3 at medium range
+* 4 at long range
 
-If you have multiple guns WITH multiple shots the gun in your off hand is at 1/2 skill. 
+Burst weapons are resolved in clumps of 4. The number of bullets that hit depend on range, 
+and the suit of a burst card.
+
+Suit,   Point Blank,    Short, Medium ,   Long ,  
+
+Heart     ,    4   ,    3    ,    2   ,    2   ,      
+Diamond   ,    3   ,    2    ,    1   ,    1   ,      
+Spade     ,    2   ,    1    ,    1   ,    1   ,      
+Club      ,    2   ,    1    ,    1   ,    0   ,     
+
+Use the low cards to determine the power ratio of the second shot.
+reuse the first and second ratio for the third and fourth hits.
+
+If the result of the first burst is that the automatic weapon holder gets hit, ignore successive bursts.
+
+For instance, a rifle with a ROF of 12 is fired at a single opponent at short range; their skill is 9.
+The opponents' defense is 6, and they draw a 4. 
+
+The rifle owner hits with the first shot and draws a spade, for a single hit. 
+
+The second burst, the attackers' skill is now 7; the defender defends successfully. 
+
+The third burst, the attackers' skill is 7; he hits again, drawing a diamond for 2 hits. 
+
+### Swarms 
+
+Some minions are so numerous that attacking individually is not feasible. For them, you can break them into 
+swarms, whose base attack rating is augmented by their population. For instance, a herd of kittens 
+may only attack at skill 3, but for every 4 kittens, their skill goes up by 1. 
+
+Attacking a swarm is also hard, because they are tiny; they may have a high defense (say, 7) that goes 
+_down_ by each additional kitten. You kill one kitten for winning, +1 for every full 2 points of 
+marginal success. so if you draw a 10 and they draw a 3, you kill 4 kittens (1 at 4, 6, 8, and 10);
+
+The downside, most armor is not swarm-proof. You get at half of your armor's defense against swarms.

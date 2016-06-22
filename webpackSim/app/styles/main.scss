@@ -93,12 +93,28 @@ body {
 }
 
 
+.vShort {
+  width: 4em;
+}
+
 .short {
-  width: 3em;
+  width: 8em;
 }
 .medium {
-  width: 5em
+  width: 12em
 }
 .long {
-  width: 12em
+  width: 20em
+}
+
+td {
+  vertical-align: top;
+  align: left;
+  white-space: nowrap;
+}
+
+tr[role="row"] {
+  padding-bottom: 0.5em;
+  border-bottom: 1pt solid rgb(200,200,200);
+  margin-bottom: 0.5em;
 }

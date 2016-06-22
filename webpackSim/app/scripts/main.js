@@ -5,6 +5,7 @@ const Sim = suits.Sim;
 const Teams = suits.Teams;
 const Character = suits.Character;
 const Deck = suits.Deck;
+const armors = suits.armors;
 const SUITS = suits.SUITS;
 const VALUES = suits.VALUES;
 const weapons = suits.weapons;
@@ -28,11 +29,12 @@ chars = [];
 const skills = [{
     name: 'Hand Weapons', levels: 2, attr: 'reflexes'
 }];
-const alphanWeapons = [weapons['medium blades']];
-const betanWeapons = [weapons['medium spear']];
-const COUNT = 2;
-const DELAY = 500;
-const attr = (i, n) => n ? 5 - Math.floor(COUNT / 2) + i : 5 + Math.floor(COUNT / 2) - i;
+const alphanWeapons = [weapons['large blades']];
+const betanWeapons = [weapons['large spear']];
+const COUNT = 10;
+const DELAY = 200;
+const N = 3;
+const attr = (i, n) => n ? 5 + (i % N) : 4 + N - i % N;
 
 for (let i of  _.range(0, COUNT)) {
     props = {
@@ -43,6 +45,7 @@ for (let i of  _.range(0, COUNT)) {
         Will: attr(i, true),
         team: teams.getTeam('Alphans'),
         skills: skills,
+        armor: [armors['Heavy Plate']],
         weapons: alphanWeapons
     };
 
@@ -58,6 +61,7 @@ for (let j of _.range(0, COUNT)) {
         mind: 5,
         Will: attr(j, true),
         team: teams.getTeam('Betans'),
+        armor: [armors['Heavy Plate']],
         skills: skills,
         weapons: betanWeapons
     };
@@ -79,6 +83,7 @@ const charData = () => _.map(chars, char => ({
     state: char.state,
     health: char.health,
     weapon: char.currentWeapon ? char.currentWeapon.name : '(none)',
+    armor: char.currentArmor ? char.currentArmor.name : '(none)',
     target: char.target ? char.target.name : '(none)'
 }));
 
@@ -95,8 +100,22 @@ sim.onAny((event, data) => {
             ++turn;
             break;
 
+        case 'setTarget':
+            return;
+            break;
+
+        case 'act.noop':
+            return;
+            break;
+
         case 'attack':
-            notes = data.result.message;
+            let damageReport = '';
+            if (/hits/.test(data.result.message)) {
+                damageReport = `<br /><b>base power</b>: ${data.result.basePower}
+                <br /><b>ratio</b>: ${Math.floor(data.result.ratio * 100)}% <b>boosted power</b>: ${data.result.boostedPower}
+                <br /><b>after armor</b>: ${data.result.power}`;
+            }
+            notes = `${data.result.message} ${damageReport}`;
             break;
         default:
     }
@@ -149,19 +168,21 @@ $(document)
             .DataTable({
                 data: charData(),
                 columns: [
-                    {data: 'name', title: 'Name'},
-                    {data: 'reflexes', title: 'REF'},
-                    {data: 'body', title: 'BODY'},
-                    {data: 'mind', title: 'MIND'},
-                    {data: 'spirit', title: 'SPI'},
-                    {data: 'team', title: 'Team'},
-                    {data: 'health', title: 'Health'},
-                    {data: 'shock', title: 'Shock'},
-                    {data: 'wounds', title: 'Wounds'},
-                    {data: 'weapon', title: 'Weapon'},
-                    {data: 'target', title: 'Target'}
+                    {data: 'name', title: 'Name', className: 'long'},
+                    {data: 'team', title: 'Team', className: 'long'},
+                    {data: 'weapon', title: 'Weapon', className: 'medium'},
+                    {data: 'armor', title: 'Armor', className: 'medium'},
+                    {data: 'target', title: 'Target', className: 'long'},
+                    {data: 'reflexes', title: 'REF', className: 'short'},
+                    {data: 'body', title: 'BODY', className: 'vShort'},
+                    {data: 'mind', title: 'MIND', className: 'vShort'},
+                    {data: 'spirit', title: 'SPI', className: 'vShort'},
+                    {data: 'health', title: 'Health', className: 'medium'},
+                    {data: 'state', title: 'State', className: 'medium'},
+                    {data: 'shock', title: 'SHK', className: 'vShort'},
+                    {data: 'wounds', title: 'WND', className: 'vShort'}
                 ]
-            }).column(5).order('asc');
+            }).column(1).order('asc');
 
         setTimeout(doRound, 2000);
     });

@@ -45,12 +45,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var suits = __webpack_require__(1);
-	var _ = __webpack_require__(40);
+	var _ = __webpack_require__(42);
 
 	const Sim = suits.Sim;
 	const Teams = suits.Teams;
 	const Character = suits.Character;
 	const Deck = suits.Deck;
+	const armors = suits.armors;
 	const SUITS = suits.SUITS;
 	const VALUES = suits.VALUES;
 	const weapons = suits.weapons;
@@ -74,11 +75,12 @@
 	const skills = [{
 	    name: 'Hand Weapons', levels: 2, attr: 'reflexes'
 	}];
-	const alphanWeapons = [weapons['medium blades']];
-	const betanWeapons = [weapons['medium spear']];
-	const COUNT = 2;
-	const DELAY = 500;
-	const attr = (i, n) => n ? 5 - Math.floor(COUNT / 2) + i : 5 + Math.floor(COUNT / 2) - i;
+	const alphanWeapons = [weapons['large blades']];
+	const betanWeapons = [weapons['large spear']];
+	const COUNT = 10;
+	const DELAY = 200;
+	const N = 3;
+	const attr = (i, n) => n ? 5 + (i % N) : 4 + N - i % N;
 
 	for (let i of  _.range(0, COUNT)) {
 	    props = {
@@ -89,6 +91,7 @@
 	        Will: attr(i, true),
 	        team: teams.getTeam('Alphans'),
 	        skills: skills,
+	        armor: [armors['Heavy Plate']],
 	        weapons: alphanWeapons
 	    };
 
@@ -104,6 +107,7 @@
 	        mind: 5,
 	        Will: attr(j, true),
 	        team: teams.getTeam('Betans'),
+	        armor: [armors['Heavy Plate']],
 	        skills: skills,
 	        weapons: betanWeapons
 	    };
@@ -125,6 +129,7 @@
 	    state: char.state,
 	    health: char.health,
 	    weapon: char.currentWeapon ? char.currentWeapon.name : '(none)',
+	    armor: char.currentArmor ? char.currentArmor.name : '(none)',
 	    target: char.target ? char.target.name : '(none)'
 	}));
 
@@ -141,8 +146,22 @@
 	            ++turn;
 	            break;
 
+	        case 'setTarget':
+	            return;
+	            break;
+
+	        case 'act.noop':
+	            return;
+	            break;
+
 	        case 'attack':
-	            notes = data.result.message;
+	            let damageReport = '';
+	            if (/hits/.test(data.result.message)) {
+	                damageReport = `<br /><b>base power</b>: ${data.result.basePower}
+	                <br /><b>ratio</b>: ${Math.floor(data.result.ratio * 100)}% <b>boosted power</b>: ${data.result.boostedPower}
+	                <br /><b>after armor</b>: ${data.result.power}`;
+	            }
+	            notes = `${data.result.message} ${damageReport}`;
 	            break;
 	        default:
 	    }
@@ -195,19 +214,21 @@
 	            .DataTable({
 	                data: charData(),
 	                columns: [
-	                    {data: 'name', title: 'Name'},
-	                    {data: 'reflexes', title: 'REF'},
-	                    {data: 'body', title: 'BODY'},
-	                    {data: 'mind', title: 'MIND'},
-	                    {data: 'spirit', title: 'SPI'},
-	                    {data: 'team', title: 'Team'},
-	                    {data: 'health', title: 'Health'},
-	                    {data: 'shock', title: 'Shock'},
-	                    {data: 'wounds', title: 'Wounds'},
-	                    {data: 'weapon', title: 'Weapon'},
-	                    {data: 'target', title: 'Target'}
+	                    {data: 'name', title: 'Name', className: 'long'},
+	                    {data: 'team', title: 'Team', className: 'long'},
+	                    {data: 'weapon', title: 'Weapon', className: 'medium'},
+	                    {data: 'armor', title: 'Armor', className: 'medium'},
+	                    {data: 'target', title: 'Target', className: 'long'},
+	                    {data: 'reflexes', title: 'REF', className: 'short'},
+	                    {data: 'body', title: 'BODY', className: 'vShort'},
+	                    {data: 'mind', title: 'MIND', className: 'vShort'},
+	                    {data: 'spirit', title: 'SPI', className: 'vShort'},
+	                    {data: 'health', title: 'Health', className: 'medium'},
+	                    {data: 'state', title: 'State', className: 'medium'},
+	                    {data: 'shock', title: 'SHK', className: 'vShort'},
+	                    {data: 'wounds', title: 'WND', className: 'vShort'}
 	                ]
-	            }).column(5).order('asc');
+	            }).column(1).order('asc');
 
 	        setTimeout(doRound, 2000);
 	    });
@@ -220,16 +241,17 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 	exports['default'] = {
-	  Character: __webpack_require__(2),
-	  weapons: __webpack_require__(22).weapons,
-	  Teams: __webpack_require__(26).Teams,
-	  SUITS: __webpack_require__(27),
-	  VALUES: __webpack_require__(28),
-	  Deck: __webpack_require__(29),
-	  Sim: __webpack_require__(32)
+	    Character: __webpack_require__(2),
+	    weapons: __webpack_require__(22).weapons,
+	    armors: __webpack_require__(26).armors,
+	    Teams: __webpack_require__(28).Teams,
+	    SUITS: __webpack_require__(29),
+	    VALUES: __webpack_require__(30),
+	    Deck: __webpack_require__(31),
+	    Sim: __webpack_require__(34)
 	};
 	module.exports = exports['default'];
 
@@ -16949,6 +16971,7 @@
 	            }
 	            _get(Object.getPrototypeOf(WeaponsMixedIn.prototype), 'constructor', this).call(this, props);
 	            this._initWeapons(props.weapons);
+	            this._initArmor(props.armor);
 	        }
 
 	        _createClass(WeaponsMixedIn, [{
@@ -16981,6 +17004,17 @@
 	                        }
 	                    }
 	                }
+	                if (this.weapons.length === 1) {
+	                    this.currentWeapon = this.weapons[0];
+	                }
+	            }
+	        }, {
+	            key: '_initArmor',
+	            value: function _initArmor(armor) {
+	                this.armor = armor || [];
+	                if (this.armor.length === 1) {
+	                    this.currentArmor = this.armor[0];
+	                }
 	            }
 
 	            /* ------------- WEAPONS ---------------- */
@@ -16995,13 +17029,59 @@
 	            get: function get() {
 	                return this._weapons;
 	            }
+
+	            /**
+	             * @param val {CharacterWeapon}
+	             */
 	        }, {
 	            key: 'currentWeapon',
 	            set: function set(val) {
 	                this._currentWeapon = val;
 	            },
+
+	            /**
+	             *
+	             * @returns {CharacterWeapon}
+	             */
 	            get: function get() {
 	                return this._currentWeapon;
+	            }
+
+	            /**
+	             * armor is an array of all owned suits of armor.
+	             *
+	             * @param val {[Armor]}
+	             */
+	        }, {
+	            key: 'armor',
+	            set: function set(val) {
+	                this._armor = val || [];
+	            },
+
+	            /**
+	             *
+	             * @returns {Armor[]}
+	             */
+	            get: function get() {
+	                return this._armor;
+	            }
+
+	            /**
+	             *
+	             * @param val {Armor}
+	             */
+	        }, {
+	            key: 'currentArmor',
+	            set: function set(val) {
+	                this._currentArmor = val;
+	            },
+
+	            /**
+	             *
+	             * @returns {Armor}
+	             */
+	            get: function get() {
+	                return this._currentArmor;
 	            }
 	        }]);
 
@@ -17116,18 +17196,43 @@
 	            // note -- this is dependent on the skills mixin
 	            return this.char.skillRank(skillName);
 	        }
+
+	        /**
+	         * 
+	         * @returns {string}
+	         */
 	    }, {
 	        key: 'name',
 	        get: function get() {
 	            return this.weapon ? this.weapon.name : '';
 	        }
+
+	        /**
+	         * 
+	         * @param {boolean} val
+	         */
 	    }, {
 	        key: 'ready',
 	        set: function set(val) {
 	            this._ready = val;
 	        },
+
+	        /**
+	         * 
+	         * @returns {boolean}
+	         */
 	        get: function get() {
-	            return this._ready;
+	            return this._ready ? true : false;
+	        }
+
+	        /**
+	         * 
+	         * @returns {boolean}
+	         */
+	    }, {
+	        key: 'slow',
+	        get: function get() {
+	            return this.weapon.slow ? true : false;
 	        }
 	    }, {
 	        key: 'damageType',
@@ -17413,13 +17518,23 @@
 
 	            /**
 	             *
-	             * @returns {Team}
+	             * @returns {boolean}
 	             */
 	        }, {
 	            key: 'targetName',
 	            get: function get() {
 	                return this.target ? this.target.name : '';
 	            }
+	        }, {
+	            key: 'hasActiveTarget',
+	            get: function get() {
+	                return this.target && this.target.state !== 'inactive';
+	            }
+
+	            /**
+	             *
+	             * @returns {Team}
+	             */
 	        }, {
 	            key: 'team',
 	            get: function get() {
@@ -17560,6 +17675,11 @@
 	                this._state.act();
 	                return this;
 	            }
+	        }, {
+	            key: 'canAttack',
+	            value: function canAttack() {
+	                return this.state === 'canAct' && !this.health === 'dazed';
+	            }
 
 	            /* --------------------------- PROPERTIES ----------------------------- */
 
@@ -17651,11 +17771,13 @@
 	                this._shock = val;
 	            },
 	            get: function get() {
+	                this.lastShock = this._shock;
 	                return this._shock;
 	            }
 	        }, {
 	            key: 'wounds',
 	            set: function set(val) {
+	                this.lastWounds = this._wounds;
 	                this._wounds = val;
 	            },
 	            get: function get() {
@@ -19246,6 +19368,125 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+	var _utilPercent = __webpack_require__(23);
+
+	var _utilPercent2 = _interopRequireDefault(_utilPercent);
+
+	var Armor = (function () {
+	    function Armor(props) {
+	        _classCallCheck(this, Armor);
+
+	        this._absorption = props.absorption || 0;
+	        this._name = props.name;
+	    }
+
+	    /**
+	     * 
+	     * @returns {number}
+	     */
+
+	    _createClass(Armor, [{
+	        key: 'absorption',
+	        get: function get() {
+	            return this._absorption || 0;
+	        }
+
+	        /**
+	         * @returns {String}
+	         */
+	    }, {
+	        key: 'name',
+	        get: function get() {
+	            return this._name;
+	        }
+	    }]);
+
+	    return Armor;
+	})();
+
+	var armors = __webpack_require__(27).map(function (params) {
+	    var out = {};
+	    for (var prop in params) {
+	        if (params.hasOwnProperty(prop)) {
+	            var lcProp = prop.toLowerCase();
+	            out[lcProp] = (0, _utilPercent2['default'])(params[prop]);
+	        }
+	    }
+	    return out;
+	}).reduce(function (memo, params) {
+	    var a = new Armor(params);
+	    memo[a.name] = a;
+	    return memo;
+	}, {});
+
+	exports.Armor = Armor;
+	exports.armors = armors;
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"Name": "Leather",
+			"Absorption": "1",
+			"Defense": "",
+			"Ranged Defense": ""
+		},
+		{
+			"Name": "Ring Mail",
+			"Absorption": "2",
+			"Defense": "",
+			"Ranged Defense": ""
+		},
+		{
+			"Name": "Chainmail",
+			"Absorption": "3",
+			"Defense": "",
+			"Ranged Defense": ""
+		},
+		{
+			"Name": "Scale Armor",
+			"Absorption": "4",
+			"Defense": "",
+			"Ranged Defense": ""
+		},
+		{
+			"Name": "Plated Armor",
+			"Absorption": "4",
+			"Defense": "+1",
+			"Ranged Defense": ""
+		},
+		{
+			"Name": "Light Plate",
+			"Absorption": "5",
+			"Defense": "+1",
+			"Ranged Defense": "+1"
+		},
+		{
+			"Name": "Heavy Plate",
+			"Absorption": "6",
+			"Defense": "+1",
+			"Ranged Defense": "+1"
+		}
+	];
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
 	var _lodash = __webpack_require__(4);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
@@ -19524,7 +19765,7 @@
 	exports.Teams = Teams;
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -19535,7 +19776,7 @@
 	];
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -19555,7 +19796,7 @@
 	];
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19570,12 +19811,12 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _Card = __webpack_require__(30);
+	var _Card = __webpack_require__(32);
 
 	var _Card2 = _interopRequireDefault(_Card);
 
-	var SUITS = __webpack_require__(27);
-	var VALUES = __webpack_require__(28);
+	var SUITS = __webpack_require__(29);
+	var VALUES = __webpack_require__(30);
 
 	var randomDeck = function randomDeck() {
 	    return {
@@ -19587,15 +19828,15 @@
 	/**
 	 * this class represents a deck that returns a card or cards
 	 * whose value and suit is based on a function.
-	 * 
+	 *
 	 * It can be random (if no deterministic function is passed),
-	 * or deterministic (always returns the cards from the same "virtual deck"). 
+	 * or deterministic (always returns the cards from the same "virtual deck").
 	 */
 
 	var Deck = (function () {
 	    /**
 	     * @param fn {function}
-	     * @param repeat {int} (optional)
+	     * @param {int} [repeat]
 	     */
 
 	    function Deck(fn, repeat) {
@@ -19607,6 +19848,21 @@
 	    }
 
 	    _createClass(Deck, [{
+	        key: 'cardCount',
+
+	        /**
+	         * 
+	         * @returns {int}
+	         */
+	        value: function cardCount() {
+	            return this._repeat || 0;
+	        }
+	    }, {
+	        key: 'cardsLeft',
+	        value: function cardsLeft() {
+	            return this.cardCount ? this.cardCount - this.index : Number.MAX_VALUE;
+	        }
+	    }, {
 	        key: '_nextIndex',
 	        value: function _nextIndex() {
 	            if (this._repeat && this.index >= this._repeat) {
@@ -19653,7 +19909,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19668,7 +19924,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _suitRank = __webpack_require__(31);
+	var _suitRank = __webpack_require__(33);
 
 	var _suitRank2 = _interopRequireDefault(_suitRank);
 
@@ -19747,7 +20003,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 31 */
+/* 33 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -19770,7 +20026,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 32 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19789,19 +20045,19 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _Teams = __webpack_require__(26);
+	var _Teams = __webpack_require__(28);
 
 	var _Teams2 = _interopRequireDefault(_Teams);
 
-	var _Initiative = __webpack_require__(33);
+	var _Initiative = __webpack_require__(35);
 
 	var _Initiative2 = _interopRequireDefault(_Initiative);
 
-	var _eventemitter2 = __webpack_require__(34);
+	var _eventemitter2 = __webpack_require__(36);
 
 	var _eventemitter22 = _interopRequireDefault(_eventemitter2);
 
-	var _Attack = __webpack_require__(35);
+	var _Attack = __webpack_require__(37);
 
 	var _Attack2 = _interopRequireDefault(_Attack);
 
@@ -19885,10 +20141,10 @@
 	    }, {
 	        key: '_ensureTarget',
 	        value: function _ensureTarget(char) {
-	            if (!this.hasTarget(char)) {
+	            if (!char.hasActiveTarget) {
 	                this.setTarget(char);
 	            }
-	            return this.hasTarget(char);
+	            return char.hasActiveTarget;
 	        }
 
 	        /**
@@ -19919,7 +20175,8 @@
 	                            char.currentWeapon.readyWeapon();
 	                            this.emit('act.readyWeapon', { char: char, weapon: char.currentWeapon.name });
 	                        } else if (this._ensureTarget(char)) {
-	                            this._resolveAttack(characterOrder);
+	                            char.act();
+	                            this._resolveAttack(char);
 	                            if (char.state === 'acted') {
 	                                char.resetAction();
 	                            }
@@ -19949,15 +20206,14 @@
 
 	        /**
 	         *
-	         * @param characterOrder {CharacterOrder}
+	         * @param {Character} character
 	         * @private
 	         */
 	    }, {
 	        key: '_resolveAttack',
-	        value: function _resolveAttack(characterOrder) {
-	            var attack = new _Attack2['default'](characterOrder, this);
+	        value: function _resolveAttack(character) {
+	            var attack = new _Attack2['default'](character, this);
 	            var summary = attack.resolve();
-	            characterOrder.char.act();
 	            this.emit('attack', summary);
 	        }
 	    }, {
@@ -20003,18 +20259,6 @@
 	                out = true;
 	            }
 	            return out;
-	        }
-
-	        /**
-	         *
-	         * @param char {Character}
-	         * @private
-	         * @return boolean
-	         */
-	    }, {
-	        key: 'hasTarget',
-	        value: function hasTarget(char) {
-	            return char.target && char.target.state !== 'inactive';
 	        }
 
 	        /**
@@ -20090,7 +20334,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 33 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20282,7 +20526,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 34 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -21009,7 +21253,7 @@
 
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21024,21 +21268,21 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _deckBestForSkill = __webpack_require__(36);
+	var _deckBestForSkill = __webpack_require__(38);
 
 	var _deckBestForSkill2 = _interopRequireDefault(_deckBestForSkill);
 
 	var Attack = (function () {
 	    /**
 	     *
-	     * @param characterOrder {CharacterOrder}
-	     * @param sim {Sim}
+	     * @param {Character} character
+	     * @param  {Sim} sim
 	     */
 
-	    function Attack(characterOrder, sim) {
+	    function Attack(character, sim) {
 	        _classCallCheck(this, Attack);
 
-	        this._order = characterOrder;
+	        this._char = character;
 	        this._deck = sim.deck;
 	        this._sim = sim;
 
@@ -21067,7 +21311,7 @@
 	                throw new Error('no target for attack by ', this.char.name);
 	            }
 
-	            if (!this.char.state === 'canAct') {
+	            if (!this.char.canAttack) {
 	                throw new Error('character ' + this.char.name + ' cannot act');
 	            }
 
@@ -21077,7 +21321,7 @@
 	                this._sim._chooseWeapon(this.target);
 	            }
 
-	            if (!this._sim.hasTarget(this.target)) {
+	            if (!this.target.hasActiveTarget) {
 	                // you have his attention...
 	                this.target.target = this.char;
 	            }
@@ -21095,7 +21339,7 @@
 	            if (charBestCards.over) {
 	                if (targetBestCards.over) {
 	                    result = { message: 'overdraw tie between ' + this.char.name + ' and ' + this.target.name };
-	                } else if (this.target.state === 'canAct') {
+	                } else if (this.target.canAttack) {
 	                    result = this.hit(this.target, this.char, targetBestCards, charBestCards);
 	                } else {
 	                    result = { message: 'overdraw attack from ' + this.char.name + ' to ' + this.target.name };
@@ -21111,6 +21355,10 @@
 	                } else {
 	                        result = { message: 'target ' + this.target.name + ' defended' };
 	                    }
+
+	            if (this.char.currentWeapon.slow) {
+	                this.char.currentWeapon.ready = false;
+	            }
 
 	            /**
 	             * you have got the target's attention! unless they are already
@@ -21136,25 +21384,22 @@
 	            //
 	            var basePower = fromChar.currentWeapon.basePower;
 	            var ratio = Math.max(0.33, (3 + fromDraw.highSuitRank - toDraw.highSuitRank) / 3);
-	            var power = Math.round(ratio * basePower);
+	            var boostedPower = Math.round(ratio * basePower);
+	            var power = boostedPower;
+
+	            if (toChar.currentArmor) {
+	                power -= toChar.currentArmor.absorption;
+	            }
+
+	            power = Math.max(power, 0);
 	            toChar.impact(power, fromChar.currentWeapon.weapon, fromChar);
 	            var message = fromChar.name + ' hits ' + toChar.name;
-	            return { message: message, basePower: basePower, ratio: ratio, power: power };
+	            return { message: message, basePower: basePower, boostedPower: boostedPower, ratio: ratio, power: power };
 	        }
 	    }, {
 	        key: 'sim',
 	        get: function get() {
 	            return this._sim;
-	        }
-
-	        /**
-	         *
-	         * @returns {CharacterOrder}
-	         */
-	    }, {
-	        key: 'order',
-	        get: function get() {
-	            return this._order;
 	        }
 
 	        /**
@@ -21174,7 +21419,7 @@
 	    }, {
 	        key: 'char',
 	        get: function get() {
-	            return this.order.char;
+	            return this._char;
 	        }
 
 	        /**
@@ -21195,7 +21440,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21206,15 +21451,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _jsCombinatorics = __webpack_require__(37);
+	var _jsCombinatorics = __webpack_require__(39);
 
 	var _jsCombinatorics2 = _interopRequireDefault(_jsCombinatorics);
 
-	var _CardFixedRank = __webpack_require__(38);
+	var _CardFixedRank = __webpack_require__(40);
 
 	var _CardFixedRank2 = _interopRequireDefault(_CardFixedRank);
 
-	var _BestCards = __webpack_require__(39);
+	var _BestCards = __webpack_require__(41);
 
 	var _BestCards2 = _interopRequireDefault(_BestCards);
 
@@ -21274,7 +21519,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 37 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -21806,7 +22051,7 @@
 
 
 /***/ },
-/* 38 */
+/* 40 */
 /***/ function(module, exports) {
 
 	/**
@@ -21883,7 +22128,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 39 */
+/* 41 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -21979,7 +22224,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 40 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
